@@ -44,7 +44,7 @@ FG_FAMILIES = ["Amides", "Amidines", "$C_{x}H_{y}O_{(0,1)}$", "$C_{x}H_{y}O_{(0,
                "$C_{x}H_{y}O_{(2,3)}$", "Oximes"]  # Proper chemical family name used in manuscipts
 FAMILY_DICT = dict(zip(FG_RAW_GROUPS, FG_FAMILIES))  
 
-METALS = ["Ag", "Au", "Cd", "Co", "Cu", "Fe", "Ir", "Ni", "Os", "Pd", "Pt", "Rh", "Ru", "Zn"]
+METALS = ["Ir", "Ru"]
 ADSORBATE_ELEMS = ["C", "H", "O", "N", "S"]
 OHE_ELEMENTS = OneHotEncoder().fit(np.array(ADSORBATE_ELEMS + METALS).reshape(-1, 1))
 

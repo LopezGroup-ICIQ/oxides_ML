@@ -202,6 +202,7 @@ def atoms_to_pyg(atoms: Atoms,
     """
     if calc_type not in ["int", "ts"]:
         raise ValueError("calc_type must be either 'int' or 'ts'.")
+
     nx, surface_neighbors, bb_idxs = atoms_to_nx(atoms, voronoi_tol, scaling_factor, second_order, adsorbate_elems, calc_type)
     elem_list = list(get_node_attributes(nx, "elem").values())
     elem_array = np.array(elem_list).reshape(-1, 1)

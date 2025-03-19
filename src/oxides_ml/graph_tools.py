@@ -1,0 +1,166 @@
+"""Functions for graphs handling and visualization purposes."""
+
+from networkx import Graph, get_node_attributes, kamada_kawai_layout, draw_networkx
+import torch
+import torch_geometric
+from torch_geometric.data import Data
+import matplotlib.pyplot as plt
+import networkx as nx
+from sklearn.preprocessing._encoders import OneHotEncoder
+
+from oxides_ml.constants import RGB_COLORS
+
+
+def convert_pyg_to_nx(graph: Data) -> Graph:
+    """
+    Convert graph in pytorch_geometric to NetworkX type.    
+    For each node in the graph, the label corresponding to the atomic species 
+    is added as attribute together with a corresponding color.
+    Args:
+        graph(torch_geometric.data.Data): torch_geometric graph object.
+        encoder(sklearn.preprocessing._encoders.OneHotEncoder): One-hot encoder for atomic elements.
+    Returns:
+        nx_graph(networkx.classes.graph.Graph): NetworkX graph object.
+    """
+    n_nodes = graph.num_nodes
+    atom_list = [graph.elem[i] for i in range(n_nodes)]
+    edge_ts_list = {}
+    for i in range(graph.num_edges):
+        if graph.edge_attr[i, 0] == 1:
+            node_idxs = graph.edge_index[:, i]
+            node1 = node_idxs[0].item()
+            node2 = node_idxs[1].item()
+            edge_ts_list[(node1, node2)] = 1
+        else:
+            node_idxs = graph.edge_index[:, i]
+            node1 = node_idxs[0].item()
+            node2 = node_idxs[1].item()
+            edge_ts_list[(node1, node2)] = 0
+    g = torch_geometric.utils.to_networkx(graph, to_undirected=True)
+    connections = list(g.edges)
+    nx_graph = Graph()
+    for i in range(n_nodes):
+        nx_graph.add_node(i, atom=atom_list[i], rgb=RGB_COLORS[atom_list[i]])
+    nx_graph.add_edges_from(connections)
+    nx.set_edge_attributes(nx_graph, edge_ts_list, 'ts_edge')
+    return nx_graph
+
+
+def convert_networkx_to_gpytorch(graph_nx: Graph, 
+                                 one_hot_encoder_elements: OneHotEncoder) -> Data:
+    """
+    Convert graph object from networkx to pytorch_geometric type.
+    Args:
+        graph(networkx.classes.graph.Graph): networkx graph object
+    Returns:
+        new_g(torch_geometric.data.Data): torch_geometric graph object        
+    """
+    n_nodes = graph_nx.number_of_nodes()
+    n_edges = graph_nx.number_of_edges()
+    node_features = torch.zeros((n_nodes, len(one_hot_encoder_elements)))
+    edge_features = torch.zeros((n_edges, 1))
+    edge_index = torch.zeros((2, n_edges), dtype=torch.long)
+    node_index = torch.zeros((n_nodes), dtype=torch.long)
+    for i, node in enumerate(graph_nx.nodes):
+        node_index[i] = node
+        node_features[i, one_hot_encoder_elements[graph_nx.nodes[node]['atom']]] = 1
+    for i, edge in enumerate(graph_nx.edges):
+        edge_index[0, i] = edge[0]
+        edge_index[1, i] = edge[1]
+    graph_pyg = Data(x=node_features, edge_index=edge_index, edge_attr=edge_features, y=node_index)
+    return graph_pyg
+
+
+def graph_plotter(graph: Data,
+                  node_size: int=320,
+                  font_color: str="white",
+                  font_weight: str="bold",
+                  alpha: float=1.0, 
+                  arrowsize: int=10,
+                  width: float=1.2,
+                  dpi: int=200,
+                  figsize: tuple[int, int]=(4,4), 
+                  node_index: bool=True, 
+                  text: str=None):
+    """
+    Visualize graph with atom labels and colors. 
+    Kamada_kawai_layout engine gives the best visualization appearance.
+    Args:
+        graph(torch_geometric.data.Data): graph object in pyG format.
+    """
+    nx_graph = convert_pyg_to_nx(graph)
+    labels = get_node_attributes(nx_graph, 'atom')
+    colors = list(get_node_attributes(nx_graph, 'rgb').values()) 
+    # colour edges based on ts_edge attribute
+    edge_colors = ['black' if nx_graph.edges[edge]['ts_edge'] == 0 else 'red' for edge in nx_graph.edges]
+    plt.figure(figsize=figsize, dpi=dpi) 
+    draw_networkx(nx_graph, 
+                  labels=labels, 
+                  node_size=node_size,
+                  font_color=font_color, 
+                  font_weight=font_weight,
+                  node_color=colors, 
+                    edge_color=edge_colors,
+                  alpha=alpha, 
+                  arrowsize=arrowsize, 
+                  width=width,
+                  pos=kamada_kawai_layout(nx_graph), 
+                  linewidths=0.5)
+    if node_index:
+        pos_dict = kamada_kawai_layout(nx_graph)
+        for node in nx_graph.nodes:
+            x, y = pos_dict[node]
+            plt.text(x+0.05, y+0.05, node, fontsize=7)        
+    if text != None:
+        plt.text(0.03, 0.9, text, fontsize=10)
+    # Add info about metal surface
+    # adsorbate = graph.formula[4:]
+    # facet = graph.facet
+    # facet = facet[facet.find("(")+1:facet.find(")")]
+    # metal = graph.metal + f'({facet})'
+    # title = f'{adsorbate}/{metal}'
+    # plt.title(title, fontsize=10)
+    # Remove frame
+    plt.axis('off')
+    plt.draw()
+
+def remove_2hop_metal_nodes(graph: Data, 
+                            adsorbate_elements: list[str] = ["C", "H", "O", "N", "S"]) -> Data:
+    """
+    Remove surface atoms that are not connected to the adsorbate in the graph.
+    Attributes required for the graph are:
+    - elem: List of element symbols for each node
+    - edge_index: List of edges in the graph (2 x num_edges)
+    - metal: Symbol of the metal atom in the graph ('N/A' if no metal is present)
+
+    :param graph: Data object containing the graph
+    :return: Data object with the metal atoms removed
+    """
+    adsorbate_idxs, surface_idxs = [], []
+    for i, elem in enumerate(graph.elem):
+        if elem in adsorbate_elements:
+            adsorbate_idxs.append(i)
+        else:
+            surface_idxs.append(i)
+
+    if len(surface_idxs) == 0:
+        return graph
+
+    idxs_to_remove = []
+    for i in surface_idxs:
+        as_edges = []
+        for j in range(graph.edge_index.shape[1]):
+            if i in graph.edge_index[:, j]:
+                other = graph.edge_index[:, j][0] if graph.edge_index[:, j][0] != i else graph.edge_index[:, j][1]
+                if other in adsorbate_idxs:
+                    as_edges.append(j)
+        if len(as_edges) == 0:
+            idxs_to_remove.append(i)
+    if len(idxs_to_remove) > 0:
+        nodes_to_keep = [i for i in range(len(graph.elem)) if i not in idxs_to_remove]
+        new_graph = graph.subgraph(torch.tensor(nodes_to_keep))
+        new_elem = [graph.elem[i] for i in range(len(graph.elem)) if i not in idxs_to_remove]
+        new_graph.elem = new_elem
+        return new_graph
+    else:
+        return graph
