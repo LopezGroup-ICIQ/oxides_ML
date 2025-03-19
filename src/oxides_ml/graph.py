@@ -25,9 +25,9 @@ def get_voronoi_neighbourlist(atoms: Atoms,
     Assumption: The surface does not contain elements present in the adsorbate.
     
     Args:
-        atoms (Atoms): ASE Atoms object representing the adsorbate-metal system.
+        atoms (Atoms): ASE Atoms object representing the adsorbate-material system.
         tol (float): tolerance for the distance between two atoms to be considered connected.
-        scaling_factor (float): scaling factor for the covalent radii of the metal atoms.
+        scaling_factor (float): scaling factor for the covalent radii of the material atoms.
         adsorbate_elems (list[str]): list of elements present in the adsorbate.
         
     Returns:
@@ -128,15 +128,16 @@ def atoms_to_nx(atoms: Atoms,
     Convert ASE Atoms object to NetworkX graph, representing the adsorbate-surface system.
 
     Args:
-        atoms (Atoms): ASE Atoms object representing the adsorbate-metal system.
+        atoms (Atoms): ASE Atoms object representing the adsorbate-material system.
         voronoi_tolerance (float): tolerance for the distance between two atoms to be considered connected.
         scaling_factor (float): scaling factor for the covalent radii of the surface atoms.
         adsorbate_elems (list[str]): list of elements present in the adsorbate.
         mode (str): whether the graph is created for the TS or the reactant/product. Default to 'ts'.
                     In case of 'ts', the graph will include an edge feature representing the broken bond.
     Returns:
-        Graph: NetworkX graph representing the adsorbate-metal system.
+        Graph: NetworkX graph representing the adsorbate-material system.
     """
+    
     # 1) Get adsorbate atoms and neighbours
     adsorbate_idxs = {atom.index for atom in atoms if atom.symbol in adsorbate_elems}
     neighbour_list = get_voronoi_neighbourlist(atoms, voronoi_tolerance, scaling_factor, adsorbate_elems)        
@@ -188,7 +189,7 @@ def atoms_to_pyg(atoms: Atoms,
         calc_type (str): type of calculation performed on the system.
                          "int": intermediate, "ts": transition state.                         
         voronoi_tol (float): Tolerance applied during the graph conversion.
-        scaling_factor (float): Scaling factor applied to metal radius of metals.
+        scaling_factor (float): Scaling factor applied to atomic radius of materials.
         one_hot_encoder (OneHotEncoder): One-hot encoder.
         adsorbate_elems (list[str]): list of elements present in the adsorbate.
     Returns:
@@ -202,7 +203,7 @@ def atoms_to_pyg(atoms: Atoms,
     """
     if calc_type not in ["int", "ts"]:
         raise ValueError("calc_type must be either 'int' or 'ts'.")
-
+    
     nx, surface_neighbors, bb_idxs = atoms_to_nx(atoms, voronoi_tol, scaling_factor, second_order, adsorbate_elems, calc_type)
     elem_list = list(get_node_attributes(nx, "elem").values())
     elem_array = np.array(elem_list).reshape(-1, 1)
