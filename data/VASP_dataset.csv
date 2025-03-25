@@ -1,602 +1,602 @@
-Surface,Molecule Group,Molecule,Number of Carbons,Initial Site,DFT Energy (System),DFT Energy (Slab),DFT Energy (Gas),Adsorption Energy
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal,-923.57,-899.06,-24.04,-0.47
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal,-923.57,-899.06,-24.04,-0.47
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal,-923.57,-899.06,-24.04,-0.47
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal,-923.51,-899.06,-24.04,-0.41
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal,-923.56,-899.06,-24.04,-0.46
-RuO2,alkanes_alkenes_alkynes,Methane,1,Hole,-923.57,-899.06,-24.04,-0.47
-RuO2,alkanes_alkenes_alkynes,Methane,1,Oxygen,-923.53,-899.06,-24.04,-0.43
-RuO2,alkanes_alkenes_alkynes,Methane,1,Oxygen Bridge,-923.24,-899.06,-24.04,-0.14
-RuO2,alkanes_alkenes_alkynes,Methane,1,Metal Bridge,-923.41,-899.06,-24.04,-0.30
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Metal,-940.25,-899.06,-40.53,-0.66
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Metal,-940.07,-899.06,-40.53,-0.48
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Metal,-940.12,-899.06,-40.53,-0.53
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Oxygen,-939.82,-899.06,-40.53,-0.23
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Oxygen Bridge,-939.82,-899.06,-40.53,-0.23
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Metal Bridge,-940.11,-899.06,-40.53,-0.52
-RuO2,alkanes_alkenes_alkynes,Ethane,2,Metal Bridge,-940.26,-899.06,-40.53,-0.67
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Metal,-932.17,-899.06,-31.98,-1.13
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Metal,-932.16,-899.06,-31.98,-1.11
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Metal,-931.43,-899.06,-31.98,-0.38
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Hole,-932.13,-899.06,-31.98,-1.09
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Oxygen,-932.17,-899.06,-31.98,-1.12
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Oxygen,-931.18,-899.06,-31.98,-0.14
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Oxygen Bridge,-932.14,-899.06,-31.98,-1.09
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Metal Bridge,-931.32,-899.06,-31.98,-0.27
-RuO2,alkanes_alkenes_alkynes,Ethene,2,Metal Bridge,-931.66,-899.06,-31.98,-0.61
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.89,-899.06,-57.10,-0.73
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.90,-899.06,-57.10,-0.74
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.70,-899.06,-57.10,-0.54
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.90,-899.06,-57.10,-0.74
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.70,-899.06,-57.10,-0.54
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal,-956.89,-899.06,-57.10,-0.73
-RuO2,alkanes_alkenes_alkynes,Propane,3,Hole,-956.80,-899.06,-57.10,-0.64
-RuO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-956.56,-899.06,-57.10,-0.40
-RuO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-956.48,-899.06,-57.10,-0.32
-RuO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-956.53,-899.06,-57.10,-0.37
-RuO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-956.35,-899.06,-57.10,-0.19
-RuO2,alkanes_alkenes_alkynes,Propane,3,Oxygen Bridge,-956.35,-899.06,-57.10,-0.19
-RuO2,alkanes_alkenes_alkynes,Propane,3,Metal Bridge,-956.93,-899.06,-57.10,-0.78
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-939.21,-899.06,-39.84,-0.31
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-940.14,-899.06,-39.84,-1.24
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-940.15,-899.06,-39.84,-1.25
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-939.99,-899.06,-39.84,-1.09
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Hole,-940.07,-899.06,-39.84,-1.17
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen,-939.08,-899.06,-39.84,-0.18
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen,-939.14,-899.06,-39.84,-0.24
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen,-939.20,-899.06,-39.84,-0.30
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen Bridge,-939.06,-899.06,-39.84,-0.16
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen Bridge,-940.43,-899.06,-39.84,-1.52
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal Bridge,-939.50,-899.06,-39.84,-0.60
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal Bridge,-939.25,-899.06,-39.84,-0.35
-RuO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal Bridge,-940.10,-899.06,-39.84,-1.20
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Metal,-949.11,-899.06,-48.71,-1.34
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Metal,-949.10,-899.06,-48.71,-1.33
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Metal,-949.11,-899.06,-48.71,-1.33
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Hole,-949.11,-899.06,-48.71,-1.33
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen,-949.10,-899.06,-48.71,-1.33
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen,-947.96,-899.06,-48.71,-0.19
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen,-948.09,-899.06,-48.71,-0.31
-RuO2,alkanes_alkenes_alkynes,Propylene,3,Metal Bridge,-949.10,-899.06,-48.71,-1.33
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Metal,-923.23,-899.06,-22.95,-1.22
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Metal,-923.21,-899.06,-22.95,-1.19
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Metal,-923.20,-899.06,-22.95,-1.19
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Oxygen Bridge,-922.57,-899.06,-22.95,-0.56
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Oxygen Bridge,-924.40,-899.06,-22.95,-2.38
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Metal Bridge,-922.57,-899.06,-22.95,-0.56
-RuO2,alkanes_alkenes_alkynes,Acetylene,2,Metal Bridge,-923.22,-899.06,-22.95,-1.20
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal,-930.87,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal,-930.88,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal,-930.88,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Hole,-930.88,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Hole,-930.88,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Oxygen,-929.60,-899.06,-30.22,-0.31
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Oxygen,-930.10,-899.06,-30.22,-0.81
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Oxygen Bridge,-929.67,-899.06,-30.22,-0.38
-RuO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal Bridge,-930.88,-899.06,-30.22,-1.59
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal,-946.95,-899.06,-46.93,-0.96
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal,-946.84,-899.06,-46.93,-0.85
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Hole,-946.71,-899.06,-46.93,-0.73
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Hole,-947.62,-899.06,-46.93,-1.63
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Hole,-946.68,-899.06,-46.93,-0.69
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Oxygen,-946.33,-899.06,-46.93,-0.34
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Oxygen,-946.17,-899.06,-46.93,-0.18
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Oxygen Bridge,-946.39,-899.06,-46.93,-0.41
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal Bridge,-947.71,-899.06,-46.93,-1.72
-RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal Bridge,-946.68,-899.06,-46.93,-0.69
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal,-963.63,-899.06,-63.64,-0.92
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal,-964.45,-899.06,-63.64,-1.74
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Hole,-963.33,-899.06,-63.64,-0.62
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Hole,-964.43,-899.06,-63.64,-1.72
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen,-962.91,-899.06,-63.64,-0.21
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen,-962.94,-899.06,-63.64,-0.24
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen Bridge,-963.19,-899.06,-63.64,-0.49
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen Bridge,-963.46,-899.06,-63.64,-0.76
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal Bridge,-963.62,-899.06,-63.64,-0.92
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal Bridge,-964.45,-899.06,-63.64,-1.75
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal,-922.91,-899.06,-22.14,-1.71
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal,-921.39,-899.06,-22.14,-0.19
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Hole,-922.38,-899.06,-22.14,-1.19
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Oxygen,-921.41,-899.06,-22.14,-0.21
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Oxygen Bridge,-921.46,-899.06,-22.14,-0.26
-RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal Bridge,-922.39,-899.06,-22.14,-1.19
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-938.65,-899.06,-39.09,-0.49
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-939.53,-899.06,-39.09,-1.38
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-939.53,-899.06,-39.09,-1.37
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Hole,-939.53,-899.06,-39.09,-1.38
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Oxygen,-939.52,-899.06,-39.09,-1.37
-RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Oxygen Bridge,-939.44,-899.06,-39.09,-1.29
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal,-956.15,-899.06,-56.03,-1.06
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal,-956.55,-899.06,-56.03,-1.46
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal,-956.51,-899.06,-56.03,-1.42
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Hole,-956.28,-899.06,-56.03,-1.19
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen,-955.35,-899.06,-56.03,-0.26
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen Bridge,-955.17,-899.06,-56.03,-0.08
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen Bridge,-956.52,-899.06,-56.03,-1.43
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal Bridge,-956.55,-899.06,-56.03,-1.46
-RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal Bridge,-955.71,-899.06,-56.03,-0.63
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal,-946.12,-899.06,-46.43,-0.63
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal,-946.51,-899.06,-46.43,-1.02
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Hole,-946.78,-899.06,-46.43,-1.30
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Oxygen,-945.80,-899.06,-46.43,-0.31
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Oxygen Bridge,-945.78,-899.06,-46.43,-0.29
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Oxygen Bridge,-945.67,-899.06,-46.43,-0.18
-RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal Bridge,-945.91,-899.06,-46.43,-0.42
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal,-929.00,-899.06,-27.65,-2.29
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal,-928.41,-899.06,-27.65,-1.70
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Hole,-928.20,-899.06,-27.65,-1.49
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Oxygen,-927.09,-899.06,-27.65,-0.37
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Oxygen Bridge,-927.00,-899.06,-27.65,-0.29
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Oxygen Bridge,-927.10,-899.06,-27.65,-0.39
-RuO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal Bridge,-929.01,-899.06,-27.65,-2.29
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal,-919.95,-899.06,-19.12,-1.77
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Hole,-919.15,-899.06,-19.12,-0.97
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen,-919.81,-899.06,-19.12,-1.63
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen,-918.36,-899.06,-19.12,-0.18
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen Bridge,-919.92,-899.06,-19.12,-1.74
-RuO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal Bridge,-919.01,-899.06,-19.12,-0.83
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-944.93,-899.06,-44.24,-1.63
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-945.63,-899.06,-44.24,-2.33
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-945.61,-899.06,-44.24,-2.31
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Hole,-945.05,-899.06,-44.24,-1.75
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Hole,-943.54,-899.06,-44.24,-0.24
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Oxygen,-944.13,-899.06,-44.24,-0.83
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Oxygen Bridge,-943.62,-899.06,-44.24,-0.32
-RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal Bridge,-944.04,-899.06,-44.24,-0.74
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal,-936.76,-899.06,-36.02,-1.67
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal,-936.86,-899.06,-36.02,-1.78
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Hole,-935.57,-899.06,-36.02,-0.49
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Oxygen,-935.27,-899.06,-36.02,-0.19
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Oxygen Bridge,-935.42,-899.06,-36.02,-0.33
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Oxygen Bridge,-935.30,-899.06,-36.02,-0.21
-RuO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal Bridge,-936.48,-899.06,-36.02,-1.40
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-956.23,-899.06,-55.39,-1.78
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-958.16,-899.06,-55.39,-3.71
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-956.51,-899.06,-55.39,-2.06
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Hole,-958.04,-899.06,-55.39,-3.59
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Oxygen,-955.85,-899.06,-55.39,-1.39
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Oxygen Bridge,-955.86,-899.06,-55.39,-1.40
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Oxygen Bridge,-957.11,-899.06,-55.39,-2.65
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal Bridge,-958.16,-899.06,-55.39,-3.70
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal Bridge,-956.62,-899.06,-55.39,-2.16
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal,-953.59,-899.06,-52.83,-1.70
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal,-954.02,-899.06,-52.83,-2.13
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Hole,-954.02,-899.06,-52.83,-2.13
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Oxygen,-952.10,-899.06,-52.83,-0.21
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Oxygen Bridge,-953.72,-899.06,-52.83,-1.83
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal Bridge,-953.74,-899.06,-52.83,-1.85
-RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal Bridge,-953.11,-899.06,-52.83,-1.22
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal,-945.11,-899.06,-44.21,-1.83
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal,-944.96,-899.06,-44.21,-1.68
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Hole,-943.90,-899.06,-44.21,-0.62
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Oxygen,-943.64,-899.06,-44.21,-0.36
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Oxygen,-945.08,-899.06,-44.21,-1.80
-RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Oxygen Bridge,-943.44,-899.06,-44.21,-0.17
-RuO2,amines,Methanamine,1,Metal,-936.80,-899.06,-35.68,-2.06
-RuO2,amines,Methanamine,1,Hole,-936.79,-899.06,-35.68,-2.05
-RuO2,amines,Methanamine,1,Hole,-936.76,-899.06,-35.68,-2.02
-RuO2,amines,Methanamine,1,Hole,-936.80,-899.06,-35.68,-2.06
-RuO2,amines,Methanamine,1,Oxygen,-935.50,-899.06,-35.68,-0.76
-RuO2,amines,Methanamine,1,Oxygen Bridge,-935.05,-899.06,-35.68,-0.31
-RuO2,amines,Ethanamine,2,Metal,-953.50,-899.06,-52.33,-2.10
-RuO2,amines,Ethanamine,2,Metal,-953.49,-899.06,-52.33,-2.10
-RuO2,amines,Ethanamine,2,Hole,-953.48,-899.06,-52.33,-2.08
-RuO2,amines,Ethanamine,2,Hole,-953.50,-899.06,-52.33,-2.10
-RuO2,amines,Ethanamine,2,Oxygen,-952.19,-899.06,-52.33,-0.79
-RuO2,amines,Ethanamine,2,Oxygen,-951.68,-899.06,-52.33,-0.28
-RuO2,amines,Ethanamine,2,Oxygen,-951.72,-899.06,-52.33,-0.33
-RuO2,amines,Ethanamine,2,Metal Bridge,-952.20,-899.06,-52.33,-0.80
-RuO2,amines,Propan-2-amine,3,Metal,-966.46,-899.06,-63.59,-3.80
-RuO2,amines,Propan-2-amine,3,Metal,-966.61,-899.06,-63.59,-3.95
-RuO2,amines,Propan-2-amine,3,Metal,-966.61,-899.06,-63.59,-3.95
-RuO2,amines,Propan-2-amine,3,Hole,-964.50,-899.06,-63.59,-1.84
-RuO2,amines,Propan-2-amine,3,Oxygen,-966.54,-899.06,-63.59,-3.89
-RuO2,amines,Propan-2-amine,3,Oxygen,-965.49,-899.06,-63.59,-2.83
-RuO2,amines,Propan-2-amine,3,Oxygen Bridge,-965.71,-899.06,-63.59,-3.05
-RuO2,amines,Propan-2-amine,3,Metal Bridge,-966.62,-899.06,-63.59,-3.96
-RuO2,amines,Trimethylamine,3,Metal,-969.16,-899.06,-68.40,-1.70
-RuO2,amines,Trimethylamine,3,Metal,-969.16,-899.06,-68.40,-1.70
-RuO2,amines,Trimethylamine,3,Oxygen,-967.94,-899.06,-68.40,-0.48
-RuO2,amines,Trimethylamine,3,Oxygen Bridge,-967.82,-899.06,-68.40,-0.36
-RuO2,amines,Trimethylamine,3,Metal Bridge,-968.25,-899.06,-68.40,-0.79
-RuO2,imines,Methanimine,1,Metal,-928.46,-899.06,-27.41,-2.00
-RuO2,imines,Methanimine,1,Oxygen,-926.65,-899.06,-27.41,-0.19
-RuO2,imines,Methanimine,1,Oxygen Bridge,-928.44,-899.06,-27.41,-1.97
-RuO2,imines,Methanimine,1,Metal Bridge,-928.47,-899.06,-27.41,-2.00
-RuO2,imines,Ethanimine,2,Metal,-945.26,-899.06,-44.29,-1.90
-RuO2,imines,Ethanimine,2,Metal,-945.27,-899.06,-44.29,-1.92
-RuO2,imines,Ethanimine,2,Hole,-945.29,-899.06,-44.29,-1.93
-RuO2,imines,Ethanimine,2,Hole,-945.27,-899.06,-44.29,-1.92
-RuO2,imines,Ethanimine,2,Hole,-945.26,-899.06,-44.29,-1.91
-RuO2,imines,Ethanimine,2,Oxygen,-943.67,-899.06,-44.29,-0.32
-RuO2,imines,Ethanimine,2,Metal Bridge,-944.04,-899.06,-44.29,-0.68
-RuO2,imines,Propan-2-imine,3,Metal,-962.13,-899.06,-61.09,-1.98
-RuO2,imines,Propan-2-imine,3,Metal,-962.20,-899.06,-61.09,-2.05
-RuO2,imines,Propan-2-imine,3,Hole,-962.07,-899.06,-61.09,-1.92
-RuO2,imines,Propan-2-imine,3,Oxygen,-960.58,-899.06,-61.09,-0.43
-RuO2,imines,Propan-2-imine,3,Oxygen Bridge,-962.17,-899.06,-61.09,-2.02
-RuO2,imines,Propan-2-imine,3,Metal Bridge,-962.18,-899.06,-61.09,-2.03
-RuO2,imines,N-methylmethanimine,2,Metal,-944.85,-899.06,-43.88,-1.91
-RuO2,imines,N-methylmethanimine,2,Metal,-944.86,-899.06,-43.88,-1.92
-RuO2,imines,N-methylmethanimine,2,Metal,-944.77,-899.06,-43.88,-1.82
-RuO2,imines,N-methylmethanimine,2,Oxygen,-943.19,-899.06,-43.88,-0.25
-RuO2,imines,N-methylmethanimine,2,Oxygen,-943.59,-899.06,-43.88,-0.65
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal,-938.04,-899.06,-37.14,-1.84
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal,-937.09,-899.06,-37.14,-0.88
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Hole,-938.29,-899.06,-37.14,-2.08
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Hole,-938.05,-899.06,-37.14,-1.84
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Oxygen,-936.77,-899.06,-37.14,-0.56
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Oxygen,-936.28,-899.06,-37.14,-0.07
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Oxygen Bridge,-938.73,-899.06,-37.14,-2.52
-RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal Bridge,-938.28,-899.06,-37.14,-2.07
-RuO2,carbonates_carboxylic-acids_esters,Formic acid,1,Metal,-930.16,-899.06,-29.89,-1.20
-RuO2,carbonates_carboxylic-acids_esters,Formic acid,1,Metal,-930.24,-899.06,-29.89,-1.28
-RuO2,carbonates_carboxylic-acids_esters,Formic acid,1,Hole,-930.11,-899.06,-29.89,-1.15
-RuO2,carbonates_carboxylic-acids_esters,Formic acid,1,Oxygen,-929.16,-899.06,-29.89,-0.20
-RuO2,carbonates_carboxylic-acids_esters,Formic acid,1,Metal Bridge,-931.44,-899.06,-29.89,-2.48
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal,-947.70,-899.06,-46.78,-1.85
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal,-947.09,-899.06,-46.78,-1.24
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Hole,-947.25,-899.06,-46.78,-1.40
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Hole,-946.84,-899.06,-46.78,-1.00
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen,-945.97,-899.06,-46.78,-0.12
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen,-947.19,-899.06,-46.78,-1.34
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen Bridge,-947.58,-899.06,-46.78,-1.74
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal Bridge,-947.17,-899.06,-46.78,-1.32
-RuO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal Bridge,-948.35,-899.06,-46.78,-2.50
-RuO2,carbamate-esters,Carbamic acid,1,Metal,-943.59,-899.06,-42.66,-1.87
-RuO2,carbamate-esters,Carbamic acid,1,Metal,-943.38,-899.06,-42.66,-1.66
-RuO2,carbamate-esters,Carbamic acid,1,Metal,-943.57,-899.06,-42.66,-1.85
-RuO2,carbamate-esters,Carbamic acid,1,Hole,-943.58,-899.06,-42.66,-1.86
-RuO2,carbamate-esters,Carbamic acid,1,Oxygen,-944.18,-899.06,-42.66,-2.46
-RuO2,carbamate-esters,Carbamic acid,1,Oxygen Bridge,-944.15,-899.06,-42.66,-2.43
-RuO2,carbamate-esters,Carbamic acid,1,Oxygen Bridge,-942.25,-899.06,-42.66,-0.53
-RuO2,carbamate-esters,Carbamic acid,1,Metal Bridge,-943.57,-899.06,-42.66,-1.85
-RuO2,carbamate-esters,Carbamic acid,1,Metal Bridge,-942.34,-899.06,-42.66,-0.62
-RuO2,amides,Formamide,1,Metal,-936.00,-899.06,-36.57,-0.37
-RuO2,amides,Formamide,1,Metal,-935.99,-899.06,-36.57,-0.36
-RuO2,amides,Formamide,1,Metal,-936.89,-899.06,-36.57,-1.26
-RuO2,amides,Formamide,1,Hole,-935.73,-899.06,-36.57,-0.10
-RuO2,amides,Formamide,1,Oxygen,-934.75,-899.06,-36.57,0.88
-RuO2,amides,Formamide,1,Oxygen,-934.78,-899.06,-36.57,0.85
-RuO2,amides,Formamide,1,Metal Bridge,-936.07,-899.06,-36.57,-0.44
-RuO2,amides,Acetamide,2,Metal,-952.81,-899.06,-52.11,-1.63
-RuO2,amides,Acetamide,2,Metal,-952.87,-899.06,-52.11,-1.69
-RuO2,amides,Acetamide,2,Metal,-952.64,-899.06,-52.11,-1.46
-RuO2,amides,Acetamide,2,Hole,-952.89,-899.06,-52.11,-1.72
-RuO2,amides,Acetamide,2,Hole,-952.71,-899.06,-52.11,-1.54
-RuO2,amides,Acetamide,2,Oxygen,-952.73,-899.06,-52.11,-1.56
-RuO2,amides,Acetamide,2,Oxygen,-951.48,-899.06,-52.11,-0.30
-RuO2,amides,Acetamide,2,Oxygen Bridge,-953.14,-899.06,-52.11,-1.96
-RuO2,amides,Acetamide,2,Metal Bridge,-953.12,-899.06,-52.11,-1.95
-RuO2,oximes,Formaldehyde oxime,1,Metal,-933.64,-899.06,-33.12,-1.45
-RuO2,oximes,Formaldehyde oxime,1,Metal,-934.17,-899.06,-33.12,-1.98
-RuO2,oximes,Formaldehyde oxime,1,Hole,-933.96,-899.06,-33.12,-1.77
-RuO2,oximes,Formaldehyde oxime,1,Hole,-934.44,-899.06,-33.12,-2.26
-RuO2,oximes,Formaldehyde oxime,1,Oxygen,-932.46,-899.06,-33.12,-0.28
-RuO2,oximes,Formaldehyde oxime,1,Oxygen Bridge,-932.66,-899.06,-33.12,-0.47
-RuO2,oximes,Formaldehyde oxime,1,Oxygen Bridge,-932.67,-899.06,-33.12,-0.48
-RuO2,oximes,Formaldehyde oxime,1,Metal Bridge,-934.17,-899.06,-33.12,-1.98
-RuO2,oximes,Formaldehyde oxime,1,Metal Bridge,-933.64,-899.06,-33.12,-1.45
-RuO2,amidines,Formimidamide,1,Metal,-941.42,-899.06,-40.15,-2.20
-RuO2,amidines,Formimidamide,1,Metal,-940.71,-899.06,-40.15,-1.50
-RuO2,amidines,Formimidamide,1,Hole,-940.73,-899.06,-40.15,-1.51
-RuO2,amidines,Formimidamide,1,Oxygen,-939.55,-899.06,-40.15,-0.33
-RuO2,amidines,Formimidamide,1,Oxygen Bridge,-939.61,-899.06,-40.15,-0.40
-RuO2,amidines,Formimidamide,1,Metal Bridge,-941.57,-899.06,-40.15,-2.36
-RuO2,amidines,Acetimidamide,2,Metal,-957.51,-899.06,-56.90,-1.55
-RuO2,amidines,Acetimidamide,2,Hole,-958.18,-899.06,-56.90,-2.22
-RuO2,amidines,Acetimidamide,2,Oxygen,-958.20,-899.06,-56.90,-2.24
-RuO2,amidines,Acetimidamide,2,Oxygen Bridge,-956.38,-899.06,-56.90,-0.42
-RuO2,amidines,Acetimidamide,2,Metal Bridge,-958.46,-899.06,-56.90,-2.50
-IrO2,alkanes_alkenes_alkynes,Methane,1,Metal,-878.25,-853.48,-24.04,-0.73
-IrO2,alkanes_alkenes_alkynes,Methane,1,Hole,-878.25,-853.48,-24.04,-0.73
-IrO2,alkanes_alkenes_alkynes,Methane,1,Oxygen,-877.61,-853.48,-24.04,-0.09
-IrO2,alkanes_alkenes_alkynes,Methane,1,Oxygen Bridge,-877.63,-853.48,-24.04,-0.11
-IrO2,alkanes_alkenes_alkynes,Methane,1,Metal Bridge,-877.84,-853.48,-24.04,-0.32
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Metal,-894.98,-853.48,-40.53,-0.98
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Metal,-894.84,-853.48,-40.53,-0.84
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Hole,-894.83,-853.48,-40.53,-0.82
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Oxygen,-894.20,-853.48,-40.53,-0.20
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Oxygen Bridge,-896.08,-853.48,-40.53,-2.08
-IrO2,alkanes_alkenes_alkynes,Ethane,2,Metal Bridge,-895.03,-853.48,-40.53,-1.02
-IrO2,alkanes_alkenes_alkynes,Ethene,2,Metal,-887.37,-853.48,-31.98,-1.91
-IrO2,alkanes_alkenes_alkynes,Ethene,2,Hole,-887.38,-853.48,-31.98,-1.92
-IrO2,alkanes_alkenes_alkynes,Ethene,2,Oxygen,-887.83,-853.48,-31.98,-2.37
-IrO2,alkanes_alkenes_alkynes,Ethene,2,Oxygen Bridge,-886.66,-853.48,-31.98,-1.20
-IrO2,alkanes_alkenes_alkynes,Ethene,2,Metal Bridge,-887.51,-853.48,-31.98,-2.05
-IrO2,alkanes_alkenes_alkynes,Propane,3,Metal,-911.45,-853.48,-57.10,-0.88
-IrO2,alkanes_alkenes_alkynes,Propane,3,Metal,-911.71,-853.48,-57.10,-1.13
-IrO2,alkanes_alkenes_alkynes,Propane,3,Hole,-911.48,-853.48,-57.10,-0.90
-IrO2,alkanes_alkenes_alkynes,Propane,3,Hole,-911.97,-853.48,-57.10,-1.39
-IrO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-910.80,-853.48,-57.10,-0.23
-IrO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-910.75,-853.48,-57.10,-0.18
-IrO2,alkanes_alkenes_alkynes,Propane,3,Oxygen,-911.71,-853.48,-57.10,-1.14
-IrO2,alkanes_alkenes_alkynes,Propane,3,Oxygen Bridge,-912.99,-853.48,-57.10,-2.41
-IrO2,alkanes_alkenes_alkynes,Propane,3,Metal Bridge,-910.99,-853.48,-57.10,-0.42
-IrO2,alkanes_alkenes_alkynes,Propane,3,Metal Bridge,-911.69,-853.48,-57.10,-1.11
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Metal,-904.31,-853.48,-48.71,-2.13
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Hole,-904.40,-853.48,-48.71,-2.22
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen,-902.45,-853.48,-48.71,-0.26
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen,-902.35,-853.48,-48.71,-0.16
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen Bridge,-903.46,-853.48,-48.71,-1.28
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Oxygen Bridge,-903.74,-853.48,-48.71,-1.55
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Metal Bridge,-904.19,-853.48,-48.71,-2.00
-IrO2,alkanes_alkenes_alkynes,Propylene,3,Metal Bridge,-904.40,-853.48,-48.71,-2.21
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-893.93,-853.48,-39.84,-0.61
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-895.13,-853.48,-39.84,-1.81
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal,-895.27,-853.48,-39.84,-1.96
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Hole,-895.27,-853.48,-39.84,-1.95
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen,-893.47,-853.48,-39.84,-0.15
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Oxygen Bridge,-895.91,-853.48,-39.84,-2.59
-IrO2,alkanes_alkenes_alkynes,Prop-1-yne,3,Metal Bridge,-895.19,-853.48,-39.84,-1.87
-IrO2,alkanes_alkenes_alkynes,Acetylene,2,Metal,-878.45,-853.48,-22.95,-2.02
-IrO2,alkanes_alkenes_alkynes,Acetylene,2,Hole,-878.95,-853.48,-22.95,-2.52
-IrO2,alkanes_alkenes_alkynes,Acetylene,2,Oxygen,-878.45,-853.48,-22.95,-2.02
-IrO2,alkanes_alkenes_alkynes,Acetylene,2,Oxygen Bridge,-878.45,-853.48,-22.95,-2.02
-IrO2,alkanes_alkenes_alkynes,Acetylene,2,Metal Bridge,-878.99,-853.48,-22.95,-2.56
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal,-884.98,-853.48,-30.22,-1.28
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal,-885.55,-853.48,-30.22,-1.85
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Hole,-884.98,-853.48,-30.22,-1.28
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Hole,-886.09,-853.48,-30.22,-2.39
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Oxygen,-883.86,-853.48,-30.22,-0.16
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Oxygen Bridge,-886.09,-853.48,-30.22,-2.39
-IrO2,alcohols_aldehydes_ketones_ethers,Methanol,1,Metal Bridge,-886.04,-853.48,-30.22,-2.34
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal,-902.53,-853.48,-46.93,-2.13
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal,-901.91,-853.48,-46.93,-1.51
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal,-902.40,-853.48,-46.93,-2.00
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Hole,-901.43,-853.48,-46.93,-1.02
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Hole,-903.40,-853.48,-46.93,-3.00
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Oxygen,-900.81,-853.48,-46.93,-0.41
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Oxygen Bridge,-902.75,-853.48,-46.93,-2.34
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal Bridge,-901.89,-853.48,-46.93,-1.49
-IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,2,Metal Bridge,-902.88,-853.48,-46.93,-2.48
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal,-919.51,-853.48,-63.64,-2.39
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal,-918.21,-853.48,-63.64,-1.09
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal,-918.19,-853.48,-63.64,-1.07
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Hole,-919.28,-853.48,-63.64,-2.16
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Hole,-919.17,-853.48,-63.64,-2.06
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen,-917.32,-853.48,-63.64,-0.20
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen,-918.35,-853.48,-63.64,-1.23
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Oxygen Bridge,-917.40,-853.48,-63.64,-0.28
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,3,Metal Bridge,-918.59,-853.48,-63.64,-1.47
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal,-877.27,-853.48,-22.14,-1.66
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal,-876.76,-853.48,-22.14,-1.14
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Hole,-877.25,-853.48,-22.14,-1.63
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Hole,-876.75,-853.48,-22.14,-1.14
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Oxygen,-875.87,-853.48,-22.14,-0.26
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Oxygen Bridge,-875.85,-853.48,-22.14,-0.24
-IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,1,Metal Bridge,-877.13,-853.48,-22.14,-1.52
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-893.26,-853.48,-39.09,-0.70
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-895.72,-853.48,-39.09,-3.15
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal,-894.43,-853.48,-39.09,-1.86
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Hole,-893.26,-853.48,-39.09,-0.69
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Hole,-893.81,-853.48,-39.09,-1.25
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Hole,-893.79,-853.48,-39.09,-1.23
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Oxygen,-892.79,-853.48,-39.09,-0.22
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Oxygen Bridge,-895.83,-853.48,-39.09,-3.27
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Oxygen Bridge,-894.39,-853.48,-39.09,-1.82
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal Bridge,-894.39,-853.48,-39.09,-1.82
-IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,2,Metal Bridge,-894.51,-853.48,-39.09,-1.95
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal,-911.01,-853.48,-56.03,-1.50
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal,-911.52,-853.48,-56.03,-2.02
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Hole,-911.52,-853.48,-56.03,-2.02
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen,-911.27,-853.48,-56.03,-1.77
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen,-910.43,-853.48,-56.03,-0.93
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Oxygen Bridge,-909.91,-853.48,-56.03,-0.41
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal Bridge,-911.50,-853.48,-56.03,-2.00
-IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,3,Metal Bridge,-910.73,-853.48,-56.03,-1.22
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal,-901.35,-853.48,-46.43,-1.45
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal,-901.60,-853.48,-46.43,-1.70
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal,-900.91,-853.48,-46.43,-1.01
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Hole,-900.96,-853.48,-46.43,-1.05
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Hole,-901.60,-853.48,-46.43,-1.70
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Oxygen,-900.02,-853.48,-46.43,-0.12
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Oxygen Bridge,-900.14,-853.48,-46.43,-0.23
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal Bridge,-900.41,-853.48,-46.43,-0.50
-IrO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,3,Metal Bridge,-901.16,-853.48,-46.43,-1.26
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal,-883.60,-853.48,-27.65,-2.47
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal,-884.27,-853.48,-27.65,-3.14
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Hole,-883.62,-853.48,-27.65,-2.49
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Hole,-883.61,-853.48,-27.65,-2.49
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Oxygen,-881.45,-853.48,-27.65,-0.32
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Oxygen Bridge,-884.27,-853.48,-27.65,-3.14
-IrO2,thiols_thials_thioketones_thioethers,Methanethiol,1,Metal Bridge,-884.20,-853.48,-27.65,-3.07
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal,-873.45,-853.48,-19.12,-0.86
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal,-875.16,-853.48,-19.12,-2.56
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal,-874.55,-853.48,-19.12,-1.95
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Hole,-875.12,-853.48,-19.12,-2.52
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Hole,-875.05,-853.48,-19.12,-2.46
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen,-875.01,-853.48,-19.12,-2.42
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen,-875.23,-853.48,-19.12,-2.64
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Oxygen Bridge,-873.02,-853.48,-19.12,-0.42
-IrO2,thiols_thials_thioketones_thioethers,Methanethial,1,Metal Bridge,-875.83,-853.48,-19.12,-3.23
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-900.12,-853.48,-44.24,-2.40
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-900.85,-853.48,-44.24,-3.14
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal,-900.91,-853.48,-44.24,-3.19
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Hole,-900.91,-853.48,-44.24,-3.20
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Hole,-900.08,-853.48,-44.24,-2.37
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Oxygen,-900.92,-853.48,-44.24,-3.21
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Oxygen Bridge,-897.95,-853.48,-44.24,-0.24
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal Bridge,-901.23,-853.48,-44.24,-3.52
-IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,2,Metal Bridge,-901.10,-853.48,-44.24,-3.39
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal,-892.36,-853.48,-36.02,-2.87
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal,-892.00,-853.48,-36.02,-2.50
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Hole,-892.36,-853.48,-36.02,-2.86
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Hole,-892.67,-853.48,-36.02,-3.17
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Oxygen,-892.09,-853.48,-36.02,-2.59
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Oxygen Bridge,-889.92,-853.48,-36.02,-0.42
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal Bridge,-892.36,-853.48,-36.02,-2.87
-IrO2,thiols_thials_thioketones_thioethers,Ethanethial,2,Metal Bridge,-891.58,-853.48,-36.02,-2.08
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-914.29,-853.48,-55.39,-5.42
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-913.72,-853.48,-55.39,-4.85
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal,-912.11,-853.48,-55.39,-3.25
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Hole,-914.83,-853.48,-55.39,-5.96
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Hole,-911.78,-853.48,-55.39,-2.91
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Hole,-913.33,-853.48,-55.39,-4.46
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Oxygen,-911.24,-853.48,-55.39,-2.37
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Oxygen Bridge,-911.29,-853.48,-55.39,-2.42
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal Bridge,-913.71,-853.48,-55.39,-4.84
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,3,Metal Bridge,-911.84,-853.48,-55.39,-2.97
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal,-909.27,-853.48,-52.83,-2.96
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal,-909.18,-853.48,-52.83,-2.87
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Hole,-909.18,-853.48,-52.83,-2.88
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Hole,-907.09,-853.48,-52.83,-0.78
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Oxygen,-906.63,-853.48,-52.83,-0.32
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Oxygen Bridge,-906.67,-853.48,-52.83,-0.36
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Oxygen Bridge,-907.05,-853.48,-52.83,-0.75
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal Bridge,-909.19,-853.48,-52.83,-2.88
-IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,3,Metal Bridge,-909.55,-853.48,-52.83,-3.24
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal,-900.27,-853.48,-44.21,-2.57
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal,-900.18,-853.48,-44.21,-2.49
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Hole,-900.18,-853.48,-44.21,-2.49
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Hole,-900.24,-853.48,-44.21,-2.55
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Oxygen,-898.22,-853.48,-44.21,-0.53
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Oxygen Bridge,-897.99,-853.48,-44.21,-0.30
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal Bridge,-900.30,-853.48,-44.21,-2.61
-IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,2,Metal Bridge,-899.00,-853.48,-44.21,-1.31
-IrO2,amines,Methanamine,1,Metal,-891.94,-853.48,-35.68,-2.78
-IrO2,amines,Methanamine,1,Hole,-891.93,-853.48,-35.68,-2.77
-IrO2,amines,Methanamine,1,Hole,-890.54,-853.48,-35.68,-1.39
-IrO2,amines,Methanamine,1,Oxygen,-889.35,-853.48,-35.68,-0.20
-IrO2,amines,Methanamine,1,Oxygen Bridge,-889.56,-853.48,-35.68,-0.40
-IrO2,amines,Methanamine,1,Metal Bridge,-891.92,-853.48,-35.68,-2.77
-IrO2,amines,Ethanamine,2,Metal,-908.64,-853.48,-52.33,-2.83
-IrO2,amines,Ethanamine,2,Metal,-908.60,-853.48,-52.33,-2.79
-IrO2,amines,Ethanamine,2,Hole,-906.89,-853.48,-52.33,-1.08
-IrO2,amines,Ethanamine,2,Hole,-908.61,-853.48,-52.33,-2.80
-IrO2,amines,Ethanamine,2,Oxygen,-906.18,-853.48,-52.33,-0.38
-IrO2,amines,Ethanamine,2,Oxygen,-906.01,-853.48,-52.33,-0.21
-IrO2,amines,Ethanamine,2,Oxygen Bridge,-906.15,-853.48,-52.33,-0.34
-IrO2,amines,Ethanamine,2,Metal Bridge,-907.01,-853.48,-52.33,-1.20
-IrO2,amines,Ethanamine,2,Metal Bridge,-908.52,-853.48,-52.33,-2.71
-IrO2,amines,Propan-2-amine,3,Metal,-921.48,-853.48,-63.59,-4.41
-IrO2,amines,Propan-2-amine,3,Metal,-921.82,-853.48,-63.59,-4.74
-IrO2,amines,Propan-2-amine,3,Hole,-920.36,-853.48,-63.59,-3.28
-IrO2,amines,Propan-2-amine,3,Hole,-921.49,-853.48,-63.59,-4.42
-IrO2,amines,Propan-2-amine,3,Oxygen,-920.07,-853.48,-63.59,-3.00
-IrO2,amines,Propan-2-amine,3,Oxygen,-920.38,-853.48,-63.59,-3.31
-IrO2,amines,Propan-2-amine,3,Oxygen Bridge,-921.50,-853.48,-63.59,-4.43
-IrO2,amines,Propan-2-amine,3,Metal Bridge,-921.88,-853.48,-63.59,-4.81
-IrO2,amines,Propan-2-amine,3,Metal Bridge,-921.87,-853.48,-63.59,-4.80
-IrO2,amines,Trimethylamine,3,Metal,-924.28,-853.48,-68.40,-2.41
-IrO2,amines,Trimethylamine,3,Hole,-922.69,-853.48,-68.40,-0.82
-IrO2,amines,Trimethylamine,3,Oxygen,-922.40,-853.48,-68.40,-0.52
-IrO2,amines,Trimethylamine,3,Oxygen Bridge,-922.34,-853.48,-68.40,-0.47
-IrO2,amines,Trimethylamine,3,Metal Bridge,-922.91,-853.48,-68.40,-1.04
-IrO2,imines,Methanimine,1,Metal,-881.41,-853.48,-27.41,-0.52
-IrO2,imines,Methanimine,1,Hole,-883.65,-853.48,-27.41,-2.77
-IrO2,imines,Methanimine,1,Hole,-883.65,-853.48,-27.41,-2.76
-IrO2,imines,Methanimine,1,Oxygen,-883.64,-853.48,-27.41,-2.76
-IrO2,imines,Methanimine,1,Oxygen Bridge,-883.64,-853.48,-27.41,-2.75
-IrO2,imines,Methanimine,1,Metal Bridge,-883.04,-853.48,-27.41,-2.16
-IrO2,imines,Ethanimine,2,Metal,-900.50,-853.48,-44.29,-2.74
-IrO2,imines,Ethanimine,2,Metal,-900.49,-853.48,-44.29,-2.72
-IrO2,imines,Ethanimine,2,Hole,-900.48,-853.48,-44.29,-2.71
-IrO2,imines,Ethanimine,2,Hole,-898.57,-853.48,-44.29,-0.80
-IrO2,imines,Ethanimine,2,Oxygen,-897.88,-853.48,-44.29,-0.11
-IrO2,imines,Ethanimine,2,Oxygen Bridge,-898.16,-853.48,-44.29,-0.39
-IrO2,imines,Ethanimine,2,Metal Bridge,-900.51,-853.48,-44.29,-2.74
-IrO2,imines,Ethanimine,2,Metal Bridge,-900.50,-853.48,-44.29,-2.73
-IrO2,imines,Propan-2-imine,3,Metal,-917.34,-853.48,-61.09,-2.78
-IrO2,imines,Propan-2-imine,3,Metal,-917.42,-853.48,-61.09,-2.85
-IrO2,imines,Propan-2-imine,3,Metal,-917.30,-853.48,-61.09,-2.74
-IrO2,imines,Propan-2-imine,3,Hole,-917.35,-853.48,-61.09,-2.79
-IrO2,imines,Propan-2-imine,3,Hole,-917.39,-853.48,-61.09,-2.83
-IrO2,imines,Propan-2-imine,3,Oxygen,-917.35,-853.48,-61.09,-2.78
-IrO2,imines,Propan-2-imine,3,Oxygen Bridge,-914.59,-853.48,-61.09,-0.03
-IrO2,imines,Propan-2-imine,3,Oxygen Bridge,-914.82,-853.48,-61.09,-0.26
-IrO2,imines,Propan-2-imine,3,Metal Bridge,-917.37,-853.48,-61.09,-2.81
-IrO2,imines,N-methylmethanimine,2,Metal,-899.99,-853.48,-43.88,-2.63
-IrO2,imines,N-methylmethanimine,2,Metal,-900.04,-853.48,-43.88,-2.68
-IrO2,imines,N-methylmethanimine,2,Metal,-900.04,-853.48,-43.88,-2.68
-IrO2,imines,N-methylmethanimine,2,Hole,-900.04,-853.48,-43.88,-2.69
-IrO2,imines,N-methylmethanimine,2,Oxygen,-900.04,-853.48,-43.88,-2.68
-IrO2,imines,N-methylmethanimine,2,Oxygen Bridge,-900.04,-853.48,-43.88,-2.68
-IrO2,imines,N-methylmethanimine,2,Metal Bridge,-898.73,-853.48,-43.88,-1.37
-IrO2,imines,N-methylmethanimine,2,Metal Bridge,-900.66,-853.48,-43.88,-3.30
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal,-891.81,-853.48,-37.14,-1.19
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal,-892.54,-853.48,-37.14,-1.92
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal,-893.03,-853.48,-37.14,-2.41
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Hole,-893.27,-853.48,-37.14,-2.65
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Hole,-893.03,-853.48,-37.14,-2.41
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Oxygen,-891.84,-853.48,-37.14,-1.22
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Oxygen Bridge,-893.95,-853.48,-37.14,-3.33
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal Bridge,-893.27,-853.48,-37.14,-2.65
-IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,1,Metal Bridge,-891.69,-853.48,-37.14,-1.07
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Metal,-885.47,-853.48,-29.89,-2.10
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Hole,-886.71,-853.48,-29.89,-3.34
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Hole,-885.47,-853.48,-29.89,-2.10
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Oxygen,-885.76,-853.48,-29.89,-2.39
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Oxygen,-885.75,-853.48,-29.89,-2.38
-IrO2,carbonates_carboxylic-acids_esters,Formic acid,1,Oxygen Bridge,-884.94,-853.48,-29.89,-1.57
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal,-903.66,-853.48,-46.78,-3.40
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal,-902.68,-853.48,-46.78,-2.42
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Hole,-902.00,-853.48,-46.78,-1.75
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Hole,-901.60,-853.48,-46.78,-1.34
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Hole,-900.89,-853.48,-46.78,-0.63
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen,-900.61,-853.48,-46.78,-0.35
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen,-902.67,-853.48,-46.78,-2.41
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen,-901.54,-853.48,-46.78,-1.29
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Oxygen Bridge,-902.60,-853.48,-46.78,-2.34
-IrO2,carbonates_carboxylic-acids_esters,Acetic acid,2,Metal Bridge,-902.66,-853.48,-46.78,-2.41
-IrO2,carbamate-esters,Carbamic acid,1,Metal,-898.08,-853.48,-42.66,-1.95
-IrO2,carbamate-esters,Carbamic acid,1,Metal,-899.61,-853.48,-42.66,-3.47
-IrO2,carbamate-esters,Carbamic acid,1,Metal,-898.00,-853.48,-42.66,-1.87
-IrO2,carbamate-esters,Carbamic acid,1,Hole,-899.60,-853.48,-42.66,-3.47
-IrO2,carbamate-esters,Carbamic acid,1,Oxygen,-899.57,-853.48,-42.66,-3.44
-IrO2,carbamate-esters,Carbamic acid,1,Oxygen,-896.62,-853.48,-42.66,-0.49
-IrO2,carbamate-esters,Carbamic acid,1,Oxygen Bridge,-899.60,-853.48,-42.66,-3.46
-IrO2,carbamate-esters,Carbamic acid,1,Oxygen Bridge,-899.60,-853.48,-42.66,-3.47
-IrO2,carbamate-esters,Carbamic acid,1,Metal Bridge,-899.61,-853.48,-42.66,-3.47
-IrO2,carbamate-esters,Carbamic acid,1,Metal Bridge,-899.50,-853.48,-42.66,-3.37
-IrO2,amides,Formamide,1,Metal,-890.67,-853.48,-36.57,-0.63
-IrO2,amides,Formamide,1,Metal,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Formamide,1,Metal,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Formamide,1,Hole,-892.41,-853.48,-36.57,-2.36
-IrO2,amides,Formamide,1,Hole,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Formamide,1,Hole,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Formamide,1,Oxygen,-890.65,-853.48,-36.57,-0.60
-IrO2,amides,Formamide,1,Oxygen,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Formamide,1,Oxygen,-889.27,-853.48,-36.57,0.78
-IrO2,amides,Formamide,1,Oxygen Bridge,-890.65,-853.48,-36.57,-0.61
-IrO2,amides,Formamide,1,Metal Bridge,-890.61,-853.48,-36.57,-0.57
-IrO2,amides,Formamide,1,Metal Bridge,-892.41,-853.48,-36.57,-2.37
-IrO2,amides,Acetamide,2,Metal,-908.28,-853.48,-52.11,-2.69
-IrO2,amides,Acetamide,2,Metal,-908.26,-853.48,-52.11,-2.67
-IrO2,amides,Acetamide,2,Metal,-907.70,-853.48,-52.11,-2.12
-IrO2,amides,Acetamide,2,Hole,-908.28,-853.48,-52.11,-2.69
-IrO2,amides,Acetamide,2,Hole,-908.28,-853.48,-52.11,-2.69
-IrO2,amides,Acetamide,2,Oxygen,-908.26,-853.48,-52.11,-2.67
-IrO2,amides,Acetamide,2,Oxygen,-906.11,-853.48,-52.11,-0.52
-IrO2,amides,Acetamide,2,Oxygen,-909.31,-853.48,-52.11,-3.73
-IrO2,amides,Acetamide,2,Oxygen Bridge,-906.01,-853.48,-52.11,-0.42
-IrO2,amides,Acetamide,2,Metal Bridge,-907.72,-853.48,-52.11,-2.13
-IrO2,amides,Acetamide,2,Metal Bridge,-907.53,-853.48,-52.11,-1.94
-IrO2,oximes,Formaldehyde oxime,1,Metal,-889.77,-853.48,-33.12,-3.17
-IrO2,oximes,Formaldehyde oxime,1,Metal,-889.38,-853.48,-33.12,-2.78
-IrO2,oximes,Formaldehyde oxime,1,Metal,-889.77,-853.48,-33.12,-3.17
-IrO2,oximes,Formaldehyde oxime,1,Hole,-889.77,-853.48,-33.12,-3.17
-IrO2,oximes,Formaldehyde oxime,1,Hole,-889.38,-853.48,-33.12,-2.78
-IrO2,oximes,Formaldehyde oxime,1,Oxygen,-886.87,-853.48,-33.12,-0.27
-IrO2,oximes,Formaldehyde oxime,1,Oxygen Bridge,-887.04,-853.48,-33.12,-0.44
-IrO2,oximes,Formaldehyde oxime,1,Metal Bridge,-888.09,-853.48,-33.12,-1.49
-IrO2,oximes,Formaldehyde oxime,1,Metal Bridge,-889.66,-853.48,-33.12,-3.06
-IrO2,amidines,Formimidamide,1,Metal,-896.84,-853.48,-40.15,-3.21
-IrO2,amidines,Formimidamide,1,Metal,-898.00,-853.48,-40.15,-4.37
-IrO2,amidines,Formimidamide,1,Metal,-896.60,-853.48,-40.15,-2.97
-IrO2,amidines,Formimidamide,1,Hole,-895.72,-853.48,-40.15,-2.09
-IrO2,amidines,Formimidamide,1,Oxygen,-896.60,-853.48,-40.15,-2.97
-IrO2,amidines,Formimidamide,1,Oxygen Bridge,-896.84,-853.48,-40.15,-3.22
-IrO2,amidines,Formimidamide,1,Metal Bridge,-896.87,-853.48,-40.15,-3.24
-IrO2,amidines,Formimidamide,1,Metal Bridge,-898.00,-853.48,-40.15,-4.37
-IrO2,amidines,Acetimidamide,2,Metal,-912.83,-853.48,-56.90,-2.45
-IrO2,amidines,Acetimidamide,2,Metal,-913.67,-853.48,-56.90,-3.29
-IrO2,amidines,Acetimidamide,2,Metal,-913.46,-853.48,-56.90,-3.08
-IrO2,amidines,Acetimidamide,2,Hole,-913.39,-853.48,-56.90,-3.01
-IrO2,amidines,Acetimidamide,2,Hole,-912.79,-853.48,-56.90,-2.41
-IrO2,amidines,Acetimidamide,2,Hole,-912.84,-853.48,-56.90,-2.46
-IrO2,amidines,Acetimidamide,2,Oxygen,-910.82,-853.48,-56.90,-0.44
-IrO2,amidines,Acetimidamide,2,Oxygen,-913.38,-853.48,-56.90,-3.00
-IrO2,amidines,Acetimidamide,2,Oxygen Bridge,-910.44,-853.48,-56.90,-0.06
-IrO2,amidines,Acetimidamide,2,Oxygen Bridge,-910.93,-853.48,-56.90,-0.55
-IrO2,amidines,Acetimidamide,2,Metal Bridge,-914.84,-853.48,-56.90,-4.46
+Surface,Molecule Group,Molecule,Initial Site,DFT Energy (System),DFT Energy (Slab),DFT Energy (Gas),Adsorption Energy
+RuO2,alkanes_alkenes_alkynes,Methane,Metal,-923.57,-899.06,-24.04,-0.47
+RuO2,alkanes_alkenes_alkynes,Methane,Metal,-923.57,-899.06,-24.04,-0.47
+RuO2,alkanes_alkenes_alkynes,Methane,Metal,-923.57,-899.06,-24.04,-0.47
+RuO2,alkanes_alkenes_alkynes,Methane,Metal,-923.51,-899.06,-24.04,-0.41
+RuO2,alkanes_alkenes_alkynes,Methane,Metal,-923.56,-899.06,-24.04,-0.46
+RuO2,alkanes_alkenes_alkynes,Methane,Hole,-923.57,-899.06,-24.04,-0.47
+RuO2,alkanes_alkenes_alkynes,Methane,Oxygen,-923.53,-899.06,-24.04,-0.43
+RuO2,alkanes_alkenes_alkynes,Methane,Oxygen Bridge,-923.24,-899.06,-24.04,-0.14
+RuO2,alkanes_alkenes_alkynes,Methane,Metal Bridge,-923.41,-899.06,-24.04,-0.30
+RuO2,alkanes_alkenes_alkynes,Ethane,Metal,-940.25,-899.06,-40.53,-0.66
+RuO2,alkanes_alkenes_alkynes,Ethane,Metal,-940.07,-899.06,-40.53,-0.48
+RuO2,alkanes_alkenes_alkynes,Ethane,Metal,-940.12,-899.06,-40.53,-0.53
+RuO2,alkanes_alkenes_alkynes,Ethane,Oxygen,-939.82,-899.06,-40.53,-0.23
+RuO2,alkanes_alkenes_alkynes,Ethane,Oxygen Bridge,-939.82,-899.06,-40.53,-0.23
+RuO2,alkanes_alkenes_alkynes,Ethane,Metal Bridge,-940.11,-899.06,-40.53,-0.52
+RuO2,alkanes_alkenes_alkynes,Ethane,Metal Bridge,-940.26,-899.06,-40.53,-0.67
+RuO2,alkanes_alkenes_alkynes,Ethene,Metal,-932.17,-899.06,-31.98,-1.13
+RuO2,alkanes_alkenes_alkynes,Ethene,Metal,-932.16,-899.06,-31.98,-1.11
+RuO2,alkanes_alkenes_alkynes,Ethene,Metal,-931.43,-899.06,-31.98,-0.38
+RuO2,alkanes_alkenes_alkynes,Ethene,Hole,-932.13,-899.06,-31.98,-1.09
+RuO2,alkanes_alkenes_alkynes,Ethene,Oxygen,-932.17,-899.06,-31.98,-1.12
+RuO2,alkanes_alkenes_alkynes,Ethene,Oxygen,-931.18,-899.06,-31.98,-0.14
+RuO2,alkanes_alkenes_alkynes,Ethene,Oxygen Bridge,-932.14,-899.06,-31.98,-1.09
+RuO2,alkanes_alkenes_alkynes,Ethene,Metal Bridge,-931.32,-899.06,-31.98,-0.27
+RuO2,alkanes_alkenes_alkynes,Ethene,Metal Bridge,-931.66,-899.06,-31.98,-0.61
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.89,-899.06,-57.10,-0.73
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.90,-899.06,-57.10,-0.74
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.70,-899.06,-57.10,-0.54
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.90,-899.06,-57.10,-0.74
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.70,-899.06,-57.10,-0.54
+RuO2,alkanes_alkenes_alkynes,Propane,Metal,-956.89,-899.06,-57.10,-0.73
+RuO2,alkanes_alkenes_alkynes,Propane,Hole,-956.80,-899.06,-57.10,-0.64
+RuO2,alkanes_alkenes_alkynes,Propane,Oxygen,-956.56,-899.06,-57.10,-0.40
+RuO2,alkanes_alkenes_alkynes,Propane,Oxygen,-956.48,-899.06,-57.10,-0.32
+RuO2,alkanes_alkenes_alkynes,Propane,Oxygen,-956.53,-899.06,-57.10,-0.37
+RuO2,alkanes_alkenes_alkynes,Propane,Oxygen,-956.35,-899.06,-57.10,-0.19
+RuO2,alkanes_alkenes_alkynes,Propane,Oxygen Bridge,-956.35,-899.06,-57.10,-0.19
+RuO2,alkanes_alkenes_alkynes,Propane,Metal Bridge,-956.93,-899.06,-57.10,-0.78
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-939.21,-899.06,-39.84,-0.31
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-940.14,-899.06,-39.84,-1.24
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-940.15,-899.06,-39.84,-1.25
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-939.99,-899.06,-39.84,-1.09
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Hole,-940.07,-899.06,-39.84,-1.17
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen,-939.08,-899.06,-39.84,-0.18
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen,-939.14,-899.06,-39.84,-0.24
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen,-939.20,-899.06,-39.84,-0.30
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen Bridge,-939.06,-899.06,-39.84,-0.16
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen Bridge,-940.43,-899.06,-39.84,-1.52
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal Bridge,-939.50,-899.06,-39.84,-0.60
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal Bridge,-939.25,-899.06,-39.84,-0.35
+RuO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal Bridge,-940.10,-899.06,-39.84,-1.20
+RuO2,alkanes_alkenes_alkynes,Propylene,Metal,-949.11,-899.06,-48.71,-1.34
+RuO2,alkanes_alkenes_alkynes,Propylene,Metal,-949.10,-899.06,-48.71,-1.33
+RuO2,alkanes_alkenes_alkynes,Propylene,Metal,-949.11,-899.06,-48.71,-1.33
+RuO2,alkanes_alkenes_alkynes,Propylene,Hole,-949.11,-899.06,-48.71,-1.33
+RuO2,alkanes_alkenes_alkynes,Propylene,Oxygen,-949.10,-899.06,-48.71,-1.33
+RuO2,alkanes_alkenes_alkynes,Propylene,Oxygen,-947.96,-899.06,-48.71,-0.19
+RuO2,alkanes_alkenes_alkynes,Propylene,Oxygen,-948.09,-899.06,-48.71,-0.31
+RuO2,alkanes_alkenes_alkynes,Propylene,Metal Bridge,-949.10,-899.06,-48.71,-1.33
+RuO2,alkanes_alkenes_alkynes,Acetylene,Metal,-923.23,-899.06,-22.95,-1.22
+RuO2,alkanes_alkenes_alkynes,Acetylene,Metal,-923.21,-899.06,-22.95,-1.19
+RuO2,alkanes_alkenes_alkynes,Acetylene,Metal,-923.20,-899.06,-22.95,-1.19
+RuO2,alkanes_alkenes_alkynes,Acetylene,Oxygen Bridge,-922.57,-899.06,-22.95,-0.56
+RuO2,alkanes_alkenes_alkynes,Acetylene,Oxygen Bridge,-924.40,-899.06,-22.95,-2.38
+RuO2,alkanes_alkenes_alkynes,Acetylene,Metal Bridge,-922.57,-899.06,-22.95,-0.56
+RuO2,alkanes_alkenes_alkynes,Acetylene,Metal Bridge,-923.22,-899.06,-22.95,-1.20
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal,-930.87,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal,-930.88,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal,-930.88,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Hole,-930.88,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Hole,-930.88,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Oxygen,-929.60,-899.06,-30.22,-0.31
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Oxygen,-930.10,-899.06,-30.22,-0.81
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Oxygen Bridge,-929.67,-899.06,-30.22,-0.38
+RuO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal Bridge,-930.88,-899.06,-30.22,-1.59
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal,-946.95,-899.06,-46.93,-0.96
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal,-946.84,-899.06,-46.93,-0.85
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Hole,-946.71,-899.06,-46.93,-0.73
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Hole,-947.62,-899.06,-46.93,-1.63
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Hole,-946.68,-899.06,-46.93,-0.69
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Oxygen,-946.33,-899.06,-46.93,-0.34
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Oxygen,-946.17,-899.06,-46.93,-0.18
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Oxygen Bridge,-946.39,-899.06,-46.93,-0.41
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal Bridge,-947.71,-899.06,-46.93,-1.72
+RuO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal Bridge,-946.68,-899.06,-46.93,-0.69
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal,-963.63,-899.06,-63.64,-0.92
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal,-964.45,-899.06,-63.64,-1.74
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Hole,-963.33,-899.06,-63.64,-0.62
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Hole,-964.43,-899.06,-63.64,-1.72
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen,-962.91,-899.06,-63.64,-0.21
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen,-962.94,-899.06,-63.64,-0.24
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen Bridge,-963.19,-899.06,-63.64,-0.49
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen Bridge,-963.46,-899.06,-63.64,-0.76
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal Bridge,-963.62,-899.06,-63.64,-0.92
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal Bridge,-964.45,-899.06,-63.64,-1.75
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal,-922.91,-899.06,-22.14,-1.71
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal,-921.39,-899.06,-22.14,-0.19
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Hole,-922.38,-899.06,-22.14,-1.19
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Oxygen,-921.41,-899.06,-22.14,-0.21
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Oxygen Bridge,-921.46,-899.06,-22.14,-0.26
+RuO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal Bridge,-922.39,-899.06,-22.14,-1.19
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-938.65,-899.06,-39.09,-0.49
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-939.53,-899.06,-39.09,-1.38
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-939.53,-899.06,-39.09,-1.37
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Hole,-939.53,-899.06,-39.09,-1.38
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Oxygen,-939.52,-899.06,-39.09,-1.37
+RuO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Oxygen Bridge,-939.44,-899.06,-39.09,-1.29
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal,-956.15,-899.06,-56.03,-1.06
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal,-956.55,-899.06,-56.03,-1.46
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal,-956.51,-899.06,-56.03,-1.42
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Hole,-956.28,-899.06,-56.03,-1.19
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen,-955.35,-899.06,-56.03,-0.26
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen Bridge,-955.17,-899.06,-56.03,-0.08
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen Bridge,-956.52,-899.06,-56.03,-1.43
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal Bridge,-956.55,-899.06,-56.03,-1.46
+RuO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal Bridge,-955.71,-899.06,-56.03,-0.63
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Metal,-946.12,-899.06,-46.43,-0.63
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Metal,-946.51,-899.06,-46.43,-1.02
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Hole,-946.78,-899.06,-46.43,-1.30
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Oxygen,-945.80,-899.06,-46.43,-0.31
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Oxygen Bridge,-945.78,-899.06,-46.43,-0.29
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Oxygen Bridge,-945.67,-899.06,-46.43,-0.18
+RuO2,alcohols_aldehydes_ketones_ethers,Ethoxymethane,Metal Bridge,-945.91,-899.06,-46.43,-0.42
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal,-929.00,-899.06,-27.65,-2.29
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal,-928.41,-899.06,-27.65,-1.70
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Hole,-928.20,-899.06,-27.65,-1.49
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Oxygen,-927.09,-899.06,-27.65,-0.37
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Oxygen Bridge,-927.00,-899.06,-27.65,-0.29
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Oxygen Bridge,-927.10,-899.06,-27.65,-0.39
+RuO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal Bridge,-929.01,-899.06,-27.65,-2.29
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Metal,-919.95,-899.06,-19.12,-1.77
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Hole,-919.15,-899.06,-19.12,-0.97
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen,-919.81,-899.06,-19.12,-1.63
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen,-918.36,-899.06,-19.12,-0.18
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen Bridge,-919.92,-899.06,-19.12,-1.74
+RuO2,thiols_thials_thioketones_thioethers,Methanethial,Metal Bridge,-919.01,-899.06,-19.12,-0.83
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-944.93,-899.06,-44.24,-1.63
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-945.63,-899.06,-44.24,-2.33
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-945.61,-899.06,-44.24,-2.31
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Hole,-945.05,-899.06,-44.24,-1.75
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Hole,-943.54,-899.06,-44.24,-0.24
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Oxygen,-944.13,-899.06,-44.24,-0.83
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Oxygen Bridge,-943.62,-899.06,-44.24,-0.32
+RuO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal Bridge,-944.04,-899.06,-44.24,-0.74
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal,-936.76,-899.06,-36.02,-1.67
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal,-936.86,-899.06,-36.02,-1.78
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Hole,-935.57,-899.06,-36.02,-0.49
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Oxygen,-935.27,-899.06,-36.02,-0.19
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Oxygen Bridge,-935.42,-899.06,-36.02,-0.33
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Oxygen Bridge,-935.30,-899.06,-36.02,-0.21
+RuO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal Bridge,-936.48,-899.06,-36.02,-1.40
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-956.23,-899.06,-55.39,-1.78
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-958.16,-899.06,-55.39,-3.71
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-956.51,-899.06,-55.39,-2.06
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Hole,-958.04,-899.06,-55.39,-3.59
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Oxygen,-955.85,-899.06,-55.39,-1.39
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Oxygen Bridge,-955.86,-899.06,-55.39,-1.40
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Oxygen Bridge,-957.11,-899.06,-55.39,-2.65
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal Bridge,-958.16,-899.06,-55.39,-3.70
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal Bridge,-956.62,-899.06,-55.39,-2.16
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal,-953.59,-899.06,-52.83,-1.70
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal,-954.02,-899.06,-52.83,-2.13
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Hole,-954.02,-899.06,-52.83,-2.13
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Oxygen,-952.10,-899.06,-52.83,-0.21
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Oxygen Bridge,-953.72,-899.06,-52.83,-1.83
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal Bridge,-953.74,-899.06,-52.83,-1.85
+RuO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal Bridge,-953.11,-899.06,-52.83,-1.22
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal,-945.11,-899.06,-44.21,-1.83
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal,-944.96,-899.06,-44.21,-1.68
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Hole,-943.90,-899.06,-44.21,-0.62
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Oxygen,-943.64,-899.06,-44.21,-0.36
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Oxygen,-945.08,-899.06,-44.21,-1.80
+RuO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Oxygen Bridge,-943.44,-899.06,-44.21,-0.17
+RuO2,amines,Methanamine,Metal,-936.80,-899.06,-35.68,-2.06
+RuO2,amines,Methanamine,Hole,-936.79,-899.06,-35.68,-2.05
+RuO2,amines,Methanamine,Hole,-936.76,-899.06,-35.68,-2.02
+RuO2,amines,Methanamine,Hole,-936.80,-899.06,-35.68,-2.06
+RuO2,amines,Methanamine,Oxygen,-935.50,-899.06,-35.68,-0.76
+RuO2,amines,Methanamine,Oxygen Bridge,-935.05,-899.06,-35.68,-0.31
+RuO2,amines,Ethanamine,Metal,-953.50,-899.06,-52.33,-2.10
+RuO2,amines,Ethanamine,Metal,-953.49,-899.06,-52.33,-2.10
+RuO2,amines,Ethanamine,Hole,-953.48,-899.06,-52.33,-2.08
+RuO2,amines,Ethanamine,Hole,-953.50,-899.06,-52.33,-2.10
+RuO2,amines,Ethanamine,Oxygen,-952.19,-899.06,-52.33,-0.79
+RuO2,amines,Ethanamine,Oxygen,-951.68,-899.06,-52.33,-0.28
+RuO2,amines,Ethanamine,Oxygen,-951.72,-899.06,-52.33,-0.33
+RuO2,amines,Ethanamine,Metal Bridge,-952.20,-899.06,-52.33,-0.80
+RuO2,amines,Propan-2-amine,Metal,-966.46,-899.06,-63.59,-3.80
+RuO2,amines,Propan-2-amine,Metal,-966.61,-899.06,-63.59,-3.95
+RuO2,amines,Propan-2-amine,Metal,-966.61,-899.06,-63.59,-3.95
+RuO2,amines,Propan-2-amine,Hole,-964.50,-899.06,-63.59,-1.84
+RuO2,amines,Propan-2-amine,Oxygen,-966.54,-899.06,-63.59,-3.89
+RuO2,amines,Propan-2-amine,Oxygen,-965.49,-899.06,-63.59,-2.83
+RuO2,amines,Propan-2-amine,Oxygen Bridge,-965.71,-899.06,-63.59,-3.05
+RuO2,amines,Propan-2-amine,Metal Bridge,-966.62,-899.06,-63.59,-3.96
+RuO2,amines,Trimethylamine,Metal,-969.16,-899.06,-68.40,-1.70
+RuO2,amines,Trimethylamine,Metal,-969.16,-899.06,-68.40,-1.70
+RuO2,amines,Trimethylamine,Oxygen,-967.94,-899.06,-68.40,-0.48
+RuO2,amines,Trimethylamine,Oxygen Bridge,-967.82,-899.06,-68.40,-0.36
+RuO2,amines,Trimethylamine,Metal Bridge,-968.25,-899.06,-68.40,-0.79
+RuO2,imines,Methanimine,Metal,-928.46,-899.06,-27.41,-2.00
+RuO2,imines,Methanimine,Oxygen,-926.65,-899.06,-27.41,-0.19
+RuO2,imines,Methanimine,Oxygen Bridge,-928.44,-899.06,-27.41,-1.97
+RuO2,imines,Methanimine,Metal Bridge,-928.47,-899.06,-27.41,-2.00
+RuO2,imines,Ethanimine,Metal,-945.26,-899.06,-44.29,-1.90
+RuO2,imines,Ethanimine,Metal,-945.27,-899.06,-44.29,-1.92
+RuO2,imines,Ethanimine,Hole,-945.29,-899.06,-44.29,-1.93
+RuO2,imines,Ethanimine,Hole,-945.27,-899.06,-44.29,-1.92
+RuO2,imines,Ethanimine,Hole,-945.26,-899.06,-44.29,-1.91
+RuO2,imines,Ethanimine,Oxygen,-943.67,-899.06,-44.29,-0.32
+RuO2,imines,Ethanimine,Metal Bridge,-944.04,-899.06,-44.29,-0.68
+RuO2,imines,Propan-2-imine,Metal,-962.13,-899.06,-61.09,-1.98
+RuO2,imines,Propan-2-imine,Metal,-962.20,-899.06,-61.09,-2.05
+RuO2,imines,Propan-2-imine,Hole,-962.07,-899.06,-61.09,-1.92
+RuO2,imines,Propan-2-imine,Oxygen,-960.58,-899.06,-61.09,-0.43
+RuO2,imines,Propan-2-imine,Oxygen Bridge,-962.17,-899.06,-61.09,-2.02
+RuO2,imines,Propan-2-imine,Metal Bridge,-962.18,-899.06,-61.09,-2.03
+RuO2,imines,N-methylmethanimine,Metal,-944.85,-899.06,-43.88,-1.91
+RuO2,imines,N-methylmethanimine,Metal,-944.86,-899.06,-43.88,-1.92
+RuO2,imines,N-methylmethanimine,Metal,-944.77,-899.06,-43.88,-1.82
+RuO2,imines,N-methylmethanimine,Oxygen,-943.19,-899.06,-43.88,-0.25
+RuO2,imines,N-methylmethanimine,Oxygen,-943.59,-899.06,-43.88,-0.65
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal,-938.04,-899.06,-37.14,-1.84
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal,-937.09,-899.06,-37.14,-0.88
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Hole,-938.29,-899.06,-37.14,-2.08
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Hole,-938.05,-899.06,-37.14,-1.84
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Oxygen,-936.77,-899.06,-37.14,-0.56
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Oxygen,-936.28,-899.06,-37.14,-0.07
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Oxygen Bridge,-938.73,-899.06,-37.14,-2.52
+RuO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal Bridge,-938.28,-899.06,-37.14,-2.07
+RuO2,carbonates_carboxylic-acids_esters,Formic acid,Metal,-930.16,-899.06,-29.89,-1.20
+RuO2,carbonates_carboxylic-acids_esters,Formic acid,Metal,-930.24,-899.06,-29.89,-1.28
+RuO2,carbonates_carboxylic-acids_esters,Formic acid,Hole,-930.11,-899.06,-29.89,-1.15
+RuO2,carbonates_carboxylic-acids_esters,Formic acid,Oxygen,-929.16,-899.06,-29.89,-0.20
+RuO2,carbonates_carboxylic-acids_esters,Formic acid,Metal Bridge,-931.44,-899.06,-29.89,-2.48
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal,-947.70,-899.06,-46.78,-1.85
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal,-947.09,-899.06,-46.78,-1.24
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Hole,-947.25,-899.06,-46.78,-1.40
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Hole,-946.84,-899.06,-46.78,-1.00
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen,-945.97,-899.06,-46.78,-0.12
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen,-947.19,-899.06,-46.78,-1.34
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen Bridge,-947.58,-899.06,-46.78,-1.74
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal Bridge,-947.17,-899.06,-46.78,-1.32
+RuO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal Bridge,-948.35,-899.06,-46.78,-2.50
+RuO2,carbamate-esters,Carbamic acid,Metal,-943.59,-899.06,-42.66,-1.87
+RuO2,carbamate-esters,Carbamic acid,Metal,-943.38,-899.06,-42.66,-1.66
+RuO2,carbamate-esters,Carbamic acid,Metal,-943.57,-899.06,-42.66,-1.85
+RuO2,carbamate-esters,Carbamic acid,Hole,-943.58,-899.06,-42.66,-1.86
+RuO2,carbamate-esters,Carbamic acid,Oxygen,-944.18,-899.06,-42.66,-2.46
+RuO2,carbamate-esters,Carbamic acid,Oxygen Bridge,-944.15,-899.06,-42.66,-2.43
+RuO2,carbamate-esters,Carbamic acid,Oxygen Bridge,-942.25,-899.06,-42.66,-0.53
+RuO2,carbamate-esters,Carbamic acid,Metal Bridge,-943.57,-899.06,-42.66,-1.85
+RuO2,carbamate-esters,Carbamic acid,Metal Bridge,-942.34,-899.06,-42.66,-0.62
+RuO2,amides,Formamide,Metal,-936.00,-899.06,-36.57,-0.37
+RuO2,amides,Formamide,Metal,-935.99,-899.06,-36.57,-0.36
+RuO2,amides,Formamide,Metal,-936.89,-899.06,-36.57,-1.26
+RuO2,amides,Formamide,Hole,-935.73,-899.06,-36.57,-0.10
+RuO2,amides,Formamide,Oxygen,-934.75,-899.06,-36.57,0.88
+RuO2,amides,Formamide,Oxygen,-934.78,-899.06,-36.57,0.85
+RuO2,amides,Formamide,Metal Bridge,-936.07,-899.06,-36.57,-0.44
+RuO2,amides,Acetamide,Metal,-952.81,-899.06,-52.11,-1.63
+RuO2,amides,Acetamide,Metal,-952.87,-899.06,-52.11,-1.69
+RuO2,amides,Acetamide,Metal,-952.64,-899.06,-52.11,-1.46
+RuO2,amides,Acetamide,Hole,-952.89,-899.06,-52.11,-1.72
+RuO2,amides,Acetamide,Hole,-952.71,-899.06,-52.11,-1.54
+RuO2,amides,Acetamide,Oxygen,-952.73,-899.06,-52.11,-1.56
+RuO2,amides,Acetamide,Oxygen,-951.48,-899.06,-52.11,-0.30
+RuO2,amides,Acetamide,Oxygen Bridge,-953.14,-899.06,-52.11,-1.96
+RuO2,amides,Acetamide,Metal Bridge,-953.12,-899.06,-52.11,-1.95
+RuO2,oximes,Formaldoxime,Metal,-933.64,-899.06,-33.12,-1.45
+RuO2,oximes,Formaldoxime,Metal,-934.17,-899.06,-33.12,-1.98
+RuO2,oximes,Formaldoxime,Hole,-933.96,-899.06,-33.12,-1.77
+RuO2,oximes,Formaldoxime,Hole,-934.44,-899.06,-33.12,-2.26
+RuO2,oximes,Formaldoxime,Oxygen,-932.46,-899.06,-33.12,-0.28
+RuO2,oximes,Formaldoxime,Oxygen Bridge,-932.66,-899.06,-33.12,-0.47
+RuO2,oximes,Formaldoxime,Oxygen Bridge,-932.67,-899.06,-33.12,-0.48
+RuO2,oximes,Formaldoxime,Metal Bridge,-934.17,-899.06,-33.12,-1.98
+RuO2,oximes,Formaldoxime,Metal Bridge,-933.64,-899.06,-33.12,-1.45
+RuO2,amidines,Formimidamide,Metal,-941.42,-899.06,-40.15,-2.20
+RuO2,amidines,Formimidamide,Metal,-940.71,-899.06,-40.15,-1.50
+RuO2,amidines,Formimidamide,Hole,-940.73,-899.06,-40.15,-1.51
+RuO2,amidines,Formimidamide,Oxygen,-939.55,-899.06,-40.15,-0.33
+RuO2,amidines,Formimidamide,Oxygen Bridge,-939.61,-899.06,-40.15,-0.40
+RuO2,amidines,Formimidamide,Metal Bridge,-941.57,-899.06,-40.15,-2.36
+RuO2,amidines,Acetimidamide,Metal,-957.51,-899.06,-56.90,-1.55
+RuO2,amidines,Acetimidamide,Hole,-958.18,-899.06,-56.90,-2.22
+RuO2,amidines,Acetimidamide,Oxygen,-958.20,-899.06,-56.90,-2.24
+RuO2,amidines,Acetimidamide,Oxygen Bridge,-956.38,-899.06,-56.90,-0.42
+RuO2,amidines,Acetimidamide,Metal Bridge,-958.46,-899.06,-56.90,-2.50
+IrO2,alkanes_alkenes_alkynes,Methane,Metal,-878.25,-853.48,-24.04,-0.73
+IrO2,alkanes_alkenes_alkynes,Methane,Hole,-878.25,-853.48,-24.04,-0.73
+IrO2,alkanes_alkenes_alkynes,Methane,Oxygen,-877.61,-853.48,-24.04,-0.09
+IrO2,alkanes_alkenes_alkynes,Methane,Oxygen Bridge,-877.63,-853.48,-24.04,-0.11
+IrO2,alkanes_alkenes_alkynes,Methane,Metal Bridge,-877.84,-853.48,-24.04,-0.32
+IrO2,alkanes_alkenes_alkynes,Ethane,Metal,-894.98,-853.48,-40.53,-0.98
+IrO2,alkanes_alkenes_alkynes,Ethane,Metal,-894.84,-853.48,-40.53,-0.84
+IrO2,alkanes_alkenes_alkynes,Ethane,Hole,-894.83,-853.48,-40.53,-0.82
+IrO2,alkanes_alkenes_alkynes,Ethane,Oxygen,-894.20,-853.48,-40.53,-0.20
+IrO2,alkanes_alkenes_alkynes,Ethane,Oxygen Bridge,-896.08,-853.48,-40.53,-2.08
+IrO2,alkanes_alkenes_alkynes,Ethane,Metal Bridge,-895.03,-853.48,-40.53,-1.02
+IrO2,alkanes_alkenes_alkynes,Ethene,Metal,-887.37,-853.48,-31.98,-1.91
+IrO2,alkanes_alkenes_alkynes,Ethene,Hole,-887.38,-853.48,-31.98,-1.92
+IrO2,alkanes_alkenes_alkynes,Ethene,Oxygen,-887.83,-853.48,-31.98,-2.37
+IrO2,alkanes_alkenes_alkynes,Ethene,Oxygen Bridge,-886.66,-853.48,-31.98,-1.20
+IrO2,alkanes_alkenes_alkynes,Ethene,Metal Bridge,-887.51,-853.48,-31.98,-2.05
+IrO2,alkanes_alkenes_alkynes,Propane,Metal,-911.45,-853.48,-57.10,-0.88
+IrO2,alkanes_alkenes_alkynes,Propane,Metal,-911.71,-853.48,-57.10,-1.13
+IrO2,alkanes_alkenes_alkynes,Propane,Hole,-911.48,-853.48,-57.10,-0.90
+IrO2,alkanes_alkenes_alkynes,Propane,Hole,-911.97,-853.48,-57.10,-1.39
+IrO2,alkanes_alkenes_alkynes,Propane,Oxygen,-910.80,-853.48,-57.10,-0.23
+IrO2,alkanes_alkenes_alkynes,Propane,Oxygen,-910.75,-853.48,-57.10,-0.18
+IrO2,alkanes_alkenes_alkynes,Propane,Oxygen,-911.71,-853.48,-57.10,-1.14
+IrO2,alkanes_alkenes_alkynes,Propane,Oxygen Bridge,-912.99,-853.48,-57.10,-2.41
+IrO2,alkanes_alkenes_alkynes,Propane,Metal Bridge,-910.99,-853.48,-57.10,-0.42
+IrO2,alkanes_alkenes_alkynes,Propane,Metal Bridge,-911.69,-853.48,-57.10,-1.11
+IrO2,alkanes_alkenes_alkynes,Propylene,Metal,-904.31,-853.48,-48.71,-2.13
+IrO2,alkanes_alkenes_alkynes,Propylene,Hole,-904.40,-853.48,-48.71,-2.22
+IrO2,alkanes_alkenes_alkynes,Propylene,Oxygen,-902.45,-853.48,-48.71,-0.26
+IrO2,alkanes_alkenes_alkynes,Propylene,Oxygen,-902.35,-853.48,-48.71,-0.16
+IrO2,alkanes_alkenes_alkynes,Propylene,Oxygen Bridge,-903.46,-853.48,-48.71,-1.28
+IrO2,alkanes_alkenes_alkynes,Propylene,Oxygen Bridge,-903.74,-853.48,-48.71,-1.55
+IrO2,alkanes_alkenes_alkynes,Propylene,Metal Bridge,-904.19,-853.48,-48.71,-2.00
+IrO2,alkanes_alkenes_alkynes,Propylene,Metal Bridge,-904.40,-853.48,-48.71,-2.21
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-893.93,-853.48,-39.84,-0.61
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-895.13,-853.48,-39.84,-1.81
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal,-895.27,-853.48,-39.84,-1.96
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Hole,-895.27,-853.48,-39.84,-1.95
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen,-893.47,-853.48,-39.84,-0.15
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Oxygen Bridge,-895.91,-853.48,-39.84,-2.59
+IrO2,alkanes_alkenes_alkynes,Prop-1-yne,Metal Bridge,-895.19,-853.48,-39.84,-1.87
+IrO2,alkanes_alkenes_alkynes,Acetylene,Metal,-878.45,-853.48,-22.95,-2.02
+IrO2,alkanes_alkenes_alkynes,Acetylene,Hole,-878.95,-853.48,-22.95,-2.52
+IrO2,alkanes_alkenes_alkynes,Acetylene,Oxygen,-878.45,-853.48,-22.95,-2.02
+IrO2,alkanes_alkenes_alkynes,Acetylene,Oxygen Bridge,-878.45,-853.48,-22.95,-2.02
+IrO2,alkanes_alkenes_alkynes,Acetylene,Metal Bridge,-878.99,-853.48,-22.95,-2.56
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal,-884.98,-853.48,-30.22,-1.28
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal,-885.55,-853.48,-30.22,-1.85
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Hole,-884.98,-853.48,-30.22,-1.28
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Hole,-886.09,-853.48,-30.22,-2.39
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Oxygen,-883.86,-853.48,-30.22,-0.16
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Oxygen Bridge,-886.09,-853.48,-30.22,-2.39
+IrO2,alcohols_aldehydes_ketones_ethers,Methanol,Metal Bridge,-886.04,-853.48,-30.22,-2.34
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal,-902.53,-853.48,-46.93,-2.13
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal,-901.91,-853.48,-46.93,-1.51
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal,-902.40,-853.48,-46.93,-2.00
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Hole,-901.43,-853.48,-46.93,-1.02
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Hole,-903.40,-853.48,-46.93,-3.00
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Oxygen,-900.81,-853.48,-46.93,-0.41
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Oxygen Bridge,-902.75,-853.48,-46.93,-2.34
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal Bridge,-901.89,-853.48,-46.93,-1.49
+IrO2,alcohols_aldehydes_ketones_ethers,Ethanol,Metal Bridge,-902.88,-853.48,-46.93,-2.48
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal,-919.51,-853.48,-63.64,-2.39
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal,-918.21,-853.48,-63.64,-1.09
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal,-918.19,-853.48,-63.64,-1.07
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Hole,-919.28,-853.48,-63.64,-2.16
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Hole,-919.17,-853.48,-63.64,-2.06
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen,-917.32,-853.48,-63.64,-0.20
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen,-918.35,-853.48,-63.64,-1.23
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Oxygen Bridge,-917.40,-853.48,-63.64,-0.28
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-ol,Metal Bridge,-918.59,-853.48,-63.64,-1.47
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal,-877.27,-853.48,-22.14,-1.66
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal,-876.76,-853.48,-22.14,-1.14
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Hole,-877.25,-853.48,-22.14,-1.63
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Hole,-876.75,-853.48,-22.14,-1.14
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Oxygen,-875.87,-853.48,-22.14,-0.26
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Oxygen Bridge,-875.85,-853.48,-22.14,-0.24
+IrO2,alcohols_aldehydes_ketones_ethers,Formaldehyde,Metal Bridge,-877.13,-853.48,-22.14,-1.52
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-893.26,-853.48,-39.09,-0.70
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-895.72,-853.48,-39.09,-3.15
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal,-894.43,-853.48,-39.09,-1.86
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Hole,-893.26,-853.48,-39.09,-0.69
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Hole,-893.81,-853.48,-39.09,-1.25
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Hole,-893.79,-853.48,-39.09,-1.23
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Oxygen,-892.79,-853.48,-39.09,-0.22
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Oxygen Bridge,-895.83,-853.48,-39.09,-3.27
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Oxygen Bridge,-894.39,-853.48,-39.09,-1.82
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal Bridge,-894.39,-853.48,-39.09,-1.82
+IrO2,alcohols_aldehydes_ketones_ethers,Acetaldehyde,Metal Bridge,-894.51,-853.48,-39.09,-1.95
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal,-911.01,-853.48,-56.03,-1.50
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal,-911.52,-853.48,-56.03,-2.02
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Hole,-911.52,-853.48,-56.03,-2.02
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen,-911.27,-853.48,-56.03,-1.77
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen,-910.43,-853.48,-56.03,-0.93
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Oxygen Bridge,-909.91,-853.48,-56.03,-0.41
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal Bridge,-911.50,-853.48,-56.03,-2.00
+IrO2,alcohols_aldehydes_ketones_ethers,Propan-2-one,Metal Bridge,-910.73,-853.48,-56.03,-1.22
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Metal,-901.35,-853.48,-46.43,-1.45
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Metal,-901.60,-853.48,-46.43,-1.70
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Metal,-900.91,-853.48,-46.43,-1.01
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Hole,-900.96,-853.48,-46.43,-1.05
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Hole,-901.60,-853.48,-46.43,-1.70
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Oxygen,-900.02,-853.48,-46.43,-0.12
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Oxygen Bridge,-900.14,-853.48,-46.43,-0.23
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Metal Bridge,-900.41,-853.48,-46.43,-0.50
+IrO2,alcohols_aldehydes_ketones_ethers,Methoxymethane,Metal Bridge,-901.16,-853.48,-46.43,-1.26
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal,-883.60,-853.48,-27.65,-2.47
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal,-884.27,-853.48,-27.65,-3.14
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Hole,-883.62,-853.48,-27.65,-2.49
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Hole,-883.61,-853.48,-27.65,-2.49
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Oxygen,-881.45,-853.48,-27.65,-0.32
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Oxygen Bridge,-884.27,-853.48,-27.65,-3.14
+IrO2,thiols_thials_thioketones_thioethers,Methanethiol,Metal Bridge,-884.20,-853.48,-27.65,-3.07
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Metal,-873.45,-853.48,-19.12,-0.86
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Metal,-875.16,-853.48,-19.12,-2.56
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Metal,-874.55,-853.48,-19.12,-1.95
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Hole,-875.12,-853.48,-19.12,-2.52
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Hole,-875.05,-853.48,-19.12,-2.46
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen,-875.01,-853.48,-19.12,-2.42
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen,-875.23,-853.48,-19.12,-2.64
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Oxygen Bridge,-873.02,-853.48,-19.12,-0.42
+IrO2,thiols_thials_thioketones_thioethers,Methanethial,Metal Bridge,-875.83,-853.48,-19.12,-3.23
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-900.12,-853.48,-44.24,-2.40
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-900.85,-853.48,-44.24,-3.14
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal,-900.91,-853.48,-44.24,-3.19
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Hole,-900.91,-853.48,-44.24,-3.20
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Hole,-900.08,-853.48,-44.24,-2.37
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Oxygen,-900.92,-853.48,-44.24,-3.21
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Oxygen Bridge,-897.95,-853.48,-44.24,-0.24
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal Bridge,-901.23,-853.48,-44.24,-3.52
+IrO2,thiols_thials_thioketones_thioethers,Ethanethiol,Metal Bridge,-901.10,-853.48,-44.24,-3.39
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal,-892.36,-853.48,-36.02,-2.87
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal,-892.00,-853.48,-36.02,-2.50
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Hole,-892.36,-853.48,-36.02,-2.86
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Hole,-892.67,-853.48,-36.02,-3.17
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Oxygen,-892.09,-853.48,-36.02,-2.59
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Oxygen Bridge,-889.92,-853.48,-36.02,-0.42
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal Bridge,-892.36,-853.48,-36.02,-2.87
+IrO2,thiols_thials_thioketones_thioethers,Ethanethial,Metal Bridge,-891.58,-853.48,-36.02,-2.08
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-914.29,-853.48,-55.39,-5.42
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-913.72,-853.48,-55.39,-4.85
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal,-912.11,-853.48,-55.39,-3.25
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Hole,-914.83,-853.48,-55.39,-5.96
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Hole,-911.78,-853.48,-55.39,-2.91
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Hole,-913.33,-853.48,-55.39,-4.46
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Oxygen,-911.24,-853.48,-55.39,-2.37
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Oxygen Bridge,-911.29,-853.48,-55.39,-2.42
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal Bridge,-913.71,-853.48,-55.39,-4.84
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thiol,Metal Bridge,-911.84,-853.48,-55.39,-2.97
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal,-909.27,-853.48,-52.83,-2.96
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal,-909.18,-853.48,-52.83,-2.87
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Hole,-909.18,-853.48,-52.83,-2.88
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Hole,-907.09,-853.48,-52.83,-0.78
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Oxygen,-906.63,-853.48,-52.83,-0.32
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Oxygen Bridge,-906.67,-853.48,-52.83,-0.36
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Oxygen Bridge,-907.05,-853.48,-52.83,-0.75
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal Bridge,-909.19,-853.48,-52.83,-2.88
+IrO2,thiols_thials_thioketones_thioethers,Propane-2-thione,Metal Bridge,-909.55,-853.48,-52.83,-3.24
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal,-900.27,-853.48,-44.21,-2.57
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal,-900.18,-853.48,-44.21,-2.49
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Hole,-900.18,-853.48,-44.21,-2.49
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Hole,-900.24,-853.48,-44.21,-2.55
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Oxygen,-898.22,-853.48,-44.21,-0.53
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Oxygen Bridge,-897.99,-853.48,-44.21,-0.30
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal Bridge,-900.30,-853.48,-44.21,-2.61
+IrO2,thiols_thials_thioketones_thioethers,Dimethylsulfane,Metal Bridge,-899.00,-853.48,-44.21,-1.31
+IrO2,amines,Methanamine,Metal,-891.94,-853.48,-35.68,-2.78
+IrO2,amines,Methanamine,Hole,-891.93,-853.48,-35.68,-2.77
+IrO2,amines,Methanamine,Hole,-890.54,-853.48,-35.68,-1.39
+IrO2,amines,Methanamine,Oxygen,-889.35,-853.48,-35.68,-0.20
+IrO2,amines,Methanamine,Oxygen Bridge,-889.56,-853.48,-35.68,-0.40
+IrO2,amines,Methanamine,Metal Bridge,-891.92,-853.48,-35.68,-2.77
+IrO2,amines,Ethanamine,Metal,-908.64,-853.48,-52.33,-2.83
+IrO2,amines,Ethanamine,Metal,-908.60,-853.48,-52.33,-2.79
+IrO2,amines,Ethanamine,Hole,-906.89,-853.48,-52.33,-1.08
+IrO2,amines,Ethanamine,Hole,-908.61,-853.48,-52.33,-2.80
+IrO2,amines,Ethanamine,Oxygen,-906.18,-853.48,-52.33,-0.38
+IrO2,amines,Ethanamine,Oxygen,-906.01,-853.48,-52.33,-0.21
+IrO2,amines,Ethanamine,Oxygen Bridge,-906.15,-853.48,-52.33,-0.34
+IrO2,amines,Ethanamine,Metal Bridge,-907.01,-853.48,-52.33,-1.20
+IrO2,amines,Ethanamine,Metal Bridge,-908.52,-853.48,-52.33,-2.71
+IrO2,amines,Propan-2-amine,Metal,-921.48,-853.48,-63.59,-4.41
+IrO2,amines,Propan-2-amine,Metal,-921.82,-853.48,-63.59,-4.74
+IrO2,amines,Propan-2-amine,Hole,-920.36,-853.48,-63.59,-3.28
+IrO2,amines,Propan-2-amine,Hole,-921.49,-853.48,-63.59,-4.42
+IrO2,amines,Propan-2-amine,Oxygen,-920.07,-853.48,-63.59,-3.00
+IrO2,amines,Propan-2-amine,Oxygen,-920.38,-853.48,-63.59,-3.31
+IrO2,amines,Propan-2-amine,Oxygen Bridge,-921.50,-853.48,-63.59,-4.43
+IrO2,amines,Propan-2-amine,Metal Bridge,-921.88,-853.48,-63.59,-4.81
+IrO2,amines,Propan-2-amine,Metal Bridge,-921.87,-853.48,-63.59,-4.80
+IrO2,amines,Trimethylamine,Metal,-924.28,-853.48,-68.40,-2.41
+IrO2,amines,Trimethylamine,Hole,-922.69,-853.48,-68.40,-0.82
+IrO2,amines,Trimethylamine,Oxygen,-922.40,-853.48,-68.40,-0.52
+IrO2,amines,Trimethylamine,Oxygen Bridge,-922.34,-853.48,-68.40,-0.47
+IrO2,amines,Trimethylamine,Metal Bridge,-922.91,-853.48,-68.40,-1.04
+IrO2,imines,Methanimine,Metal,-881.41,-853.48,-27.41,-0.52
+IrO2,imines,Methanimine,Hole,-883.65,-853.48,-27.41,-2.77
+IrO2,imines,Methanimine,Hole,-883.65,-853.48,-27.41,-2.76
+IrO2,imines,Methanimine,Oxygen,-883.64,-853.48,-27.41,-2.76
+IrO2,imines,Methanimine,Oxygen Bridge,-883.64,-853.48,-27.41,-2.75
+IrO2,imines,Methanimine,Metal Bridge,-883.04,-853.48,-27.41,-2.16
+IrO2,imines,Ethanimine,Metal,-900.50,-853.48,-44.29,-2.74
+IrO2,imines,Ethanimine,Metal,-900.49,-853.48,-44.29,-2.72
+IrO2,imines,Ethanimine,Hole,-900.48,-853.48,-44.29,-2.71
+IrO2,imines,Ethanimine,Hole,-898.57,-853.48,-44.29,-0.80
+IrO2,imines,Ethanimine,Oxygen,-897.88,-853.48,-44.29,-0.11
+IrO2,imines,Ethanimine,Oxygen Bridge,-898.16,-853.48,-44.29,-0.39
+IrO2,imines,Ethanimine,Metal Bridge,-900.51,-853.48,-44.29,-2.74
+IrO2,imines,Ethanimine,Metal Bridge,-900.50,-853.48,-44.29,-2.73
+IrO2,imines,Propan-2-imine,Metal,-917.34,-853.48,-61.09,-2.78
+IrO2,imines,Propan-2-imine,Metal,-917.42,-853.48,-61.09,-2.85
+IrO2,imines,Propan-2-imine,Metal,-917.30,-853.48,-61.09,-2.74
+IrO2,imines,Propan-2-imine,Hole,-917.35,-853.48,-61.09,-2.79
+IrO2,imines,Propan-2-imine,Hole,-917.39,-853.48,-61.09,-2.83
+IrO2,imines,Propan-2-imine,Oxygen,-917.35,-853.48,-61.09,-2.78
+IrO2,imines,Propan-2-imine,Oxygen Bridge,-914.59,-853.48,-61.09,-0.03
+IrO2,imines,Propan-2-imine,Oxygen Bridge,-914.82,-853.48,-61.09,-0.26
+IrO2,imines,Propan-2-imine,Metal Bridge,-917.37,-853.48,-61.09,-2.81
+IrO2,imines,N-methylmethanimine,Metal,-899.99,-853.48,-43.88,-2.63
+IrO2,imines,N-methylmethanimine,Metal,-900.04,-853.48,-43.88,-2.68
+IrO2,imines,N-methylmethanimine,Metal,-900.04,-853.48,-43.88,-2.68
+IrO2,imines,N-methylmethanimine,Hole,-900.04,-853.48,-43.88,-2.69
+IrO2,imines,N-methylmethanimine,Oxygen,-900.04,-853.48,-43.88,-2.68
+IrO2,imines,N-methylmethanimine,Oxygen Bridge,-900.04,-853.48,-43.88,-2.68
+IrO2,imines,N-methylmethanimine,Metal Bridge,-898.73,-853.48,-43.88,-1.37
+IrO2,imines,N-methylmethanimine,Metal Bridge,-900.66,-853.48,-43.88,-3.30
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal,-891.81,-853.48,-37.14,-1.19
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal,-892.54,-853.48,-37.14,-1.92
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal,-893.03,-853.48,-37.14,-2.41
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Hole,-893.27,-853.48,-37.14,-2.65
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Hole,-893.03,-853.48,-37.14,-2.41
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Oxygen,-891.84,-853.48,-37.14,-1.22
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Oxygen Bridge,-893.95,-853.48,-37.14,-3.33
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal Bridge,-893.27,-853.48,-37.14,-2.65
+IrO2,carbonates_carboxylic-acids_esters,Carbonic acid,Metal Bridge,-891.69,-853.48,-37.14,-1.07
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Metal,-885.47,-853.48,-29.89,-2.10
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Hole,-886.71,-853.48,-29.89,-3.34
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Hole,-885.47,-853.48,-29.89,-2.10
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Oxygen,-885.76,-853.48,-29.89,-2.39
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Oxygen,-885.75,-853.48,-29.89,-2.38
+IrO2,carbonates_carboxylic-acids_esters,Formic acid,Oxygen Bridge,-884.94,-853.48,-29.89,-1.57
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal,-903.66,-853.48,-46.78,-3.40
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal,-902.68,-853.48,-46.78,-2.42
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Hole,-902.00,-853.48,-46.78,-1.75
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Hole,-901.60,-853.48,-46.78,-1.34
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Hole,-900.89,-853.48,-46.78,-0.63
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen,-900.61,-853.48,-46.78,-0.35
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen,-902.67,-853.48,-46.78,-2.41
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen,-901.54,-853.48,-46.78,-1.29
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Oxygen Bridge,-902.60,-853.48,-46.78,-2.34
+IrO2,carbonates_carboxylic-acids_esters,Acetic acid,Metal Bridge,-902.66,-853.48,-46.78,-2.41
+IrO2,carbamate-esters,Carbamic acid,Metal,-898.08,-853.48,-42.66,-1.95
+IrO2,carbamate-esters,Carbamic acid,Metal,-899.61,-853.48,-42.66,-3.47
+IrO2,carbamate-esters,Carbamic acid,Metal,-898.00,-853.48,-42.66,-1.87
+IrO2,carbamate-esters,Carbamic acid,Hole,-899.60,-853.48,-42.66,-3.47
+IrO2,carbamate-esters,Carbamic acid,Oxygen,-899.57,-853.48,-42.66,-3.44
+IrO2,carbamate-esters,Carbamic acid,Oxygen,-896.62,-853.48,-42.66,-0.49
+IrO2,carbamate-esters,Carbamic acid,Oxygen Bridge,-899.60,-853.48,-42.66,-3.46
+IrO2,carbamate-esters,Carbamic acid,Oxygen Bridge,-899.60,-853.48,-42.66,-3.47
+IrO2,carbamate-esters,Carbamic acid,Metal Bridge,-899.61,-853.48,-42.66,-3.47
+IrO2,carbamate-esters,Carbamic acid,Metal Bridge,-899.50,-853.48,-42.66,-3.37
+IrO2,amides,Formamide,Metal,-890.67,-853.48,-36.57,-0.63
+IrO2,amides,Formamide,Metal,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Formamide,Metal,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Formamide,Hole,-892.41,-853.48,-36.57,-2.36
+IrO2,amides,Formamide,Hole,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Formamide,Hole,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Formamide,Oxygen,-890.65,-853.48,-36.57,-0.60
+IrO2,amides,Formamide,Oxygen,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Formamide,Oxygen,-889.27,-853.48,-36.57,0.78
+IrO2,amides,Formamide,Oxygen Bridge,-890.65,-853.48,-36.57,-0.61
+IrO2,amides,Formamide,Metal Bridge,-890.61,-853.48,-36.57,-0.57
+IrO2,amides,Formamide,Metal Bridge,-892.41,-853.48,-36.57,-2.37
+IrO2,amides,Acetamide,Metal,-908.28,-853.48,-52.11,-2.69
+IrO2,amides,Acetamide,Metal,-908.26,-853.48,-52.11,-2.67
+IrO2,amides,Acetamide,Metal,-907.70,-853.48,-52.11,-2.12
+IrO2,amides,Acetamide,Hole,-908.28,-853.48,-52.11,-2.69
+IrO2,amides,Acetamide,Hole,-908.28,-853.48,-52.11,-2.69
+IrO2,amides,Acetamide,Oxygen,-908.26,-853.48,-52.11,-2.67
+IrO2,amides,Acetamide,Oxygen,-906.11,-853.48,-52.11,-0.52
+IrO2,amides,Acetamide,Oxygen,-909.31,-853.48,-52.11,-3.73
+IrO2,amides,Acetamide,Oxygen Bridge,-906.01,-853.48,-52.11,-0.42
+IrO2,amides,Acetamide,Metal Bridge,-907.72,-853.48,-52.11,-2.13
+IrO2,amides,Acetamide,Metal Bridge,-907.53,-853.48,-52.11,-1.94
+IrO2,oximes,Formaldehyde oxime,Metal,-889.77,-853.48,-33.12,-3.17
+IrO2,oximes,Formaldehyde oxime,Metal,-889.38,-853.48,-33.12,-2.78
+IrO2,oximes,Formaldehyde oxime,Metal,-889.77,-853.48,-33.12,-3.17
+IrO2,oximes,Formaldehyde oxime,Hole,-889.77,-853.48,-33.12,-3.17
+IrO2,oximes,Formaldehyde oxime,Hole,-889.38,-853.48,-33.12,-2.78
+IrO2,oximes,Formaldehyde oxime,Oxygen,-886.87,-853.48,-33.12,-0.27
+IrO2,oximes,Formaldehyde oxime,Oxygen Bridge,-887.04,-853.48,-33.12,-0.44
+IrO2,oximes,Formaldehyde oxime,Metal Bridge,-888.09,-853.48,-33.12,-1.49
+IrO2,oximes,Formaldehyde oxime,Metal Bridge,-889.66,-853.48,-33.12,-3.06
+IrO2,amidines,Formimidamide,Metal,-896.84,-853.48,-40.15,-3.21
+IrO2,amidines,Formimidamide,Metal,-898.00,-853.48,-40.15,-4.37
+IrO2,amidines,Formimidamide,Metal,-896.60,-853.48,-40.15,-2.97
+IrO2,amidines,Formimidamide,Hole,-895.72,-853.48,-40.15,-2.09
+IrO2,amidines,Formimidamide,Oxygen,-896.60,-853.48,-40.15,-2.97
+IrO2,amidines,Formimidamide,Oxygen Bridge,-896.84,-853.48,-40.15,-3.22
+IrO2,amidines,Formimidamide,Metal Bridge,-896.87,-853.48,-40.15,-3.24
+IrO2,amidines,Formimidamide,Metal Bridge,-898.00,-853.48,-40.15,-4.37
+IrO2,amidines,Acetimidamide,Metal,-912.83,-853.48,-56.90,-2.45
+IrO2,amidines,Acetimidamide,Metal,-913.67,-853.48,-56.90,-3.29
+IrO2,amidines,Acetimidamide,Metal,-913.46,-853.48,-56.90,-3.08
+IrO2,amidines,Acetimidamide,Hole,-913.39,-853.48,-56.90,-3.01
+IrO2,amidines,Acetimidamide,Hole,-912.79,-853.48,-56.90,-2.41
+IrO2,amidines,Acetimidamide,Hole,-912.84,-853.48,-56.90,-2.46
+IrO2,amidines,Acetimidamide,Oxygen,-910.82,-853.48,-56.90,-0.44
+IrO2,amidines,Acetimidamide,Oxygen,-913.38,-853.48,-56.90,-3.00
+IrO2,amidines,Acetimidamide,Oxygen Bridge,-910.44,-853.48,-56.90,-0.06
+IrO2,amidines,Acetimidamide,Oxygen Bridge,-910.93,-853.48,-56.90,-0.55
+IrO2,amidines,Acetimidamide,Metal Bridge,-914.84,-853.48,-56.90,-4.46
