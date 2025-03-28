@@ -1,7 +1,7 @@
 # Configuration file for setting the hyperparameters for GNN training with train_GNN.py (TEMPLATE)
 
 [graph]  # Hyperparameters defining the graph dataset construction from the ASE database
-target = "ads_energy"  # graph target (must be present as column in the database) (str)
+target = "adsorption_energy"  # graph target (must be present as column in the database) (str)
 
 [graph.structure]   # Hyperparameters for graph structure generation from geometrical structures
 tolerance = 0.25            # Applied to all pairs of elements (float)
@@ -19,7 +19,7 @@ magnetization = false	# Spin polarization feature (graph level)
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true         # Whether generate test set or just split among train/val (true/false)
 batch_size = 16         # Batch size (int)
-epochs = 50             # Total number of epochs (int)
+epochs = 250             # Total number of epochs (int)
 target_scaling = "std"      # Target scaling approach ("std" only available for now) ("std")
 loss_function = "mae"       # Loss function ("mae"/"mse"/"huber") 
 lr0 = 1e-3                  # Initial learning rate (float)
@@ -46,7 +46,7 @@ pool_heads = 1              # Number of multihead attention blocks in the poolin
 
 [data]
 initial_state = false
-force_reload = true
+force_reload = false
 vasp_directory = "/BACKUP/database"
 graph_dataset_path = "/home/tvanhout/oxides_ML/models/graph_datasets"              # path to graph dataset directory
 

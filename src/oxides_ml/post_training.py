@@ -90,7 +90,8 @@ def create_model_report(model_name: str,
         model_dir = "{}/{}".format(model_path, model_name)
         os.makedirs(model_dir, exist_ok=True)
         #os.mkdir("{}/{}".format(model_path, model_name))
-    os.mkdir("{}/{}/Outliers".format(model_path, model_name))
+    outliers_dir = "{}/{}/Outliers".format(model_path, model_name)
+    os.makedirs(outliers_dir, exist_ok=True)
 
     # 7) Store info of device on which model training has been performed
     if device != None:
@@ -232,7 +233,7 @@ def create_model_report(model_name: str,
     abs_error_test = [abs(error_test[i]) for i in range(N_test)]                      # Absolute Error (test set)
     squared_error_test = [error_test[i] ** 2 for i in range(N_test)]                  # Squared Error
     
-    abs_pctg_error_test = [abs(error_test[i] / y_true[i]) for i in range(N_test)]  # Absolute Percentage Error
+    #abs_pctg_error_test = [abs(error_test[i] / y_true[i]) for i in range(N_test)]  # Absolute Percentage Error
 
     std_error_test = np.std(error_test)                                               # eV
     # Save test set error of the samples            
@@ -333,7 +334,7 @@ def create_model_report(model_name: str,
     file1.write("Mean Bias Error (MBE) = {:.3f} eV\n".format(np.mean(error_test)))
     file1.write("Mean Absolute Error (MAE) = {:.3f} eV\n".format(np.mean(abs_error_test)))
     file1.write("Root Mean Square Error (RMSE) = {:.3f} eV\n".format(np.sqrt(np.mean(squared_error_test))))
-    file1.write("Mean Absolute Percentage Error (MAPE) = {:.3f} %\n".format(np.mean(abs_pctg_error_test)*100.0))
+    #file1.write("Mean Absolute Percentage Error (MAPE) = {:.3f} %\n".format(np.mean(abs_pctg_error_test)*100.0))
     file1.write("Error Standard Deviation = {:.3f} eV\n".format(np.std(error_test)))
     file1.write("R2 = {:.3f} \n".format(r2_score(y_true, y_pred)))
     file1.write("Sharpness = {:.3f} eV\n".format(sha))

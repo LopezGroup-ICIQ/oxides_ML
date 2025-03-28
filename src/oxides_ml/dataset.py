@@ -431,7 +431,7 @@ class OxidesGraphDataset(InMemoryDataset):
         graph.slab_energy = tensor([metadata["slab_energy"]]) if metadata["slab_energy"] is not None else tensor([0.0])
         graph.adsorbate_energy = tensor([metadata["adsorbate_energy"]]) if metadata["adsorbate_energy"] is not None else tensor([0.0])
         graph.ads_energy = tensor([metadata["adsorption_energy"]]) if metadata["adsorption_energy"] is not None else tensor([0.0])
-        graph.target = graph.energy
+        graph.target = tensor([metadata[self.target]]) if metadata[self.target] is not None else tensor([0.0])
 
         # # NODE FEATURIZATION
         # try:
