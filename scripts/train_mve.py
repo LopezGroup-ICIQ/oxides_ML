@@ -38,6 +38,7 @@ if __name__ == "__main__":
     vasp_directory = hyperparameters["data"]["vasp_directory"]
     graph_dataset_dir = hyperparameters["data"]["graph_dataset_path"]
     initial_state = hyperparameters['data']['initial_state']
+    force_reload = hyperparameters['data']['force_reload']
     graph_settings = hyperparameters["graph"]
     train = hyperparameters["train"]
     architecture = hyperparameters["architecture"]        
@@ -55,7 +56,7 @@ if __name__ == "__main__":
         device_dict["name"] = "CPU"     
 
     # Load graph dataset 
-    dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state)
+    dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state, force_reload=force_reload)
     ohe_elements = dataset.ohe_elements
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)

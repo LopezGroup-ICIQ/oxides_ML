@@ -82,10 +82,14 @@ def create_model_report(model_name: str,
     
     # 6) Create directory structure where to store model training results
     try:
-        os.mkdir("{}/{}".format(model_path, model_name))
+        model_dir = "{}/{}".format(model_path, model_name)
+        os.makedirs(model_dir, exist_ok=True)
+        #os.mkdir("{}/{}".format(model_path, model_name))
     except FileExistsError:
         model_name = input("The name defined already exists in the provided directory: Provide a new one: ")
-        os.mkdir("{}/{}".format(model_path, model_name))
+        model_dir = "{}/{}".format(model_path, model_name)
+        os.makedirs(model_dir, exist_ok=True)
+        #os.mkdir("{}/{}".format(model_path, model_name))
     os.mkdir("{}/{}/Outliers".format(model_path, model_name))
 
     # 7) Store info of device on which model training has been performed
@@ -127,19 +131,19 @@ def create_model_report(model_name: str,
     val_label_list = [graph.formula for graph in val_loader.dataset]
     train_facet_list = [graph.facet for graph in train_loader.dataset]
     val_facet_list = [graph.facet for graph in val_loader.dataset]
-    train_bb_list = [graph.bb_type for graph in train_loader.dataset]
-    val_bb_list = [graph.bb_type for graph in val_loader.dataset]
-    train_metal_list = [graph.metal for graph in train_loader.dataset]
-    val_metal_list = [graph.metal for graph in val_loader.dataset]
+    #train_bb_list = [graph.bb_type for graph in train_loader.dataset]
+    #val_bb_list = [graph.bb_type for graph in val_loader.dataset]
+    train_material_list = [graph.material for graph in train_loader.dataset]
+    val_material_list = [graph.material for graph in val_loader.dataset]
     
     with open("{}/{}/train_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Metal", "Surface", "Bond", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(train_label_list, train_metal_list, train_facet_list, train_bb_list, z_true, z_pred, error_train, abs_error_train))    
+        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, z_true, z_pred, error_train, abs_error_train))    
     with open("{}/{}/validation_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Metal", "Surface", "Bond", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(val_label_list, val_metal_list, val_facet_list, val_bb_list, b_true, b_pred, error_val, abs_error_val))
+        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, b_true, b_pred, error_val, abs_error_val))
 
     # MAE trend during training
     train_list = mae_lists[0]
@@ -206,13 +210,14 @@ def create_model_report(model_name: str,
         file1.close()
         return "Model saved in {}/{}".format(model_path, model_name)
     
+
     # 13) Get info from test set if it has been monitored
     if save_loaders:
         torch.save(test_loader, "{}/{}/test_loader.pth".format(model_path, model_name))
     test_label_list = [graph.formula for graph in test_loader.dataset]
     test_facet_list = [graph.facet for graph in test_loader.dataset]
-    test_bb_list = [graph.bb_type for graph in test_loader.dataset]
-    test_metal_list = [graph.metal for graph in test_loader.dataset]
+    #test_bb_list = [graph.bb_type for graph in test_loader.dataset]
+    test_material_list = [graph.material for graph in test_loader.dataset]
     N_test = len(test_loader.dataset)  
     N_tot = N_train + N_val + N_test    
     w_pred, w_true = [], []  # Test set
@@ -226,20 +231,22 @@ def create_model_report(model_name: str,
     error_test = [(y_pred[i] - y_true[i]) for i in range(N_test)]                     # Error (test set)
     abs_error_test = [abs(error_test[i]) for i in range(N_test)]                      # Absolute Error (test set)
     squared_error_test = [error_test[i] ** 2 for i in range(N_test)]                  # Squared Error
-    abs_pctg_error_test = [abs(error_test[i] / y_true[i]) for i in range(N_test)]     # Absolute Percentage Error
+    
+    abs_pctg_error_test = [abs(error_test[i] / y_true[i]) for i in range(N_test)]  # Absolute Percentage Error
+
     std_error_test = np.std(error_test)                                               # eV
     # Save test set error of the samples            
     with open("{}/{}/test_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Metal", "Surface", "Bond", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(test_label_list, test_metal_list, test_facet_list, test_bb_list, y_true, y_pred, error_test, abs_error_test))   
+        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, y_true, y_pred, error_test, abs_error_test))   
 
-    formula, metal, surface, bb, y_true, y_mean, y_std, y_min, y_max, in_interval, error = [], [], [], [], [], [], [], [], [], [], []
+    formula, material, surface, y_true, y_mean, y_std, y_min, y_max, in_interval, error = [], [], [], [], [], [], [], [], [], []
     for graph in test_loader.dataset:
         formula.append(graph.formula)
-        metal.append(graph.metal)
+        material.append(graph.material)
         surface.append(graph.facet)
-        bb.append(graph.bb_type)
+        #bb.append(graph.bb_type)
         y_true.append(graph.target.numpy()[0])
         y_mean.append(model(graph).mean.cpu().detach().numpy()[0] * std_tv + mean_tv)
         y_std.append(model(graph).stddev.cpu().detach().numpy()[0] * std_tv)
@@ -255,9 +262,9 @@ def create_model_report(model_name: str,
     df = pd.DataFrame(
         {
             "formula": formula,
-            "metal": metal,
+            "material": material,
             "surface": surface,
-            "bb": bb,
+            #"bb": bb,
             "y_true": y_true,
             "y_mean": y_mean,
             "error": error,

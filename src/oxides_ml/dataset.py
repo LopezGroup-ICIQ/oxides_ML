@@ -14,10 +14,6 @@ from ase import Atoms
 
 from sklearn.preprocessing import OneHotEncoder
 
-# Add src folder to the sys.path
-src_path = "../src"
-sys.path.insert(0, src_path)
-
 from oxides_ml.constants import ADSORBATE_ELEMS, METALS, OHE_ELEMENTS
 from oxides_ml.graph_filters import H_filter, C_filter, fragment_filter, ase_adsorption_filter, is_ring
 from oxides_ml.graph import atoms_to_pyg
@@ -72,6 +68,32 @@ def get_parent_dir(path, levels=1):
         path = os.path.dirname(path)
     return path
 
+def extract_ispin(incar_path: str):
+    """
+    Extract the ISPIN value from the VASP INCAR file.
+
+    Args:
+        incar_path (str): Path to the INCAR file.
+
+    Returns:
+        int or None: Extracted ISPIN value (1 or 2), or None if not found.
+    """
+    try:
+        with open(incar_path, "r") as file:
+            for line in file:
+                if "ISPIN" in line:
+                    parts = line.split("=")
+                    if len(parts) > 1:
+                        return int(parts[1].strip().split()[0])  # Extract first number
+    except FileNotFoundError:
+        print(f"INCAR file not found: {incar_path}")
+    except ValueError:
+        print("Error parsing ISPIN value in INCAR.")
+    except Exception as e:
+        print(f"Error reading INCAR: {e}")
+    
+    return None
+
 def extract_energy(outcar_path: str):
     """
     Extract total energy from VASP OUTCAR file using grep.
@@ -125,7 +147,10 @@ def extract_metadata(path: str):
         "total_energy": None,
         "adsorbate_energy": None,
         "slab_energy": None,
-        "adsorption_energy": None
+        "adsorption_energy": None,
+        "facet": None,
+        "type": None,
+        "spin_polarization": None
     }
 
     if "gas_phase" in parts:
@@ -133,13 +158,25 @@ def extract_metadata(path: str):
         metadata["adsorbate_group"] = parts[-3]
         metadata["adsorbate_name"] = parts[-2]
 
+        metadata["total_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
         metadata["adsorbate_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
+
+        metadata["facet"] = "None"
+        metadata["type"] = "gas"
+        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
+
     elif "slab" in parts:
         metadata["material"] = parts[-2]
         metadata["adsorbate_group"] = "None"
         metadata["adsorbate_name"] = "None"    
 
+        metadata["total_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
         metadata["slab_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
+
+        metadata["facet"] = "110"
+        metadata["type"] = "slab"
+        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
+
     elif "surface_adsorbates":
         metadata["material"] = parts[-6]            #
         metadata["adsorbate_group"] = parts[-5]     
@@ -149,6 +186,10 @@ def extract_metadata(path: str):
         metadata["slab_energy"] = extract_energy((os.path.join(get_parent_dir(path, 7), "slab", metadata["material"], "OUTCAR")))
         metadata["adsorbate_energy"] = extract_energy((os.path.join(get_parent_dir(path, 7), "gas_phase", metadata["adsorbate_group"], metadata["adsorbate_name"], "OUTCAR")))
         metadata["adsorption_energy"] = metadata["total_energy"] - metadata["slab_energy"] - metadata["adsorbate_energy"]
+
+        metadata["facet"] = "110"
+        metadata["type"] = "adsorbate"
+        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
         
     return metadata
 
@@ -159,7 +200,10 @@ class OxidesGraphDataset(InMemoryDataset):
              graph_dataset_dir: str,
              graph_params: dict[str, Union[dict[str, bool | float], str]],  
              ncores: int=os.cpu_count(), 
-             initial_state: bool=False):     
+             initial_state: bool=False,
+             force_reload: bool=False):
+
+        self.force_reload = force_reload     
         self.initial_state = initial_state
         self.dataset_id = pyg_dataset_id(vasp_directory, graph_params, initial_state)
         self.vasp_directory = os.path.abspath(vasp_directory)
@@ -185,12 +229,20 @@ class OxidesGraphDataset(InMemoryDataset):
                 self.node_dim += 1
                 self.node_feature_list.append(key.upper())
 
+        # **Delete existing dataset if force_reload is enabled**
+        if self.force_reload and os.path.exists(self.output_path):
+            print(f"Force reloading: deleting existing dataset at {self.output_path}")
+            os.remove(self.output_path)
+
         # Initialize InMemoryDataset
         super().__init__(root=os.path.abspath(graph_dataset_dir))
+
+        # Load dataset if it exists
         if os.path.exists(self.processed_paths[0]):
             self.data, self.slices = load(self.processed_paths[0], weights_only=False)
         else:
             self.data, self.slices = None, None  # Prevent attribute errors
+            
 
     @property
     def raw_file_names(self): 
@@ -359,8 +411,7 @@ class OxidesGraphDataset(InMemoryDataset):
                                             graph_structure_params["scaling_factor"],
                                             graph_structure_params["second_order"], 
                                             ohe_elements, 
-                                            adsorbate_elements)
-        graph.type = calc_type    
+                                            adsorbate_elements)  
         graph.formula = formula
         graph.node_feats = node_features_list
         
@@ -372,13 +423,15 @@ class OxidesGraphDataset(InMemoryDataset):
         graph.adsorbate_group = metadata["adsorbate_group"]
         graph.adsorbate_name = metadata["adsorbate_name"]
 
-        graph.facet = "110"
+        graph.facet = metadata["facet"]
+        graph.type = metadata["type"]
+        graph.spin_polarization = metadata["spin_polarization"]
         
         graph.energy = tensor([metadata["total_energy"]]) if metadata["total_energy"] is not None else tensor([0.0])
         graph.slab_energy = tensor([metadata["slab_energy"]]) if metadata["slab_energy"] is not None else tensor([0.0])
         graph.adsorbate_energy = tensor([metadata["adsorbate_energy"]]) if metadata["adsorbate_energy"] is not None else tensor([0.0])
         graph.ads_energy = tensor([metadata["adsorption_energy"]]) if metadata["adsorption_energy"] is not None else tensor([0.0])
-        graph.target = graph.ads_energy
+        graph.target = graph.energy
 
         # # NODE FEATURIZATION
         # try:
