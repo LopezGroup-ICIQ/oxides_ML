@@ -132,19 +132,23 @@ def create_model_report(model_name: str,
     val_label_list = [graph.formula for graph in val_loader.dataset]
     train_facet_list = [graph.facet for graph in train_loader.dataset]
     val_facet_list = [graph.facet for graph in val_loader.dataset]
+    train_adsorbate_group_list = [graph.adsorbate_group for graph in train_loader.dataset]
+    val_adsorbate_group_list = [graph.adsorbate_group for graph in val_loader.dataset]
+    train_adsorbate_name_list = [graph.adsorbate_name for graph in train_loader.dataset]
+    val_adsorbate_name_list = [graph.adsorbate_name for graph in val_loader.dataset]
     #train_bb_list = [graph.bb_type for graph in train_loader.dataset]
     #val_bb_list = [graph.bb_type for graph in val_loader.dataset]
     train_material_list = [graph.material for graph in train_loader.dataset]
     val_material_list = [graph.material for graph in val_loader.dataset]
     
     with open("{}/{}/train_set.csv".format(model_path, model_name), "w") as file4:
-        writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, z_true, z_pred, error_train, abs_error_train))    
+        writer = csv.writer(file4)
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, train_adsorbate_group_list, train_adsorbate_name_list, z_true, z_pred, error_train, abs_error_train))    
     with open("{}/{}/validation_set.csv".format(model_path, model_name), "w") as file4:
-        writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, b_true, b_pred, error_val, abs_error_val))
+        writer = csv.writer(file4)
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule","True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, val_adsorbate_group_list, val_adsorbate_name_list, b_true, b_pred, error_val, abs_error_val))
 
     # MAE trend during training
     train_list = mae_lists[0]
@@ -217,6 +221,8 @@ def create_model_report(model_name: str,
         torch.save(test_loader, "{}/{}/test_loader.pth".format(model_path, model_name))
     test_label_list = [graph.formula for graph in test_loader.dataset]
     test_facet_list = [graph.facet for graph in test_loader.dataset]
+    test_adsorbate_group_list = [graph.adsorbate_group for graph in test_loader.dataset]
+    test_adsorbate_name_list = [graph.adsorbate_name for graph in test_loader.dataset]
     #test_bb_list = [graph.bb_type for graph in test_loader.dataset]
     test_material_list = [graph.material for graph in test_loader.dataset]
     N_test = len(test_loader.dataset)  
@@ -238,15 +244,17 @@ def create_model_report(model_name: str,
     std_error_test = np.std(error_test)                                               # eV
     # Save test set error of the samples            
     with open("{}/{}/test_set.csv".format(model_path, model_name), "w") as file4:
-        writer = csv.writer(file4, delimiter='\t')
-        writer.writerow(["System", "Material", "Surface", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, y_true, y_pred, error_test, abs_error_test))   
+        writer = csv.writer(file4)
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, test_adsorbate_group_list, test_adsorbate_name_list, y_true, y_pred, error_test, abs_error_test))   
 
-    formula, material, surface, y_true, y_mean, y_std, y_min, y_max, in_interval, error = [], [], [], [], [], [], [], [], [], []
+    formula, material, surface, molecule_group, molecule, y_true, y_mean, y_std, y_min, y_max, in_interval, error = [], [], [], [], [], [], [], [], [], [], [], []
     for graph in test_loader.dataset:
         formula.append(graph.formula)
         material.append(graph.material)
         surface.append(graph.facet)
+        molecule_group.append(graph.adsorbate_group)
+        molecule.append(graph.adsorbate_name)
         #bb.append(graph.bb_type)
         y_true.append(graph.target.numpy()[0])
         y_mean.append(model(graph).mean.cpu().detach().numpy()[0] * std_tv + mean_tv)
@@ -265,6 +273,8 @@ def create_model_report(model_name: str,
             "formula": formula,
             "material": material,
             "surface": surface,
+            "molecule_group": molecule_group,
+            "molecule": molecule,
             #"bb": bb,
             "y_true": y_true,
             "y_mean": y_mean,
