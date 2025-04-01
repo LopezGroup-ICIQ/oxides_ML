@@ -23,7 +23,8 @@ from oxides_ml.graph_tools import graph_plotter
 
 def pyg_dataset_id(vasp_directory: str, 
                    graph_params: dict,
-                   initial_state: bool) -> str:
+                   initial_state: bool,
+                   augment: bool) -> str:
     """
     Return dataset identifier based on the graph conversion settings.
     
@@ -54,11 +55,12 @@ def pyg_dataset_id(vasp_directory: str,
     mag = str(features_params["magnetization"])
     target = graph_params["target"]
     state_tag = "initial" if initial_state == True else "relaxed"
+    augment_tag = "True" if augment == True else "False"
     
     # Generate dataset ID
-    dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
+    dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
         id, target, tolerance, scaling_factor, second_order_nn, 
-        adsorbate, radical, valence, gcn, mag, state_tag
+        adsorbate, radical, valence, gcn, mag, state_tag, augment_tag
     )
     
     return dataset_id
@@ -116,7 +118,7 @@ def extract_energy(outcar_path: str):
         # Extract the last value from the line
         last_line = result.stdout.strip().split("\n")[-1]  # Get the last occurrence
         energy = float(last_line.split()[-1])  # Extract energy value
-        return round(energy, 2)
+        return energy
 
     except FileNotFoundError:
         print(f"OUTCAR file not found: {outcar_path}")
@@ -138,8 +140,8 @@ def extract_metadata(path: str):
     Returns:
         dict: Metadata with 'material', 'adsorbate_group', 'adsorbate_name', "total_energy" (DFT-energy), "slab_energy", "adsorbate_energy", and "adsorption_energy".
     """
-    parts = path.split(os.sep)  # Split path into components
-    
+    parts = path.split(os.sep)
+
     metadata = {
         "material": None,
         "adsorbate_group": None,
@@ -150,7 +152,8 @@ def extract_metadata(path: str):
         "adsorption_energy": None,
         "facet": None,
         "type": None,
-        "spin_polarization": None
+        "spin_polarization": None,
+        "state_of_origin": "initial" if "POSCAR" in path or "poscar_1" in path else "relaxed"
     }
 
     if "gas_phase" in parts:
@@ -158,39 +161,39 @@ def extract_metadata(path: str):
         metadata["adsorbate_group"] = parts[-3]
         metadata["adsorbate_name"] = parts[-2]
 
-        metadata["total_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
-        metadata["adsorbate_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
+        metadata["total_energy"] = extract_energy(os.path.join(os.path.dirname(path), "OUTCAR"))
+        metadata["adsorbate_energy"] = extract_energy(os.path.join(os.path.dirname(path), "OUTCAR"))
 
         metadata["facet"] = "None"
         metadata["type"] = "gas"
-        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
+        metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
 
     elif "slab" in parts:
         metadata["material"] = parts[-2]
         metadata["adsorbate_group"] = "None"
-        metadata["adsorbate_name"] = "None"    
+        metadata["adsorbate_name"] = "None"
 
-        metadata["total_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
-        metadata["slab_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
+        metadata["total_energy"] = extract_energy(os.path.join(os.path.dirname(path), "OUTCAR"))
+        metadata["slab_energy"] = extract_energy(os.path.join(os.path.dirname(path), "OUTCAR"))
 
         metadata["facet"] = "110"
         metadata["type"] = "slab"
-        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
+        metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
 
-    elif "surface_adsorbates":
-        metadata["material"] = parts[-6]            #
-        metadata["adsorbate_group"] = parts[-5]     
-        metadata["adsorbate_name"] = parts[-4]  
-            
-        metadata["total_energy"] = extract_energy((os.path.join(os.path.dirname(path), "OUTCAR")))
-        metadata["slab_energy"] = extract_energy((os.path.join(get_parent_dir(path, 7), "slab", metadata["material"], "OUTCAR")))
-        metadata["adsorbate_energy"] = extract_energy((os.path.join(get_parent_dir(path, 7), "gas_phase", metadata["adsorbate_group"], metadata["adsorbate_name"], "OUTCAR")))
+    elif "surface_adsorbates" in parts:
+        metadata["material"] = parts[-6]
+        metadata["adsorbate_group"] = parts[-5]
+        metadata["adsorbate_name"] = parts[-4]
+
+        metadata["total_energy"] = extract_energy(os.path.join(os.path.dirname(path), "OUTCAR"))
+        metadata["slab_energy"] = extract_energy(os.path.join(get_parent_dir(path, 7), "slab", metadata["material"], "OUTCAR"))
+        metadata["adsorbate_energy"] = extract_energy(os.path.join(get_parent_dir(path, 7), "gas_phase", metadata["adsorbate_group"], metadata["adsorbate_name"], "OUTCAR"))
         metadata["adsorption_energy"] = metadata["total_energy"] - metadata["slab_energy"] - metadata["adsorbate_energy"]
 
         metadata["facet"] = "110"
         metadata["type"] = "adsorbate"
-        metadata["spin_polarization"] = extract_ispin((os.path.join(os.path.dirname(path), "INCAR")))
-        
+        metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
+
     return metadata
 
 class OxidesGraphDataset(InMemoryDataset):
@@ -201,11 +204,14 @@ class OxidesGraphDataset(InMemoryDataset):
              graph_params: dict[str, Union[dict[str, bool | float], str]],  
              ncores: int=os.cpu_count(), 
              initial_state: bool=False,
+             augment: bool=False,
              force_reload: bool=False):
 
         self.force_reload = force_reload     
         self.initial_state = initial_state
-        self.dataset_id = pyg_dataset_id(vasp_directory, graph_params, initial_state)
+        self.augment = augment
+        
+        self.dataset_id = pyg_dataset_id(vasp_directory, graph_params, initial_state, augment)
         self.vasp_directory = os.path.abspath(vasp_directory)
         self.root = self.vasp_directory
 
@@ -247,27 +253,48 @@ class OxidesGraphDataset(InMemoryDataset):
     @property
     def raw_file_names(self): 
         vasp_files = []
+        
         for root, _, files in os.walk(self.vasp_directory):  
             if self.initial_state:  
+                # Check for "poscar_1" and rename if necessary
                 if "poscar_1" in files:  
                     poscar_1_path = os.path.join(root, "poscar_1")
                     poscar_vasp_path = os.path.join(root, "poscar_1.vasp")
 
-                    # Rename it to poscar_1.vasp if not already done
                     if not os.path.exists(poscar_vasp_path):
                         shutil.copy(poscar_1_path, poscar_vasp_path)  # Copy instead of rename
                         print(f"Copied {poscar_1_path} -> {poscar_vasp_path}")
 
-                    vasp_files.append(poscar_vasp_path)  # Use poscar_1.vasp
+                    vasp_files.append(poscar_vasp_path)
+
+                # Add POSCAR if it exists
                 elif "POSCAR" in files:  
                     vasp_files.append(os.path.join(root, "POSCAR"))
-            
-            else:  # Use CONTCAR
+                
+                # If augment=True, also add CONTCAR if available
+                if self.augment and "CONTCAR" in files:
+                    vasp_files.append(os.path.join(root, "CONTCAR"))
+
+            else:  # Use CONTCAR by default
                 if "CONTCAR" in files:
                     vasp_files.append(os.path.join(root, "CONTCAR"))
 
-        return vasp_files
+                # If augment=True, also check for POSCAR/poscar_1 and rename if necessary
+                if self.augment:
+                    if "poscar_1" in files:  
+                        poscar_1_path = os.path.join(root, "poscar_1")
+                        poscar_vasp_path = os.path.join(root, "poscar_1.vasp")
 
+                        if not os.path.exists(poscar_vasp_path):
+                            shutil.copy(poscar_1_path, poscar_vasp_path)  # Copy instead of rename
+                            print(f"Copied {poscar_1_path} -> {poscar_vasp_path}")
+
+                        vasp_files.append(poscar_vasp_path)
+
+                    elif "POSCAR" in files:  
+                        vasp_files.append(os.path.join(root, "POSCAR"))
+
+        return vasp_files
 
     
     @property
@@ -349,6 +376,8 @@ class OxidesGraphDataset(InMemoryDataset):
                         continue
                     if graph.material != rival.material:
                         continue
+                    if graph.state != rival.state:
+                        continue
                     # if graph.bb_type != rival.bb_type: # for TSs
                     #     continue
                     print("Isomorphism detected for {}".format(graph.formula))
@@ -418,6 +447,8 @@ class OxidesGraphDataset(InMemoryDataset):
         #graph.spin_polarization
 
         metadata = extract_metadata(path)
+
+        graph.state = metadata["state_of_origin"]
 
         graph.material = metadata["material"]
         graph.adsorbate_group = metadata["adsorbate_group"]
