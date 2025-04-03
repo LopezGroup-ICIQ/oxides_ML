@@ -123,6 +123,7 @@ def graph_plotter(graph: Data,
     # Remove frame
     plt.axis('off')
     plt.draw()
+    # plt.savefig('/home/tvanhout/oxides_ML/scripts/example.svg', format='svg')
 
 def remove_2hop_metal_nodes(graph: Data, 
                             adsorbate_elements: list[str] = ["C", "H", "O", "N", "S"]) -> Data:

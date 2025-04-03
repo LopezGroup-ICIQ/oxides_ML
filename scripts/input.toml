@@ -18,7 +18,7 @@ magnetization = false	    # Spin polarization feature (graph level)
 [train]
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
-batch_size = 16              # Batch size (int)
+batch_size = 128              # Batch size (int)
 epochs = 250                # Total number of epochs (int)
 target_scaling = "std"      # Target scaling approach ("std" only available for now) ("std")
 loss_function = "mae"       # Loss function ("mae"/"mse"/"huber") 
@@ -47,7 +47,7 @@ pool_heads = 1              # Number of multihead attention blocks in the poolin
 [data]
 initial_state = true                                                               # use initial state or relaxed state
 augment = true                                                                      # data augmentation (use both POSCAR and CONTCAR in graph dataset)
-force_reload = true                                                                # force reload graph dataset
+force_reload = false                                                                # force reload graph dataset
 vasp_directory = "/BACKUP/database"                                                 # path to root of database
 graph_dataset_path = "/home/tvanhout/oxides_ML/models/graph_datasets"               # path to graph dataset directory
 

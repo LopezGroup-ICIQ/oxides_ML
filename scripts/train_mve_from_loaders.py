@@ -21,6 +21,8 @@ from oxides_ml.nets import GameNetUQ
 from oxides_ml.post_training import create_model_report
 from oxides_ml.dataset import OxidesGraphDataset
 
+torch.serialization.add_safe_globals([DataLoader])
+
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(description="Perform a training process with the provided hyperparameter settings.")
     PARSER.add_argument("-i", "--input", type=str, dest="i", 
@@ -57,16 +59,16 @@ if __name__ == "__main__":
         print("Device name: CPU")
         device_dict["name"] = "CPU"       
 
-    # Load graph dataset 
+    # # Load graph dataset 
     dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state, augment=augment, force_reload=force_reload)
     ohe_elements = dataset.ohe_elements
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
 
 
-    train_loader = load("../trainings/DATALAODERS/train_loader.pth")
-    val_loader = load("../trainings/DATALAODERS/val_loader.pth")
-    test_loader = load("../trainings/DATALAODERS/test_loader.pth")
+    train_loader = load("../models/DATALOADERS/Set1/train_loader.pth", weights_only=False)
+    val_loader = load("../models/DATALOADERS/Set1/val_loader.pth", weights_only=False)
+    test_loader = load("../models/DATALOADERS/Set1/test_loader.pth", weights_only=False)
     
     
     # Target scaling 
