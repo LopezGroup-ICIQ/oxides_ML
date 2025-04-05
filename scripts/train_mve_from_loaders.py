@@ -21,7 +21,7 @@ from oxides_ml.nets import GameNetUQ
 from oxides_ml.post_training import create_model_report
 from oxides_ml.dataset import OxidesGraphDataset
 
-torch.serialization.add_safe_globals([DataLoader])
+# torch.serialization.add_safe_globals([DataLoader])
 
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(description="Perform a training process with the provided hyperparameter settings.")

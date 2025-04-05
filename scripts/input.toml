@@ -18,7 +18,7 @@ magnetization = false	    # Spin polarization feature (graph level)
 [train]
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
-batch_size = 128              # Batch size (int)
+batch_size = 16              # Batch size (int)
 epochs = 250                # Total number of epochs (int)
 target_scaling = "std"      # Target scaling approach ("std" only available for now) ("std")
 loss_function = "mae"       # Loss function ("mae"/"mse"/"huber") 
