@@ -46,10 +46,12 @@ def adsorbate_node_featurizer(graph: Data,
     graph.node_feats.append("adsorbate")
     return graph
 
-def get_gcn(graph: Data, 
-            atoms: Atoms, 
-            surface_indices: list[int], 
-            adsorbate_elements: list[str] = ADSORBATE_ELEMS) -> Data:
+def get_adsorbate_indices(atoms):
+    return []
+
+def get_gcn(graph: Data,
+            atoms: Atoms,  
+            adsorbate_indices: list[int]) -> Data:
     """
     Return the (normalized) generalized coordination number (gcn) for each surface atom in the ASE Atoms object.
     gcn is defined as the sum of the coordination numbers (cn) of the neighbours divided by the maximum coordination number.
@@ -67,47 +69,52 @@ def get_gcn(graph: Data,
         Data: PyG Data object with the gcn as a node feature. Data.x.shape[1] increases by 1.
                 Data.node_feats is also updated.
     """
-    if all([elem in adsorbate_elements for elem in graph.elem]):
+    if graph.type == "gas":  # GAS-MOLECULES
         graph.x = torch.cat((graph.x, torch.zeros((graph.x.shape[0], 1))), dim=1)
         graph.node_feats.append("gcn")
         return graph
-    y = get_voronoi_neighbourlist(atoms, 0.5, 1.0, adsorbate_elements) # only slab atoms are considered
-    adsorbate_elements_indices = [graph.node_feats.index(element) for element in adsorbate_elements]
-    neighbour_dict = {}
-    for idx, atom in enumerate(atoms):
-        cn = 0
-        neighbour_list = []
-        for row in y:
-            if idx in row:
-                neighbour_index = row[0] if row[0] != idx else row[1]
-                if atoms[neighbour_index].symbol not in adsorbate_elements:
-                    cn += 1
-                    neighbour_list.append((atoms[neighbour_index].symbol,
-                                           neighbour_index,
-                                           atoms[neighbour_index].position[2]))
-            else:
+    elif graph.type =="slab":
+        y = get_voronoi_neighbourlist(atoms, 0.5, 1.0, adsorbate_indices) # only slab atoms are considered
+        adsorbate_elements_indices = [graph.node_feats.index(element) for element in adsorbate_elements]
+        neighbour_dict = {}
+        for idx, atom in enumerate(atoms):
+            cn = 0
+            neighbour_list = []
+            for row in y:
+                if idx in row:
+                    neighbour_index = row[0] if row[0] != idx else row[1]
+                    if atoms[neighbour_index].symbol not in adsorbate_elements:
+                        cn += 1
+                        neighbour_list.append((atoms[neighbour_index].symbol,
+                                            neighbour_index,
+                                            atoms[neighbour_index].position[2]))
+                else:
+                    continue
+            neighbour_dict[idx] = (cn, atom.symbol, neighbour_list)
+        max_cn = max([neighbour_dict[i][0] for i in neighbour_dict.keys()])
+        gcn_dict = {}
+        for idx in neighbour_dict.keys():
+            if atoms[idx].symbol in adsorbate_elements:
+                gcn_dict[idx] = (None, neighbour_dict[idx][0])
                 continue
-        neighbour_dict[idx] = (cn, atom.symbol, neighbour_list)
-    max_cn = max([neighbour_dict[i][0] for i in neighbour_dict.keys()])
-    gcn_dict = {}
-    for idx in neighbour_dict.keys():
-        if atoms[idx].symbol in adsorbate_elements:
-            gcn_dict[idx] = (None, neighbour_dict[idx][0])
-            continue
-        cn_sum = 0.0
-        for neighbour in neighbour_dict[idx][2]:
-            cn_sum += neighbour_dict[neighbour[1]][0]
-        gcn_dict[idx] = (cn_sum / max_cn ** 2, neighbour_dict[idx][0])
-    gcn = torch.zeros((graph.x.shape[0], 1))
-    counter = 0
-    for i, node in enumerate(graph.x):
-        index = torch.where(node == 1)[0][0].item()
-        if index not in adsorbate_elements_indices:
-            gcn[i] = gcn_dict[surface_indices[counter]][0]
-            counter += 1
-    graph.x = torch.cat((graph.x, gcn), dim=1)
-    graph.node_feats.append("gcn")
-    return graph
+            cn_sum = 0.0
+            for neighbour in neighbour_dict[idx][2]:
+                cn_sum += neighbour_dict[neighbour[1]][0]
+            gcn_dict[idx] = (cn_sum / max_cn ** 2, neighbour_dict[idx][0])
+        gcn = torch.zeros((graph.x.shape[0], 1))
+        counter = 0
+        for i, node in enumerate(graph.x):
+            index = torch.where(node == 1)[0][0].item()
+            if index not in adsorbate_elements_indices:
+                gcn[i] = gcn_dict[surface_indices[counter]][0]
+                counter += 1
+        graph.x = torch.cat((graph.x, gcn), dim=1)
+        graph.node_feats.append("gcn")
+        return graph
+    else:
+        graph.x = torch.cat((graph.x, gcn), dim=1)
+        graph.node_feats.append("gcn")
+        return graph
 
 def get_gcn2(atoms: Atoms,  
             adsorbate_elements: list[str] = ADSORBATE_ELEMS, 

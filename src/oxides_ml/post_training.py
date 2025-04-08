@@ -72,8 +72,12 @@ def create_model_report(model_name: str,
     if train["target_scaling"] == "std":
         mean_tv = scaling_params[0]
         std_tv = scaling_params[1]
+    elif train["target_scaling"] == "std":
+        min_tv = scaling_params[0]
+        max_tv = scaling_params[1]
     else:
-        pass
+        mean_tv = 0
+        std_tv = 1
 
     if std_lists != None:
         train_std = std_lists[0]

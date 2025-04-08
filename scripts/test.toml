@@ -19,8 +19,8 @@ magnetization = false	    # Spin polarization feature (graph level)
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
 batch_size = 16              # Batch size (int)
-epochs = 250                # Total number of epochs (int)
-target_scaling = "std"      # Target scaling approach ("std" only available for now) ("std")
+epochs = 10                # Total number of epochs (int)
+target_scaling = "none"      # Target scaling approach ("std" only available for now) ("std")
 loss_function = "mae"       # Loss function ("mae"/"mse"/"huber") 
 lr0 = 1e-3                  # Initial learning rate (float)
 patience = 5                # Patience of the lr-scheduler (int)
@@ -41,7 +41,8 @@ sigma = "ReLU"              # Activation function ("ReLU"/"tanh")
 bias = false                # Whether allowing bias in all layer formulas (true/false)
 num_linear = 0              # Number of dense layers at the beginning of the model (int)
 num_conv = 3                # Number of convolutional layers (int)
-pool_heads = 1              # Number of multihead attention blocks in the pooling layer (int)             
+pool_heads = 3              # Number of multihead attention blocks in the pooling layer (int)
+uq = false             
 
 
 [data]

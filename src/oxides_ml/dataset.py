@@ -17,7 +17,7 @@ from sklearn.preprocessing import OneHotEncoder
 from oxides_ml.constants import ADSORBATE_ELEMS, METALS, OHE_ELEMENTS
 from oxides_ml.graph_filters import H_filter, C_filter, fragment_filter, ase_adsorption_filter, is_ring
 from oxides_ml.graph import atoms_to_pyg
-#from oxides_ml.node_featurizers import get_gcn, get_radical_atoms, get_atom_valence, adsorbate_node_featurizer, get_magnetization
+from oxides_ml.node_featurizers import get_gcn, get_radical_atoms, get_atom_valence, adsorbate_node_featurizer, get_magnetization
 from oxides_ml.graph_tools import graph_plotter
 
 
@@ -472,8 +472,8 @@ class OxidesGraphDataset(InMemoryDataset):
         #         graph = get_radical_atoms(graph, adsorbate_elements)
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
-        #     if graph_features_params["gcn"]:
-        #         graph = get_gcn(graph, structure, adsorbate_elements, surf_atoms)
+        if graph_features_params["gcn"]:
+            graph = get_gcn(graph, structure, adsorbate_elements, surf_atoms)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
 

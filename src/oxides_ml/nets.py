@@ -95,7 +95,8 @@ class GameNetUQ(torch.nn.Module):
                  bias: bool = False,
                  conv = SAGEConv, 
                  pool_heads: int = 1, 
-                 seed: int = None):
+                 seed: int = None,
+                 uq: bool = True):
         """
 
         Args:
@@ -112,13 +113,14 @@ class GameNetUQ(torch.nn.Module):
             torch.manual_seed(seed)
         super(GameNetUQ, self).__init__()
         self.sigma = torch.nn.ReLU()     
-
+        self.uq = uq
         self.input_layer = Linear(node_features, dim, bias=bias)
         self.lin_block = torch.nn.ModuleList([Linear(dim, dim, bias=bias) for _ in range(num_linear)])
         self.conv_block = torch.nn.ModuleList([conv(dim, dim, bias=bias) for _ in range(num_conv)])
         self.ts_layer = TAGConv(dim, dim, bias=bias, normalize=False, K=3)
         self.lin_a = Linear(dim, dim, bias=bias) 
-        self.lin_b = Linear(dim, 2, bias=bias)  
+        self.out_dim = 2 if self.uq else 1 
+        self.lin_b = Linear(dim, self.out_dim, bias=bias)  
         self.pma = PMA(channels = dim, 
                        num_heads = pool_heads, 
                        num_seeds = 1, 
@@ -146,7 +148,13 @@ class GameNetUQ(torch.nn.Module):
         mask = (~mask).unsqueeze(1).to(dtype=out.dtype) * -1e9
         out = self.pma(x=batch_x, mask=mask)
         out = self.lin_b(out.squeeze(1))  
-        return Normal(out[:, 0], Softplus()(out[:, 1]))
+
+
+        if self.uq:
+            return Normal(out[:, 0], Softplus()(out[:, 1]))
+        else:
+            return Normal(out[:, 0], 1.0)  # constant uncertainty = no uncertainty -> min(negative log likelihood) = min(MSE)
+        
     
 
 class GameNetUQ_ablation(torch.nn.Module):

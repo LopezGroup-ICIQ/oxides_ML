@@ -58,6 +58,13 @@ if __name__ == "__main__":
 
     # Load graph dataset 
     dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state, augment=augment, force_reload=force_reload)
+
+    # # Filter your data 
+    # filtered_data = [data for data in dataset if data.target < -0.3]
+
+    # # Replace dataset with filtered version
+    # dataset.data, dataset.slices = dataset.collate(filtered_data)
+
     ohe_elements = dataset.ohe_elements
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
@@ -81,7 +88,8 @@ if __name__ == "__main__":
                     dim=architecture["dim"],
                     num_linear=architecture["num_linear"], 
                     num_conv=architecture["num_conv"],    
-                    bias=architecture["bias"]).to(device)
+                    bias=architecture["bias"],
+                    uq = architecture['uq']).to(device)
     initial_params = {name: p.clone() for name, p in model.named_parameters()}  
 
     # Load optimizer, lr-scheduler, and early stopper

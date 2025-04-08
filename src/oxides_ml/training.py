@@ -120,6 +120,8 @@ def scale_target(train_loader: DataLoader,
             graph.y = (graph.target - mean_tv) / std_tv
         elif mode == "norm":
             graph.y = (graph.target - min_tv) / (max_tv - min_tv)
+        elif mode == "none":
+            graph.y = graph.target
         else:
             pass
     for graph in val_loader.dataset:
@@ -127,6 +129,8 @@ def scale_target(train_loader: DataLoader,
             graph.y = (graph.target - mean_tv) / std_tv
         elif mode == "norm":
             graph.y = (graph.target - min_tv) / delta_norm
+        elif mode == "none":
+            graph.y = graph.target
         else:
             pass
     if test:
@@ -135,6 +139,8 @@ def scale_target(train_loader: DataLoader,
                 graph.y = (graph.target - mean_tv) / std_tv
             elif mode == "norm":
                 graph.y = (graph.target - min_tv) / delta_norm
+            elif mode == "none":
+                graph.y = graph.target
             else:
                 pass
     if mode == "std":
@@ -157,7 +163,10 @@ def scale_target(train_loader: DataLoader,
             return train_loader, val_loader, None, min_tv.item(), max_tv.item()
     else:
         print("Target Scaling not applied")
-        return train_loader, val_loader, test_loader, 0, 1
+        if test:
+            return train_loader, val_loader, test_loader, 0, 1
+        else:
+            return train_loader, val_loader, None, 0, 1
 
 
 def train_loop(model: torch.nn.Module,
