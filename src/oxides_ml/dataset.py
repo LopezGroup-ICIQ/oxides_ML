@@ -4,6 +4,9 @@ import shutil
 import subprocess
 import numpy as np
 from typing import Union, Optional
+import pubchempy as pcp
+from collections import Counter
+import re
 
 from torch_geometric.data import InMemoryDataset, Data
 from torch import load, save, tensor
@@ -65,6 +68,7 @@ def pyg_dataset_id(vasp_directory: str,
     
     return dataset_id
 
+# Function to get the parent directory
 def get_parent_dir(path, levels=1):
     for _ in range(levels):
         path = os.path.dirname(path)
@@ -130,6 +134,7 @@ def extract_energy(outcar_path: str):
     return None
 
 
+# Extract Metadata
 def extract_metadata(path: str):
     """
     Extract metadata based on the file path structure.
@@ -153,6 +158,7 @@ def extract_metadata(path: str):
         "facet": None,
         "type": None,
         "spin_polarization": None,
+        #"adsorbate_indices": [],
         "state_of_origin": "initial" if "POSCAR" in path or "poscar_1" in path else "relaxed"
     }
 
@@ -194,7 +200,58 @@ def extract_metadata(path: str):
         metadata["type"] = "adsorbate"
         metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
 
+        #metadata["adsorbate_indices"] = get_adsorbate_indices_from_vasp(path, sum(get_pubchem_formula(metadata["adsorbate_name"]).values()))
+
     return metadata
+
+# Determine adsorption indices
+def get_pubchem_formula(molecule_name):
+    compounds = pcp.get_compounds(molecule_name, 'name')
+    if compounds:
+        pubchem_formula = compounds[0].molecular_formula
+        return parse_pubchem_formula(pubchem_formula)
+    return None
+
+def parse_pubchem_formula(formula):
+    pattern = r'([A-Z][a-z]*)(\d*)'
+    parsed = re.findall(pattern, formula)
+    atom_counts = {element: int(count) if count else 1 for element, count in parsed}
+    return Counter(atom_counts)
+
+def get_adsorbate_indices_from_vasp(filepath, total_adsorbate_atoms):
+    with open(filepath, 'r') as file:
+        lines = file.readlines()
+
+    # POSCAR format: atomic symbols on line 5, atom counts on line 6
+    element_symbols = lines[5].split()
+    atom_counts = list(map(int, lines[6].split()))
+    
+    total_atoms = sum(atom_counts)
+    adsorbate_start_index = total_atoms - total_adsorbate_atoms
+    adsorbate_indices = list(range(adsorbate_start_index, total_atoms))  # 0-based indexing
+
+    return adsorbate_indices
+
+def extract_atom_indices(path: str):
+    """
+    Extract metadata based on the file path structure.
+
+    Args:
+        path (str): The file path of the CONTCAR/POSCAR file.
+
+    Returns:
+        dict: Metadata with 'material', 'adsorbate_group', 'adsorbate_name', "total_energy" (DFT-energy), "slab_energy", "adsorbate_energy", and "adsorption_energy".
+    """
+    parts = path.split(os.sep)
+    molecule_name = parts[-4]
+
+    if "surface_adsorbates" in parts:
+        atom_indices = get_adsorbate_indices_from_vasp(path, sum(get_pubchem_formula(molecule_name).values()))
+    else:
+        atom_indices = []
+
+    return atom_indices
+
 
 class OxidesGraphDataset(InMemoryDataset):
 
@@ -430,6 +487,8 @@ class OxidesGraphDataset(InMemoryDataset):
         elements_list = list(ohe_elements.categories_[0])
         node_features_list = list(ohe_elements.categories_[0]) 
         
+        adsorbate_indices = extract_atom_indices(path)
+
         # append to node_features_list the key features whose value is True, in uppercase
         for key, value in graph_features_params.items():
             if value:
@@ -464,6 +523,8 @@ class OxidesGraphDataset(InMemoryDataset):
         graph.ads_energy = tensor([metadata["adsorption_energy"]]) if metadata["adsorption_energy"] is not None else tensor([0.0])
         graph.target = tensor([metadata[self.target]]) if metadata[self.target] is not None else tensor([0.0])
 
+        graph.adsorbate_indices = adsorbate_indices
+
         # # NODE FEATURIZATION
         # try:
         #     if graph_features_params["adsorbate"]:
@@ -472,8 +533,8 @@ class OxidesGraphDataset(InMemoryDataset):
         #         graph = get_radical_atoms(graph, adsorbate_elements)
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
-        if graph_features_params["gcn"]:
-            graph = get_gcn(graph, structure, adsorbate_elements, surf_atoms)
+        # if graph_features_params["gcn"]:
+        #     graph = get_gcn(graph, structure, adsorbate_elements, surf_atoms)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
 
