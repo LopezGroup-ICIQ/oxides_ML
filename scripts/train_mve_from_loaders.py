@@ -66,9 +66,9 @@ if __name__ == "__main__":
     num_node_features = len(node_feature_list)
 
 
-    train_loader = load("../models/DATALOADERS/Set3/train_loader.pth", weights_only=False)
-    val_loader = load("../models/DATALOADERS/Set3/val_loader.pth", weights_only=False)
-    test_loader = load("../models/DATALOADERS/Set3/test_loader.pth", weights_only=False)
+    train_loader = load("../models/DATALOADERS/initial/Set3/train_loader.pth", weights_only=False)
+    val_loader = load("../models/DATALOADERS/initial/Set3/val_loader.pth", weights_only=False)
+    test_loader = load("../models/DATALOADERS/initial/Set3/test_loader.pth", weights_only=False)
     
     
     # Target scaling 

@@ -1,0 +1,48 @@
+[graph]
+target = "adsorption_energy"
+
+[train]
+splits = 5
+test_set = true
+batch_size = 16
+epochs = 250
+target_scaling = "std"
+loss_function = "mae"
+lr0 = 0.0001
+patience = 5
+factor = 0.7
+minlr = 1e-7
+eps = 1e-9
+weight_decay = 0
+amsgrad = true
+early_stopping = false
+es_patience = 10
+es_start_epoch = 100
+num_ensembles = 1
+
+[architecture]
+dim = 128
+sigma = "ReLU"
+bias = false
+num_linear = 0
+num_conv = 3
+pool_heads = 1
+
+[data]
+initial_state = true
+augment = true
+force_reload = false
+vasp_directory = "/BACKUP/database"
+graph_dataset_path = "/home/tvanhout/oxides_ML/models/graph_datasets"
+
+[graph.structure]
+tolerance = 0.25
+scaling_factor = 1.25
+second_order = true
+
+[graph.features]
+adsorbate = false
+radical = false
+valence = false
+gcn = false
+magnetization = false

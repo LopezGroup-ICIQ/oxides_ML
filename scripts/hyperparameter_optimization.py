@@ -5,7 +5,7 @@ import subprocess
 
 # Path to the template input file
 input_template = "input.toml"
-output_base_dir = "../models/hyperparameter_optimization/Set3"
+output_base_dir = "../models/hyperparameter_optimization/initial/Set3"
 
 # Define multiple hyperparameters and their respective values
 hyperparams_to_test = {

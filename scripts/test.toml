@@ -25,7 +25,7 @@ loss_function = "mae"       # Loss function ("mae"/"mse"/"huber")
 lr0 = 1e-3                  # Initial learning rate (float)
 patience = 5                # Patience of the lr-scheduler (int)
 factor = 0.7                # Decreasing factor of the lr-scheduler (float)
-minlr = 1e-5                # Minimum lr of the lr-scheduler (float)
+minlr = 1e-7                # Minimum lr of the lr-scheduler (float)
 eps = 1e-9                  # Adam eps for ensuring numerical stability of the algorithm (float)
 weight_decay = 0            # Weight decay (see implementation in pytorch docs) (float)
 amsgrad = true              # Include amsgrad addition of adam optimizer (true/false)
@@ -36,11 +36,11 @@ num_ensembles = 1           # Number of ensembles (int). Needed only when traini
 
 
 [architecture]
-dim = 64                   # Layers' width (int)
+dim = 128                   # Layers' width (int)
 sigma = "ReLU"              # Activation function ("ReLU"/"tanh")
 bias = false                # Whether allowing bias in all layer formulas (true/false)
 num_linear = 0              # Number of dense layers at the beginning of the model (int)
-num_conv = 4                # Number of convolutional layers (int)
+num_conv = 3                # Number of convolutional layers (int)
 pool_heads = 1              # Number of multihead attention blocks in the pooling layer (int)             
 
 
