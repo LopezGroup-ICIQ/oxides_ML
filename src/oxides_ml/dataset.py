@@ -502,8 +502,6 @@ class OxidesGraphDataset(InMemoryDataset):
                                             adsorbate_elements)  
         graph.formula = formula
         graph.node_feats = node_features_list
-        
-        #graph.spin_polarization
 
         metadata = extract_metadata(path)
 

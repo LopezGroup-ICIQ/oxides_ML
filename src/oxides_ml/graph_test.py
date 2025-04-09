@@ -129,7 +129,14 @@ def atoms_to_nx(atoms: Atoms,
 
     # Construct the graph from adsorbate + relevant surface atoms
     graph = Graph()
-    graph_nodes = list(adsorbate_idxs | surface_neighbours_idxs)
+
+    # graph_nodes = list(adsorbate_idxs | surface_neighbours_idxs)
+
+    if len(adsorbate_idxs) == 0:
+        graph_nodes = list(range(len(atoms)))  # Use all atoms for bare slab
+    else:
+        graph_nodes = list(adsorbate_idxs | surface_neighbours_idxs)
+    
     graph.add_nodes_from(graph_nodes)
     set_node_attributes(graph, {i: atoms[i].symbol for i in graph_nodes}, "elem")
 
@@ -172,6 +179,9 @@ def atoms_to_pyg(atoms: Atoms,
     nx, surface_neighbors, bb_idxs = atoms_to_nx(atoms, voronoi_tol, scaling_factor, second_order, adsorbate_indices, calc_type)
 
     elem_list = list(get_node_attributes(nx, "elem").values())
+    if len(elem_list) == 0:
+        raise ValueError(f"No atoms found in graph — check adsorbate_indices and system type.")
+    
     elem_array = np.array(elem_list).reshape(-1, 1)
     elem_enc = one_hot_encoder.transform(elem_array).toarray()
     x = torch.from_numpy(elem_enc).float()
