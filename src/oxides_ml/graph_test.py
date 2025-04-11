@@ -52,9 +52,19 @@ def get_voronoi_neighbourlist(atoms: Atoms,
     pairs_corr = np.delete(pairs_corr, np.argwhere(pairs_corr[:, 0] == pairs_corr[:, 1]), axis=0)
 
     increment = 0
-    if len(adsorbate_indices) == 0 or len(adsorbate_indices) == len(atoms):
+    if num_adsorbate_atoms == 0 or num_adsorbate_atoms == len(atoms):
         return np.sort(np.array(pairs_corr), axis=1)
     
+    # if num_adsorbate_atoms == 0 or num_adsorbate_atoms == len(atoms):
+    #     pairs = []
+    #     for i, j in pairs_corr:
+    #         atom1, atom2 = atoms[i].symbol, atoms[j].symbol
+    #         threshold = CORDERO[atom1] + CORDERO[atom2] + tol
+    #         distance = atoms.get_distance(i, j, mic=mic)
+    #         if distance <= threshold:
+    #             pairs.append([i, j])
+    #     return np.sort(np.array(pairs), axis=1)
+
     while True:
         pairs = []
         for pair in pairs_corr:

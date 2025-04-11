@@ -18,11 +18,10 @@ from ase import Atoms
 from sklearn.preprocessing import OneHotEncoder
 
 from oxides_ml.constants import ADSORBATE_ELEMS, METALS, OHE_ELEMENTS
-from oxides_ml.graph_filters import H_filter, C_filter, fragment_filter, ase_adsorption_filter, is_ring
-from oxides_ml.graph import atoms_to_pyg
-from oxides_ml.node_featurizers import get_gcn, get_radical_atoms, get_atom_valence, adsorbate_node_featurizer, get_magnetization
+#from oxides_ml.graph_filters import H_filter, C_filter, fragment_filter, ase_adsorption_filter, is_ring
+from oxides_ml.graph_care import atoms_to_pyg
+from oxides_ml.node_featurizers import get_gcn
 from oxides_ml.graph_tools import graph_plotter
-
 
 def pyg_dataset_id(vasp_directory: str, 
                    graph_params: dict,
@@ -35,7 +34,7 @@ def pyg_dataset_id(vasp_directory: str,
         vasp_directory (str): Path to the directory containing VASP simulation files.
         graph_params (dict): Dictionary containing the information for the graph generation 
                              in the format:
-                            {"structure": {"tolerance": float, "scaling_factor": float, "second_order": int},
+                            {"structure": {"tolerance": float, "scaling_factor": float, "surface_order": int},
                              "features": {"encoder": OneHotEncoder, "adsorbate": bool, "ring": bool, "aromatic": bool, "radical": bool, "valence": bool, "facet": bool}}
     Returns:
         dataset_id (str): PyG dataset identifier.
@@ -47,7 +46,7 @@ def pyg_dataset_id(vasp_directory: str,
     structure_params = graph_params["structure"]
     tolerance = str(structure_params["tolerance"]).replace(".", "")
     scaling_factor = str(structure_params["scaling_factor"]).replace(".", "")
-    second_order_nn = str(structure_params["second_order"])
+    surface_order_nn = str(structure_params["surface_order"])
     
     # Extract node features parameters
     features_params = graph_params["features"]
@@ -62,7 +61,7 @@ def pyg_dataset_id(vasp_directory: str,
     
     # Generate dataset ID
     dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
-        id, target, tolerance, scaling_factor, second_order_nn, 
+        id, target, tolerance, scaling_factor, surface_order_nn, 
         adsorbate, radical, valence, gcn, mag, state_tag, augment_tag
     )
     
@@ -158,7 +157,6 @@ def extract_metadata(path: str):
         "facet": None,
         "type": None,
         "spin_polarization": None,
-        #"adsorbate_indices": [],
         "state_of_origin": "initial" if "POSCAR" in path or "poscar_1" in path else "relaxed"
     }
 
@@ -199,8 +197,6 @@ def extract_metadata(path: str):
         metadata["facet"] = "110"
         metadata["type"] = "adsorbate"
         metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
-
-        #metadata["adsorbate_indices"] = get_adsorbate_indices_from_vasp(path, sum(get_pubchem_formula(metadata["adsorbate_name"]).values()))
 
     return metadata
 
@@ -243,10 +239,19 @@ def extract_atom_indices(path: str):
         dict: Metadata with 'material', 'adsorbate_group', 'adsorbate_name', "total_energy" (DFT-energy), "slab_energy", "adsorbate_energy", and "adsorption_energy".
     """
     parts = path.split(os.sep)
-    molecule_name = parts[-4]
-
     if "surface_adsorbates" in parts:
-        atom_indices = get_adsorbate_indices_from_vasp(path, sum(get_pubchem_formula(molecule_name).values()))
+        molecule_name = parts[-4]
+    elif "gas_phase" in parts:
+        molecule_name = parts[-2]
+    else:
+        molecule_name = "None"
+
+    if "surface_adsorbates" in parts or "gas_phase" in parts:
+        parsed_formula = get_pubchem_formula(molecule_name)
+        if parsed_formula:
+            atom_indices = get_adsorbate_indices_from_vasp(path, sum(parsed_formula.values()))
+        else:
+            atom_indices = []
     else:
         atom_indices = []
 
@@ -435,6 +440,9 @@ class OxidesGraphDataset(InMemoryDataset):
                         continue
                     if graph.state != rival.state:
                         continue
+                    if graph.adsorbate_name != "None":
+                        if graph.adsorbate_name != rival.adsorbate_name:
+                            continue
                     # if graph.bb_type != rival.bb_type: # for TSs
                     #     continue
                     print("Isomorphism detected for {}".format(graph.formula))
@@ -497,9 +505,9 @@ class OxidesGraphDataset(InMemoryDataset):
                                             calc_type,
                                             graph_structure_params["tolerance"], 
                                             graph_structure_params["scaling_factor"],
-                                            graph_structure_params["second_order"], 
+                                            graph_structure_params["surface_order"], 
                                             ohe_elements, 
-                                            adsorbate_elements)  
+                                            adsorbate_indices)  
         graph.formula = formula
         graph.node_feats = node_features_list
 
@@ -524,15 +532,15 @@ class OxidesGraphDataset(InMemoryDataset):
         graph.adsorbate_indices = adsorbate_indices
 
         # # NODE FEATURIZATION
-        # try:
+        try:
         #     if graph_features_params["adsorbate"]:
         #         graph = adsorbate_node_featurizer(graph, adsorbate_elements)
         #     if graph_features_params["radical"]:
         #         graph = get_radical_atoms(graph, adsorbate_elements)
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
-        # if graph_features_params["gcn"]:
-        #     graph = get_gcn(graph, structure, adsorbate_elements, surf_atoms)
+            if graph_features_params["gcn"]:
+                graph = get_gcn(graph, structure)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
 
@@ -540,9 +548,9 @@ class OxidesGraphDataset(InMemoryDataset):
         #     for filter in [H_filter, C_filter]:
         #         if not filter(graph, adsorbate_elements):
         #             return None
-        #     return graph
-        # except:
-        #     print("Error in node featurization for {}\n".format(formula))
-        #     return None
+            return graph
+        except:
+            print("Error in node featurization for {}\n".format(formula))
+            return None
         
-        return graph
+        # return graph
