@@ -13,54 +13,49 @@ from networkx import is_connected, cycle_basis
 
 from oxides_ml.constants import ADSORBATE_ELEMS
 
+def fragment_filter(graph: Data) -> bool:
+    """Check if adsorbate is fragmented in the graph using adsorbate_indices.
 
-def extract_adsorbate(graph: Data,
-                     adsorbate_elems: list[str] = ADSORBATE_ELEMS) -> bool:
-    """Extract adsorbate from the adsorption graph (adsorbate+surface).
-    
     Args:
-        graph(Data): Adsorption graph. It must contain a 'elem' attribute, which is a list
-            of atomic elements in the graph.
-        adsorbate_elems(list[str]): List of atomic elements that adsorbates can contain.
-        
-    Returns:
-        (Data): Adsorbate graph."""
-    
-    assert graph.elem is not None, "elem should not be None"
-    adsorbate_nodes = [node_idx for node_idx in range(graph.num_nodes) if graph.elem[node_idx] in adsorbate_elems]
-    new_graph = graph.subgraph(tensor(adsorbate_nodes))
-    new_elem = [graph.elem[i] for i in range(len(graph.elem)) if i in adsorbate_nodes]
-    new_graph.elem = new_elem
-    return new_graph
-
-
-def fragment_filter(graph: Data, 
-                    adsorbate_elems: list[str] = ADSORBATE_ELEMS) -> bool:
-    """Check adsorbate fragmentation in the graph.
-    Args:
-        graph(Data): Adsorption graph.
-        adsorbate_elems(list[str]): List of atomic elements in the adsorbate.
+        graph (Data): Adsorption graph with graph.adsorbate_indices defined.
 
     Returns:
-        (bool): True = Adsorbate is not fragmented
-                False = Adsorbate is fragmented
+        bool: True = adsorbate is not fragmented, False = fragmented.
     """
-
-    assert graph.x is not None, "x should not be None"
-    assert graph.num_nodes is not None, "num_nodes should not be None"
-    adsorbate = extract_adsorbate(graph, adsorbate_elems)
+    # Subgraph made from adsorbate atoms
+    adsorbate = extract_adsorbate(graph)
     graph_nx = to_networkx(adsorbate, to_undirected=True)
+
     if adsorbate.num_nodes != 1 and adsorbate.num_edges != 0:
         if is_connected(graph_nx):
             return True
         else:
-            print(f"{graph.formula}: Fragmented adsorbate.\n".format(
-                graph.formula))
+            print(f"{graph.formula}: Fragmented adsorbate.\n")
             return False
     else:
         return True
-    
 
+def extract_adsorbate(graph: Data) -> Data:
+    """Extract the adsorbate subgraph from the graph using adsorbate_indices.
+
+    Converts ASE atom indices to graph node indices before subgraph extraction.
+
+    Args:
+        graph (Data): Graph with `graph.adsorbate_indices` and `graph.ase_atom_indices` defined.
+
+    Returns:
+        Data: Subgraph containing only the adsorbate atoms.
+    """
+    # graph.ase_atom_indices maps graph nodes → ASE atom indices
+    ase_to_graph = {ase_idx.item(): node_idx for node_idx, ase_idx in enumerate(graph.ase_atom_indices)}
+
+    try:
+        adsorbate_node_indices = [ase_to_graph[idx] for idx in graph.adsorbate_indices]
+    except KeyError as e:
+        raise IndexError(f"ASE index {e} not found in graph's ase_atom_indices.") from e
+
+    return graph.subgraph(tensor(adsorbate_node_indices, dtype=torch.long))
+    
 def is_ring(graph: Data, 
             adsorbate_elems: list[str] = ADSORBATE_ELEMS) -> bool:
     """Check if the adsorbate molecule contains a ring."""

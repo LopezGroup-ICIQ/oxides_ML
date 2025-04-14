@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import shutil
 import subprocess
 import numpy as np
@@ -228,32 +229,53 @@ def get_adsorbate_indices_from_vasp(filepath, total_adsorbate_atoms):
 
     return adsorbate_indices
 
-def extract_atom_indices(path: str):
+CACHE_FILE = "adsorbate_indices_cache.json"
+
+# Load or initialize the cache
+if os.path.exists(CACHE_FILE):
+    with open(CACHE_FILE, "r") as f:
+        index_cache = json.load(f)
+else:
+    index_cache = {}
+
+def extract_atom_indices(path: str) -> list[int]:
     """
-    Extract metadata based on the file path structure.
+    Extract adsorbate atom indices, with caching based on molecule name and context.
 
     Args:
-        path (str): The file path of the CONTCAR/POSCAR file.
+        path (str): Path to the POSCAR/CONTCAR file.
 
     Returns:
-        dict: Metadata with 'material', 'adsorbate_group', 'adsorbate_name', "total_energy" (DFT-energy), "slab_energy", "adsorbate_energy", and "adsorption_energy".
+        list[int]: List of adsorbate atom indices.
     """
     parts = path.split(os.sep)
+
     if "surface_adsorbates" in parts:
         molecule_name = parts[-4]
+        context = "surface_adsorbates"
     elif "gas_phase" in parts:
         molecule_name = parts[-2]
+        context = "gas_phase"
     else:
-        molecule_name = "None"
+        return []
 
-    if "surface_adsorbates" in parts or "gas_phase" in parts:
-        parsed_formula = get_pubchem_formula(molecule_name)
-        if parsed_formula:
-            atom_indices = get_adsorbate_indices_from_vasp(path, sum(parsed_formula.values()))
-        else:
-            atom_indices = []
+    cache_key = f"{molecule_name}__{context}"
+
+    # Use cache if available
+    if cache_key in index_cache:
+        return index_cache[cache_key]
+
+    # Otherwise, compute and cache
+    parsed_formula = get_pubchem_formula(molecule_name)
+    if parsed_formula:
+        total_atoms = sum(parsed_formula.values())
+        atom_indices = get_adsorbate_indices_from_vasp(path, total_atoms)
     else:
         atom_indices = []
+
+    index_cache[cache_key] = atom_indices
+    with open(CACHE_FILE, "w") as f:
+        json.dump(index_cache, f, indent=2)
 
     return atom_indices
 

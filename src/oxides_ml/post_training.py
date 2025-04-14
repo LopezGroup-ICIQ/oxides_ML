@@ -144,15 +144,17 @@ def create_model_report(model_name: str,
     #val_bb_list = [graph.bb_type for graph in val_loader.dataset]
     train_material_list = [graph.material for graph in train_loader.dataset]
     val_material_list = [graph.material for graph in val_loader.dataset]
+    train_state_list = [graph.state for graph in train_loader.dataset]
+    val_state_list =  [graph.state for graph in val_loader.dataset]
     
     with open("{}/{}/train_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, train_adsorbate_group_list, train_adsorbate_name_list, z_true, z_pred, error_train, abs_error_train))    
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, train_adsorbate_group_list, train_adsorbate_name_list, train_state_list, z_true, z_pred, error_train, abs_error_train))    
     with open("{}/{}/validation_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule","True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, val_adsorbate_group_list, val_adsorbate_name_list, b_true, b_pred, error_val, abs_error_val))
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, val_adsorbate_group_list, val_adsorbate_name_list, val_state_list ,b_true, b_pred, error_val, abs_error_val))
 
     # MAE trend during training
     train_list = mae_lists[0]
@@ -229,6 +231,7 @@ def create_model_report(model_name: str,
     test_adsorbate_name_list = [graph.adsorbate_name for graph in test_loader.dataset]
     #test_bb_list = [graph.bb_type for graph in test_loader.dataset]
     test_material_list = [graph.material for graph in test_loader.dataset]
+    test_state_list = [graph.state for graph in test_loader.dataset]
     N_test = len(test_loader.dataset)  
     N_tot = N_train + N_val + N_test    
     w_pred, w_true = [], []  # Test set
@@ -249,52 +252,66 @@ def create_model_report(model_name: str,
     # Save test set error of the samples            
     with open("{}/{}/test_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, test_adsorbate_group_list, test_adsorbate_name_list, y_true, y_pred, error_test, abs_error_test))   
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, test_adsorbate_group_list, test_adsorbate_name_list, test_state_list, y_true, y_pred, error_test, abs_error_test))   
 
-    formula, material, surface, molecule_group, molecule, y_true, y_mean, y_std, y_min, y_max, in_interval, error = [], [], [], [], [], [], [], [], [], [], [], []
-    for graph in test_loader.dataset:
-        formula.append(graph.formula)
-        material.append(graph.material)
-        surface.append(graph.facet)
-        molecule_group.append(graph.adsorbate_group)
-        molecule.append(graph.adsorbate_name)
-        #bb.append(graph.bb_type)
-        y_true.append(graph.target.numpy()[0])
-        y_mean.append(model(graph).mean.cpu().detach().numpy()[0] * std_tv + mean_tv)
-        y_std.append(model(graph).stddev.cpu().detach().numpy()[0] * std_tv)
-        # Get confidence interval for each prediction based on the std and mean at confidence level 95%
-        y_min.append(y_mean[-1] - 1.96 * y_std[-1])
-        y_max.append(y_mean[-1] + 1.96 * y_std[-1])
-        # Check if the true value is in the confidence interval
-        in_interval.append(
-            (y_min[-1] < y_true[-1] < y_max[-1])
-        )
-        error.append(y_true[-1] - y_mean[-1])
 
-    df = pd.DataFrame(
-        {
-            "formula": formula,
-            "material": material,
-            "surface": surface,
-            "molecule_group": molecule_group,
-            "molecule": molecule,
-            #"bb": bb,
-            "y_true": y_true,
-            "y_mean": y_mean,
-            "error": error,
-            "y_std": y_std,
-            "y_min": y_min,
-            "y_max": y_max,
-            "in_interval": in_interval,
+    # Collect UQ data
+    def collect_uq_data(loader, split_label):
+        records = {
+            "formula": [], "material": [], "surface": [], "molecule_group": [], "molecule": [], "state": [],
+            "y_true": [], "y_mean": [], "y_std": [], "y_min": [], "y_max": [], "in_interval": [], "error": [],
+            "split": []
         }
-    )
+
+        for graph in loader.dataset:
+            records["formula"].append(graph.formula)
+            records["material"].append(graph.material)
+            records["surface"].append(graph.facet)
+            records["molecule_group"].append(graph.adsorbate_group)
+            records["molecule"].append(graph.adsorbate_name)
+            records["state"].append(graph.state)
+
+            y_t = graph.target.numpy()[0]
+            y_pred = model(graph)
+            y_m = y_pred.mean.cpu().detach().numpy()[0] * std_tv + mean_tv
+            y_s = y_pred.stddev.cpu().detach().numpy()[0] * std_tv
+            y_min = y_m - 1.96 * y_s
+            y_max = y_m + 1.96 * y_s
+
+            records["y_true"].append(y_t)
+            records["y_mean"].append(y_m)
+            records["y_std"].append(y_s)
+            records["y_min"].append(y_min)
+            records["y_max"].append(y_max)
+            records["in_interval"].append(y_min < y_t < y_max)
+            records["error"].append(y_t - y_m)
+            records["split"].append(split_label)
+
+        return pd.DataFrame(records)
+
+    # Collect UQ data for all splits
+    df_train = collect_uq_data(train_loader, "train")
+    df_val = collect_uq_data(val_loader, "val")
+    df_test = collect_uq_data(test_loader, "test")
+
+    # Combine all into a single DataFrame
+    df = pd.concat([df_train, df_val, df_test], ignore_index=True)
+
+    # Add normalized residuals
     df["norm_res"] = df["error"] / df["y_std"]
-    sha = ((np.sum(df["y_std"].pow(2))) / len(df)) ** 0.5  # Sharpness [eV]
-    mu_std = df["y_std"].mean()
-    cv = (np.sum(df["y_std"].array - mu_std) ** 2.0 / (len(df) - 1.0)) ** 0.5 / mu_std  # Coefficient of variation [-]
+
+    # Save the UQ CSV
+    df.to_csv("{}/{}/uq.csv".format(model_path, model_name), index=False)
+
+    # Compute metrics just on the test set
+    df_test_only = df[df["split"] == "test"]
+    sha = ((np.sum(df_test_only["y_std"].pow(2))) / len(df_test_only)) ** 0.5 # Sharpness [eV]
+    mu_std = df_test_only["y_std"].mean()
+    cv = (np.sum(df_test_only["y_std"].array - mu_std) ** 2.0 / (len(df_test_only) - 1.0)) ** 0.5 / mu_std # Coefficient of variation [-]
+
     x = np.linspace(-6.0, 6.0, 100000)
-    CDF_observed = [np.sum(df["norm_res"] < i) / len(df) for i in x]
+    CDF_observed = [np.sum(df_test_only["norm_res"] < i) / len(df_test_only) for i in x]
     CDF_theoretical = (1 + torch.erf(torch.tensor(x / np.sqrt(2)))) / 2
     CDF_observed = np.array(CDF_observed)
     CDF_theoretical = np.array(CDF_theoretical)
@@ -303,7 +320,8 @@ def create_model_report(model_name: str,
     CDF_theoretical[np.where(CDF_theoretical == 0)] = 1e-10
     CDF_theoretical[np.where(CDF_theoretical == 1)] = 1 - 1e-10
     miscalibration_area = np.sum(np.abs(CDF_observed - CDF_theoretical)) / len(CDF_observed)
-    df.to_csv("{}/{}/uq.csv".format(model_path, model_name), index=False)
+
+
     # Performance Report
     file1 = open("{}/{}/performance.txt".format(model_path, model_name), "w")
     file1.write(run_period)

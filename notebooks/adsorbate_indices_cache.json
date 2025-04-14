@@ -1,0 +1,760 @@
+{
+  "Acetaldehyde__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Ethanol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Formaldehyde__gas_phase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "Methanol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Propan-2-ol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "Propan-2-one__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "Methoxymethane__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Acetylene__gas_phase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "Ethane__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "Ethene__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Methane__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "Prop-1-yne__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Propane__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "Propylene__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Acetamide__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Formamide__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Acetimidamide__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "Formimidamide__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Ethanamine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "Methanamine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Trimethylamine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "Propan-2-amine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "Carbamic-acid__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Acetic-acid__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "Carbonic-acid__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Formic-acid__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "Ethanimine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "Methanimine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "N-methylmethanimine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "Propan-2-imine__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "Formaldoxime__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Dimethylsulfane__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Ethanethial__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "Ethanethiol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "Methanethial__gas_phase": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "Methanethiol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "Propane-2-thione__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "Propane-2-thiol__gas_phase": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "Acetaldehyde__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Ethanol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Formaldehyde__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "Methanol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Propan-2-ol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "Propan-2-one__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "Methoxymethane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Acetylene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "Ethane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "Ethene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Methane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "Prop-1-yne__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Propane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "Propylene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Acetamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Formamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Acetimidamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "Formimidamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Ethanamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "Methanamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Trimethylamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132
+  ],
+  "Propan-2-amine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132
+  ],
+  "Carbamic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Acetic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "Carbonic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Formic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "Ethanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "Methanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "N-methylmethanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "Propan-2-imine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "Formaldoxime__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Dimethylsulfane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Ethanethial__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "Ethanethiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "Methanethial__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "Methanethiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "Propane-2-thione__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "Propane-2-thiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ]
+}

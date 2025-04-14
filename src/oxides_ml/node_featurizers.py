@@ -71,52 +71,50 @@ def get_gcn(graph: Data,
         graph.node_feats.append("gcn")
         return graph
 
-    elif graph.type == "slab" or graph.type == "adsorbate":
-        # Use the Voronoi neighbourlist to get the coordination of slab atoms (excluding adsorbate atoms)
-        y = get_voronoi_neighbourlist(atoms, 0.5, 1.0, graph.adsorbate_indices)  # Only slab atoms are considered
-        neighbour_dict = {}
+    # Use the Voronoi neighbourlist to get the coordination of slab atoms (excluding adsorbate atoms)
+    y = get_voronoi_neighbourlist(atoms, 1.5, 1.0, graph.adsorbate_indices)  # Only slab atoms are considered
+    neighbour_dict = {}
 
-        for idx, atom in enumerate(atoms):
-            if idx in graph.adsorbate_indices:  # Skip adsorbate atoms
-                continue
-            
-            cn = 0
-            neighbour_list = []
-            for row in y:
-                if idx in row:
-                    neighbour_index = row[0] if row[0] != idx else row[1]
-                    if neighbour_index not in graph.adsorbate_indices:  # Exclude adsorbate atoms from the neighbours
-                        cn += 1
-                        neighbour_list.append((atoms[neighbour_index].symbol, neighbour_index, atoms[neighbour_index].position[2]))
-            neighbour_dict[idx] = (cn, atom.symbol, neighbour_list)
+    all_indices = set(range(len(atoms)))
+    adsorbate_set = set(graph.adsorbate_indices)
+    surface_indices = list(all_indices - adsorbate_set)
 
-        max_cn = max([neighbour_dict[i][0] for i in neighbour_dict.keys()])
+    for idx, atom in enumerate(atoms):  
+        cn = 0
+        neighbour_list = []
+        for row in y:
+            if idx in row:
+                neighbour_index = row[0] if row[0] != idx else row[1]
+                if neighbour_index not in graph.adsorbate_indices:  # Exclude adsorbate atoms from the neighbours
+                    cn += 1
+                    neighbour_list.append((atoms[neighbour_index].symbol, neighbour_index, atoms[neighbour_index].position[2]))
+                else:
+                    continue
+        neighbour_dict[idx] = (cn, atom.symbol, neighbour_list)
 
-        gcn_dict = {}
-        for idx in neighbour_dict.keys():
-            cn_sum = 0.0
-            for neighbour in neighbour_dict[idx][2]:
-                cn_sum += neighbour_dict[neighbour[1]][0]
-            gcn_dict[idx] = (cn_sum / max_cn ** 2, neighbour_dict[idx][0])
+    max_cn = max([neighbour_dict[i][0] for i in neighbour_dict.keys()])
 
-        # Create a tensor for gcn values and assign them to graph.x
-        gcn = torch.zeros((graph.x.shape[0], 1))
-        counter = 0
-        for i, node in enumerate(graph.x):
-            index = torch.where(node == 1)[0][0].item()
-            if index in graph.adsorbate_indices:
-                gcn[i] = torch.tensor([None])  # For adsorbates, set gcn as None
-            else:
-                gcn[i] = gcn_dict.get(index, (None, 0))[0]  # Default to None if no CN found
+    gcn_dict = {}
+    for idx in neighbour_dict.keys():
+        if idx in graph.adsorbate_indices:
+            gcn_dict[idx] = (None, neighbour_dict[idx][0])
+            continue
+        cn_sum = 0.0
+        for neighbour in neighbour_dict[idx][2]:
+            cn_sum += neighbour_dict[neighbour[1]][0]
+        gcn_dict[idx] = (cn_sum / max_cn ** 2, neighbour_dict[idx][0])
 
-        graph.x = torch.cat((graph.x, gcn), dim=1)
-        graph.node_feats.append("gcn")
-        return graph
-
-    else:
-        graph.x = torch.cat((graph.x, gcn), dim=1)
-        graph.node_feats.append("gcn")
-        return graph
+    # Create a tensor for gcn values and assign them to graph.x
+    gcn = torch.zeros((graph.x.shape[0], 1))
+    counter = 0
+    for i, node in enumerate(graph.x):
+        index = torch.where(node == 1)[0][0].item()
+        if index not in graph.adsorbate_indices:
+            gcn[i] = gcn_dict[surface_indices[counter]][0]
+            counter += 1
+    graph.x = torch.cat((graph.x, gcn), dim=1)
+    graph.node_feats.append("gcn")
+    return graph
 
 def get_gcn2(atoms: Atoms,  
             adsorbate_elements: list[str] = ADSORBATE_ELEMS, 
