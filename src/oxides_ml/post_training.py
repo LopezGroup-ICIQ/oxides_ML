@@ -146,15 +146,17 @@ def create_model_report(model_name: str,
     val_material_list = [graph.material for graph in val_loader.dataset]
     train_state_list = [graph.state for graph in train_loader.dataset]
     val_state_list =  [graph.state for graph in val_loader.dataset]
+    train_dissociation_list = [graph.dissociation for graph in train_loader.dataset]
+    val_dissociation_list = [graph.dissociation for graph in val_loader.dataset]
     
     with open("{}/{}/train_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, train_adsorbate_group_list, train_adsorbate_name_list, train_state_list, z_true, z_pred, error_train, abs_error_train))    
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State", "Dissociation" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(train_label_list, train_material_list, train_facet_list, train_adsorbate_group_list, train_adsorbate_name_list, train_state_list, train_dissociation_list, z_true, z_pred, error_train, abs_error_train))    
     with open("{}/{}/validation_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, val_adsorbate_group_list, val_adsorbate_name_list, val_state_list ,b_true, b_pred, error_val, abs_error_val))
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State", "Dissociation", "True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(val_label_list, val_material_list, val_facet_list, val_adsorbate_group_list, val_adsorbate_name_list, val_state_list, val_dissociation_list, b_true, b_pred, error_val, abs_error_val))
 
     # MAE trend during training
     train_list = mae_lists[0]
@@ -232,6 +234,7 @@ def create_model_report(model_name: str,
     #test_bb_list = [graph.bb_type for graph in test_loader.dataset]
     test_material_list = [graph.material for graph in test_loader.dataset]
     test_state_list = [graph.state for graph in test_loader.dataset]
+    test_dissociation_list = [graph.dissociation for graph in test_loader.dataset]
     N_test = len(test_loader.dataset)  
     N_tot = N_train + N_val + N_test    
     w_pred, w_true = [], []  # Test set
@@ -252,8 +255,8 @@ def create_model_report(model_name: str,
     # Save test set error of the samples            
     with open("{}/{}/test_set.csv".format(model_path, model_name), "w") as file4:
         writer = csv.writer(file4)
-        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
-        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, test_adsorbate_group_list, test_adsorbate_name_list, test_state_list, y_true, y_pred, error_test, abs_error_test))   
+        writer.writerow(["System", "Material", "Surface", "Molecule Group", "Molecule", "State", "Dissociation" ,"True_eV", "Prediction_eV", "Error_eV", "Abs_error_eV"])
+        writer.writerows(zip(test_label_list, test_material_list, test_facet_list, test_adsorbate_group_list, test_adsorbate_name_list, test_state_list, test_dissociation_list, y_true, y_pred, error_test, abs_error_test))   
 
 
     # Collect UQ data
@@ -261,7 +264,7 @@ def create_model_report(model_name: str,
         records = {
             "formula": [], "material": [], "surface": [], "molecule_group": [], "molecule": [], "state": [],
             "y_true": [], "y_mean": [], "y_std": [], "y_min": [], "y_max": [], "in_interval": [], "error": [],
-            "split": []
+            "split": [], "dissociation": []
         }
 
         for graph in loader.dataset:
@@ -271,6 +274,7 @@ def create_model_report(model_name: str,
             records["molecule_group"].append(graph.adsorbate_group)
             records["molecule"].append(graph.adsorbate_name)
             records["state"].append(graph.state)
+            records["dissociation"].append(graph.dissociation)
 
             y_t = graph.target.numpy()[0]
             y_pred = model(graph)

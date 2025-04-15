@@ -19,9 +19,9 @@ from ase import Atoms
 from sklearn.preprocessing import OneHotEncoder
 
 from oxides_ml.constants import ADSORBATE_ELEMS, METALS, OHE_ELEMENTS
-#from oxides_ml.graph_filters import H_filter, C_filter, fragment_filter, ase_adsorption_filter, is_ring
+from oxides_ml.graph_filters import fragment_filter
 from oxides_ml.graph_care import atoms_to_pyg
-from oxides_ml.node_featurizers import get_gcn
+from oxides_ml.node_featurizers import get_gcn, get_cn
 from oxides_ml.graph_tools import graph_plotter
 
 def pyg_dataset_id(vasp_directory: str, 
@@ -523,7 +523,7 @@ class OxidesGraphDataset(InMemoryDataset):
         for key, value in graph_features_params.items():
             if value:
                 node_features_list.append(key.upper())
-        graph, surf_atoms, _ = atoms_to_pyg(structure, 
+        graph, ase_to_graph_idx, _ = atoms_to_pyg(structure, 
                                             calc_type,
                                             graph_structure_params["tolerance"], 
                                             graph_structure_params["scaling_factor"],
@@ -532,6 +532,7 @@ class OxidesGraphDataset(InMemoryDataset):
                                             adsorbate_indices)  
         graph.formula = formula
         graph.node_feats = node_features_list
+        graph.adsorbate_indices = adsorbate_indices # Indices of the atoms object belonging to the adsorbate 
 
         metadata = extract_metadata(path)
 
@@ -551,8 +552,9 @@ class OxidesGraphDataset(InMemoryDataset):
         graph.ads_energy = tensor([metadata["adsorption_energy"]]) if metadata["adsorption_energy"] is not None else tensor([0.0])
         graph.target = tensor([metadata[self.target]]) if metadata[self.target] is not None else tensor([0.0])
 
-        graph.adsorbate_indices = adsorbate_indices
 
+        graph.dissociation = fragment_filter(graph, ase_to_graph_idx)
+        
         # # NODE FEATURIZATION
         try:
         #     if graph_features_params["adsorbate"]:
@@ -562,7 +564,7 @@ class OxidesGraphDataset(InMemoryDataset):
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
             if graph_features_params["gcn"]:
-                graph = get_gcn(graph, structure)
+                graph = get_cn(graph, structure)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
 
@@ -570,6 +572,7 @@ class OxidesGraphDataset(InMemoryDataset):
         #     for filter in [H_filter, C_filter]:
         #         if not filter(graph, adsorbate_elements):
         #             return None
+
             return graph
         except:
             print("Error in node featurization for {}\n".format(formula))

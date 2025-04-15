@@ -13,48 +13,54 @@ from networkx import is_connected, cycle_basis
 
 from oxides_ml.constants import ADSORBATE_ELEMS
 
-def fragment_filter(graph: Data) -> bool:
-    """Check if adsorbate is fragmented in the graph using adsorbate_indices.
+
+def fragment_filter(graph: Data, ase_to_graph_idx: dict[int, int]) -> bool:
+    """Check if adsorbate is fragmented in the graph using adsorbate ASE indices.
 
     Args:
-        graph (Data): Adsorption graph with graph.adsorbate_indices defined.
+        graph (Data): Adsorption graph.
+        ase_to_graph_idx (dict[int, int]): Mapping from ASE indices to graph node indices.
+        adsorbate_indices (list[int]): ASE indices of the adsorbate atoms.
 
     Returns:
-        bool: True = adsorbate is not fragmented, False = fragmented.
+        bool: True if adsorbate is NOT fragmented; False if fragmented.
     """
-    # Subgraph made from adsorbate atoms
-    adsorbate = extract_adsorbate(graph)
+    try:
+        adsorbate = extract_adsorbate(graph, ase_to_graph_idx)
+    except IndexError as e:
+        print(f"{getattr(graph, 'formula', 'UNKNOWN')}: {e}")
+        return False
+
     graph_nx = to_networkx(adsorbate, to_undirected=True)
 
     if adsorbate.num_nodes != 1 and adsorbate.num_edges != 0:
         if is_connected(graph_nx):
-            return True
-        else:
-            print(f"{graph.formula}: Fragmented adsorbate.\n")
             return False
+        else:
+            print(f"{getattr(graph, 'formula', 'UNKNOWN')}: Fragmented adsorbate.")
+            return True
     else:
-        return True
+        return False
 
-def extract_adsorbate(graph: Data) -> Data:
-    """Extract the adsorbate subgraph from the graph using adsorbate_indices.
 
-    Converts ASE atom indices to graph node indices before subgraph extraction.
+def extract_adsorbate(graph: Data, ase_to_graph_idx: dict[int, int]) -> Data:
+    """Extract subgraph of adsorbate atoms using ASE → PyG node mapping.
 
     Args:
-        graph (Data): Graph with `graph.adsorbate_indices` and `graph.ase_atom_indices` defined.
+        graph (Data): Full adsorption graph.
+        ase_to_graph_idx (dict[int, int]): Mapping from ASE indices to graph node indices.
+        adsorbate_indices (list[int]): ASE indices of the adsorbate atoms.
 
     Returns:
         Data: Subgraph containing only the adsorbate atoms.
     """
-    # graph.ase_atom_indices maps graph nodes → ASE atom indices
-    ase_to_graph = {ase_idx.item(): node_idx for node_idx, ase_idx in enumerate(graph.ase_atom_indices)}
-
     try:
-        adsorbate_node_indices = [ase_to_graph[idx] for idx in graph.adsorbate_indices]
+        adsorbate_node_indices = [ase_to_graph_idx[idx] for idx in graph.adsorbate_indices]
     except KeyError as e:
-        raise IndexError(f"ASE index {e} not found in graph's ase_atom_indices.") from e
+        raise IndexError(f"ASE index {e} not found in graph's mapping.") from e
 
     return graph.subgraph(tensor(adsorbate_node_indices, dtype=torch.long))
+
     
 def is_ring(graph: Data, 
             adsorbate_elems: list[str] = ADSORBATE_ELEMS) -> bool:

@@ -46,15 +46,26 @@ def get_voronoi_neighbourlist(atoms: Atoms,
     num_adsorbate_atoms = len(adsorbate_indices)
 
     # First necessary condition for two atoms to be linked: Sharing a Voronoi facet
-    coords_arr = np.repeat(np.expand_dims(np.copy(atoms.get_scaled_positions()), axis=0), 27, axis=0)
-    mirrors = np.repeat(np.expand_dims(np.asarray(list(product([-1, 0, 1], repeat=3))), 1), coords_arr.shape[1], axis=1)
-    corrected_coords = np.reshape(coords_arr + mirrors, (coords_arr.shape[0] * coords_arr.shape[1], coords_arr.shape[2]))
+    coords_arr = np.repeat(
+        np.expand_dims(np.copy(atoms.get_scaled_positions()), axis=0), 27, axis=0
+        )
+    mirrors = np.repeat(
+        np.expand_dims(np.asarray(list(product([-1, 0, 1], repeat=3))), 1), 
+        coords_arr.shape[1], 
+        axis=1
+        )
+    corrected_coords = np.reshape(
+        coords_arr + mirrors,
+        (coords_arr.shape[0] * coords_arr.shape[1], coords_arr.shape[2])
+        )
     corrected_coords = np.dot(corrected_coords, atoms.get_cell())
     translator = np.tile(np.arange(coords_arr.shape[1]), coords_arr.shape[0])
     vor_bonds = Voronoi(corrected_coords)
     pairs_corr = translator[vor_bonds.ridge_points]
     pairs_corr = np.unique(np.sort(pairs_corr, axis=1), axis=0)
-    pairs_corr = np.delete(pairs_corr, np.argwhere(pairs_corr[:, 0] == pairs_corr[:, 1]), axis=0)
+    pairs_corr = np.delete(
+        pairs_corr, np.argwhere(pairs_corr[:, 0] == pairs_corr[:, 1]), axis=0
+        )
 
     increment = 0
     # For gas-phase molecules
@@ -64,8 +75,10 @@ def get_voronoi_neighbourlist(atoms: Atoms,
             atom1, atom2 = atoms[i].symbol, atoms[j].symbol
             threshold = CORDERO[atom1] + CORDERO[atom2] + tol
             distance = atoms.get_distance(i, j, mic=mic)
+
             if distance <= threshold:
                 pairs.append([i, j])
+
         return np.sort(np.array(pairs), axis=1)
     
     # For empty slab
@@ -75,6 +88,7 @@ def get_voronoi_neighbourlist(atoms: Atoms,
             atom1, atom2 = atoms[i].symbol, atoms[j].symbol
             threshold = CORDERO[atom1] + CORDERO[atom2] + tol
             distance = atoms.get_distance(i, j, mic=mic)
+            
             if distance <= threshold:
                 pairs.append([i, j])
         return np.sort(np.array(pairs), axis=1)
@@ -299,6 +313,7 @@ def atoms_to_pyg(atoms: Atoms,
     elem_list = list(get_node_attributes(nx, "elem").values())
     if len(elem_list) == 0:
         raise ValueError("No atoms found in graph — check adsorbate_indices and system type.")
+    idx_list = list(get_node_attributes(nx, "elem").keys())
 
     elem_array = np.array(elem_list).reshape(-1, 1)
     elem_enc = one_hot_encoder.transform(elem_array).toarray()
@@ -309,7 +324,6 @@ def atoms_to_pyg(atoms: Atoms,
 
     node_id_map = {node_id: idx for idx, node_id in enumerate(nx.nodes)}
     edge_tails_heads = [(node_id_map[i], node_id_map[j]) for i, j in nx.edges]
-
 
     edge_tails = [i for i, _ in edge_tails_heads] + [j for _, j in edge_tails_heads]
     edge_heads = [j for _, j in edge_tails_heads] + [i for i, _ in edge_tails_heads]
@@ -323,5 +337,9 @@ def atoms_to_pyg(atoms: Atoms,
             if nx.has_edge(a, b) and nx.edges[a, b].get("ts_edge", 0) == 1:
                 edge_attr[i, 0] = 1
 
-    return Data(x=x, edge_index=edge_index, edge_attr=edge_attr, elem=elem_list), surface_neighbors, bb_idxs
+    # Map ASE atom indices to PyG node indices
+    ase_to_graph_idx = {int(ase_idx): int(pyg_idx) for ase_idx, pyg_idx in node_id_map.items()}
+
+    return Data(x=x, edge_index=edge_index, edge_attr=edge_attr, elem=elem_list, idx =idx_list), ase_to_graph_idx, bb_idxs
+
 
