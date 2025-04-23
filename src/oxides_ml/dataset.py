@@ -564,6 +564,8 @@ class OxidesGraphDataset(InMemoryDataset):
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
             if graph_features_params["gcn"]:
+                graph = get_gcn(graph, structure)
+            elif graph_features_params["cn"]:
                 graph = get_cn(graph, structure)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
