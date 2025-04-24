@@ -9,7 +9,7 @@ import numpy as np
 from torch_geometric.data import Data
 import torch
 
-from oxides_ml.constants import ADSORBATE_ELEMS
+from oxides_ml.constants import ADSORBATE_ELEMS, METALS
 from oxides_ml.graph_care import get_voronoi_neighbourlist
 
 from ase.neighborlist import neighbor_list

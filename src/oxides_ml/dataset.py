@@ -8,6 +8,9 @@ from typing import Union, Optional
 import pubchempy as pcp
 from collections import Counter
 import re
+import multiprocessing as mp
+from functools import partial
+from copy import deepcopy
 
 from torch_geometric.data import InMemoryDataset, Data
 from torch import load, save, tensor
@@ -23,6 +26,7 @@ from oxides_ml.graph_filters import fragment_filter
 from oxides_ml.graph_care import atoms_to_pyg
 from oxides_ml.node_featurizers import get_gcn, get_cn
 from oxides_ml.graph_tools import graph_plotter
+
 
 def pyg_dataset_id(vasp_directory: str, 
                    graph_params: dict,
@@ -54,7 +58,7 @@ def pyg_dataset_id(vasp_directory: str,
     adsorbate = str(features_params["adsorbate"])
     radical = str(features_params["radical"])
     valence = str(features_params["valence"])
-    gcn = str(features_params["gcn"])
+    cn = str(features_params["cn"])
     mag = str(features_params["magnetization"])
     target = graph_params["target"]
     state_tag = "initial" if initial_state == True else "relaxed"
@@ -63,7 +67,7 @@ def pyg_dataset_id(vasp_directory: str,
     # Generate dataset ID
     dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
         id, target, tolerance, scaling_factor, surface_order_nn, 
-        adsorbate, radical, valence, gcn, mag, state_tag, augment_tag
+        adsorbate, radical, valence, cn, mag, state_tag, augment_tag
     )
     
     return dataset_id
@@ -280,6 +284,120 @@ def extract_atom_indices(path: str) -> list[int]:
     return atom_indices
 
 
+def get_surface_indices_from_graph(graph, cart_coords, METALS = METALS):
+    """
+    Identifies the surface metal atoms from the graph representation.
+
+    Parameters:
+    - graph: The graph object containing node information.
+    - METALS: List of metal elements.
+    - cart_coords: Cartesian coordinates of all atoms.
+
+    Returns:
+    - List of surface indices (indices of metal atoms on the surface).
+    """
+    surface_indices = []
+
+    # Loop through all nodes in the graph
+    for node_idx, element in enumerate(graph.elem):
+        if element in METALS:
+            atom_idx = graph.idx[node_idx]  # Get atom index corresponding to this node
+            z_coord = cart_coords[atom_idx][2]  # Get z-coordinate of the atom
+
+            # Check if this metal atom is part of the surface
+            # Instead of just comparing to the maximum z-coordinate, check for top layer atoms
+            max_z =  max(
+    cart_coords[graph.idx[i]][2]
+    for i in range(len(graph.elem))
+    if graph.elem[i] in METALS
+)
+
+            # If the z-coordinate is within a small margin of the maximum z-coordinate, consider it a surface atom
+            if z_coord >= max_z:
+                surface_indices.append(atom_idx)
+            
+    return surface_indices
+
+def get_adsorption_heights_plane_fit(path, graph):
+    """
+    Computes adsorption heights as perpendicular distances from each adsorbate atom
+    to the best-fit plane through the surface metal atoms.
+
+    Parameters:
+    - path (str): Path to a directory containing a VASP CONTCAR file.
+    - graph: Graph object that includes adsorbate_indices and structural information.
+
+    Returns:
+    - dict[int, float]: Mapping from adsorbate atom index to its adsorption height (in Å).
+    """
+    
+    adsorbate_indices = graph.adsorbate_indices
+
+    # Default to 0 in case no height is computed
+    graph.ads_height = 0
+
+    # Skip adsorption height calculation for gas-phase molecules or clean slabs
+    if (graph.type == "gas") or (graph.type == "slab"):
+        return graph
+
+    # Locate and read CONTCAR file
+    contcar_path = os.path.join(os.path.dirname(path), "CONTCAR")
+    with open(contcar_path, 'r') as f:
+        lines = f.readlines()
+
+    # Parse lattice vectors
+    scale = float(lines[1].strip())
+    lattice = np.array([list(map(float, lines[i].split())) for i in range(2, 5)]) * scale
+
+    # Skip to atomic count line (after element symbols)
+    idx = 5
+    while not all(c.isalpha() or c.isspace() for c in lines[idx]):
+        idx += 1
+
+    # Number of atoms per element and total number of atoms
+    num_atoms = list(map(int, lines[idx + 1].split()))
+    total_atoms = sum(num_atoms)
+
+    # Determine the index where atomic coordinates start
+    coord_start_idx = idx + 2
+    if lines[coord_start_idx].strip().lower().startswith("selective"):
+        coord_start_idx += 1
+    if not lines[coord_start_idx].strip().lower().startswith("direct"):
+        raise ValueError("Expected 'Direct' coordinates.")
+    coord_start_idx += 1
+
+    # Parse direct coordinates from CONTCAR and convert to Cartesian
+    direct_coords = np.array([
+        list(map(float, lines[i].split()[:3]))
+        for i in range(coord_start_idx, coord_start_idx + total_atoms)
+    ])
+    cart_coords = direct_coords @ lattice
+
+    # Identify surface metal atoms based on max z-coordinates and connectivity
+    surface_indices = get_surface_indices_from_graph(graph, cart_coords)
+
+    # Extract Cartesian positions of surface atoms
+    surf_coords = cart_coords[surface_indices]
+
+    # Fit a best-fit plane through surface atom positions using Singular Value Decomposition (SVD)
+    centroid = np.mean(surf_coords, axis=0)         # Center of surface atom cloud
+    shifted = surf_coords - centroid                # Shift to origin
+    _, _, vh = np.linalg.svd(shifted)               # SVD to find plane normal
+    normal = vh[-1]                                 # Normal to the plane is last row of V^H
+
+    # Compute distance from each adsorbate atom to the plane
+    height_dict = {}
+    for i in adsorbate_indices:
+        point = cart_coords[i]
+        vec = point - centroid
+        height = np.dot(vec, normal)                # Project vector onto plane normal
+        height_dict[i] = height
+
+    # Save the minimum adsorption height to the graph
+    graph.ads_height = min(height_dict.values()) if height_dict else 0
+
+    return graph
+
 class OxidesGraphDataset(InMemoryDataset):
 
     def __init__(self,
@@ -391,19 +509,28 @@ class OxidesGraphDataset(InMemoryDataset):
     def process(self):
         """
         Process the VASP directory into PyG-compatible graphs using atoms_to_pyg.
+        Uses multiprocessing to improve speed on large datasets.
         """
         vasp_files = self.raw_file_names
 
-        # List to store graph data
+        # Split paths into batches
+        batch_size = 200  # Adjust based on system memory
         data_list = []
         
-        for path in vasp_files:
-            try:
-                graph = self.atoms_to_data(path, self.graph_params)  # Convert to PyG graph
-                if graph is not None:
-                    data_list.append(graph)
-            except Exception as e:
-                print(f"Error processing {path}: {e}")
+        # Process each batch in parallel
+        def process_batch(batch_paths):
+            with mp.Pool(self.ncores) as pool:
+                process_fn = partial(self.atoms_to_data, graph_params=self.graph_params)
+                return pool.map(process_fn, batch_paths)
+
+        for i in range(0, len(vasp_files), batch_size):
+            print(f"Processing batch {i} to {i + batch_size} ...")
+            batch_paths = vasp_files[i:i + batch_size]
+            batch_data = process_batch(batch_paths)
+
+            # Filter out None and avoid memory sharing issues
+            batch_data_clean = [deepcopy(d) for d in batch_data if d is not None]
+            data_list.extend(batch_data_clean)
 
         # Isomorphism test: Removing duplicated data
         # print("Removing duplicated data ...")
@@ -554,6 +681,8 @@ class OxidesGraphDataset(InMemoryDataset):
 
 
         graph.dissociation = fragment_filter(graph, ase_to_graph_idx)
+
+        graph = get_adsorption_heights_plane_fit(path, graph)
         
         # # NODE FEATURIZATION
         try:
@@ -563,12 +692,11 @@ class OxidesGraphDataset(InMemoryDataset):
         #         graph = get_radical_atoms(graph, adsorbate_elements)
         #     if graph_features_params["valence"]:
         #         graph = get_atom_valence(graph, adsorbate_elements)
-            if graph_features_params["gcn"]:
-                graph = get_gcn(graph, structure)
-            elif graph_features_params["cn"]:
+            if graph_features_params["cn"]:
                 graph = get_cn(graph, structure)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
+                
 
         #     # for filter in [H_filter, C_filter, fragment_filter]:
         #     for filter in [H_filter, C_filter]:
