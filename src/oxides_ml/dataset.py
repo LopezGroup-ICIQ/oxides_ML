@@ -27,7 +27,6 @@ from oxides_ml.graph_care import atoms_to_pyg
 from oxides_ml.node_featurizers import get_gcn, get_cn
 from oxides_ml.graph_tools import graph_plotter
 
-
 def pyg_dataset_id(vasp_directory: str, 
                    graph_params: dict,
                    initial_state: bool,
@@ -60,14 +59,15 @@ def pyg_dataset_id(vasp_directory: str,
     valence = str(features_params["valence"])
     cn = str(features_params["cn"])
     mag = str(features_params["magnetization"])
+    ads_height = str(features_params["ads_height"])
     target = graph_params["target"]
     state_tag = "initial" if initial_state == True else "relaxed"
     augment_tag = "True" if augment == True else "False"
     
     # Generate dataset ID
-    dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
+    dataset_id = "{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}_{}".format(
         id, target, tolerance, scaling_factor, surface_order_nn, 
-        adsorbate, radical, valence, cn, mag, state_tag, augment_tag
+        adsorbate, radical, valence, cn, mag, ads_height, state_tag, augment_tag
     )
     
     return dataset_id
@@ -189,7 +189,7 @@ def extract_metadata(path: str):
         metadata["type"] = "slab"
         metadata["spin_polarization"] = extract_ispin(os.path.join(os.path.dirname(path), "INCAR"))
 
-    elif "surface_adsorbates" in parts:
+    elif ("oxide_adsorbates" in parts) or ("metal_adsorbates" in parts):
         metadata["material"] = parts[-6]
         metadata["adsorbate_group"] = parts[-5]
         metadata["adsorbate_name"] = parts[-4]
@@ -206,6 +206,16 @@ def extract_metadata(path: str):
     return metadata
 
 # Determine adsorption indices
+
+CACHE_FILE = "adsorbate_indices_cache.json"
+
+# Load or initialize the cache
+if os.path.exists(CACHE_FILE):
+    with open(CACHE_FILE, "r") as f:
+        index_cache = json.load(f)
+else:
+    index_cache = {}
+
 def get_pubchem_formula(molecule_name):
     compounds = pcp.get_compounds(molecule_name, 'name')
     if compounds:
@@ -233,41 +243,39 @@ def get_adsorbate_indices_from_vasp(filepath, total_adsorbate_atoms):
 
     return adsorbate_indices
 
-CACHE_FILE = "adsorbate_indices_cache.json"
-
-# Load or initialize the cache
-if os.path.exists(CACHE_FILE):
-    with open(CACHE_FILE, "r") as f:
-        index_cache = json.load(f)
-else:
-    index_cache = {}
-
-def extract_atom_indices(path: str) -> list[int]:
+def extract_atom_indices(path: str, offline: bool = False) -> list[int]:
     """
     Extract adsorbate atom indices, with caching based on molecule name and context.
 
     Args:
         path (str): Path to the POSCAR/CONTCAR file.
+        offline (bool): If True, do not attempt HTTP (PubChem) requests.
 
     Returns:
         list[int]: List of adsorbate atom indices.
     """
     parts = path.split(os.sep)
 
-    if "surface_adsorbates" in parts:
+    if ("oxide_adsorbates" in parts) or ("metal_adsorbates" in parts):
+        surface = parts[-6]
         molecule_name = parts[-4]
         context = "surface_adsorbates"
     elif "gas_phase" in parts:
+        surface = "gas"
         molecule_name = parts[-2]
         context = "gas_phase"
     else:
         return []
 
-    cache_key = f"{molecule_name}__{context}"
+    cache_key = f"{surface}__{molecule_name}__{context}"
 
     # Use cache if available
     if cache_key in index_cache:
         return index_cache[cache_key]
+    
+    # If offline, raise an error if not found in cache
+    if offline:
+        raise RuntimeError(f"Adsorbate indices for {cache_key} not in cache and offline=True")
 
     # Otherwise, compute and cache
     parsed_formula = get_pubchem_formula(molecule_name)
@@ -320,15 +328,16 @@ def get_surface_indices_from_graph(graph, cart_coords, METALS = METALS):
 
 def get_adsorption_heights_plane_fit(path, graph):
     """
-    Computes adsorption heights as perpendicular distances from each adsorbate atom
-    to the best-fit plane through the surface metal atoms.
+    Computes adsorption heights using the best-fit plane through surface metal atoms.
+
+    Supports both CONTCAR and POSCAR files, and handles both Direct and Cartesian coordinates automatically (via ASE).
 
     Parameters:
-    - path (str): Path to a directory containing a VASP CONTCAR file.
+    - path (str): Path to a directory containing a POSCAR/CONTCAR file.
     - graph: Graph object that includes adsorbate_indices and structural information.
 
     Returns:
-    - dict[int, float]: Mapping from adsorbate atom index to its adsorption height (in Å).
+    - Updated graph with adsorption heights (in Å).
     """
     
     adsorbate_indices = graph.adsorbate_indices
@@ -338,52 +347,27 @@ def get_adsorption_heights_plane_fit(path, graph):
 
     # Skip adsorption height calculation for gas-phase molecules or clean slabs
     if (graph.type == "gas") or (graph.type == "slab"):
+        # Add a zero-filled adsorption height feature for consistency
+        ads_tensor = torch.zeros((graph.x.shape[0], 1))
+        graph.x = torch.cat((graph.x, ads_tensor), dim=1)
+        graph.node_feats.append("ads_height")
         return graph
 
-    # Locate and read CONTCAR file
-    contcar_path = os.path.join(os.path.dirname(path), "CONTCAR")
-    with open(contcar_path, 'r') as f:
-        lines = f.readlines()
+    # Load structure directly from provided path
+    structure = read(path)
+    cart_coords = structure.get_positions()  # ASE gives Cartesian coordinates in Å
 
-    # Parse lattice vectors
-    scale = float(lines[1].strip())
-    lattice = np.array([list(map(float, lines[i].split())) for i in range(2, 5)]) * scale
-
-    # Skip to atomic count line (after element symbols)
-    idx = 5
-    while not all(c.isalpha() or c.isspace() for c in lines[idx]):
-        idx += 1
-
-    # Number of atoms per element and total number of atoms
-    num_atoms = list(map(int, lines[idx + 1].split()))
-    total_atoms = sum(num_atoms)
-
-    # Determine the index where atomic coordinates start
-    coord_start_idx = idx + 2
-    if lines[coord_start_idx].strip().lower().startswith("selective"):
-        coord_start_idx += 1
-    if not lines[coord_start_idx].strip().lower().startswith("direct"):
-        raise ValueError("Expected 'Direct' coordinates.")
-    coord_start_idx += 1
-
-    # Parse direct coordinates from CONTCAR and convert to Cartesian
-    direct_coords = np.array([
-        list(map(float, lines[i].split()[:3]))
-        for i in range(coord_start_idx, coord_start_idx + total_atoms)
-    ])
-    cart_coords = direct_coords @ lattice
-
-    # Identify surface metal atoms based on max z-coordinates and connectivity
     surface_indices = get_surface_indices_from_graph(graph, cart_coords)
-
-    # Extract Cartesian positions of surface atoms
     surf_coords = cart_coords[surface_indices]
 
     # Fit a best-fit plane through surface atom positions using Singular Value Decomposition (SVD)
-    centroid = np.mean(surf_coords, axis=0)         # Center of surface atom cloud
-    shifted = surf_coords - centroid                # Shift to origin
-    _, _, vh = np.linalg.svd(shifted)               # SVD to find plane normal
-    normal = vh[-1]                                 # Normal to the plane is last row of V^H
+    centroid = np.mean(surf_coords, axis=0)
+    shifted = surf_coords - centroid
+    _, _, vh = np.linalg.svd(shifted)
+    normal = vh[-1]
+    normal = normal / np.linalg.norm(normal)
+    if normal[2] < 0:
+        normal = -normal
 
     # Compute distance from each adsorbate atom to the plane
     height_dict = {}
@@ -396,7 +380,22 @@ def get_adsorption_heights_plane_fit(path, graph):
     # Save the minimum adsorption height to the graph
     graph.ads_height = min(height_dict.values()) if height_dict else 0
 
+    # Create adsorption height tensor for nodes (default to 0)
+    ads_tensor = torch.zeros((graph.x.shape[0], 1))
+
+    # Loop through nodes and set adsorption height if available
+    for node_idx, ase_idx in enumerate(graph.idx):
+        # Check if this atom has a height assigned (i.e., it's an adsorbate)
+        if ase_idx in height_dict:
+            ads_tensor[node_idx] = height_dict[ase_idx]
+        else:
+            ads_tensor[node_idx] = 0.0  # slab/gas atoms get 0
+
+    # Append adsorption height as a new node feature
+    graph.x = torch.cat((graph.x, ads_tensor), dim=1)
+    graph.node_feats.append("ads_height")
     return graph
+
 
 class OxidesGraphDataset(InMemoryDataset):
 
@@ -513,6 +512,14 @@ class OxidesGraphDataset(InMemoryDataset):
         """
         vasp_files = self.raw_file_names
 
+        # Preload adsorbate indices to avoid PubChem calls in multiprocessing
+        print("Preloading adsorbate indices...")
+        for path in vasp_files:
+            try:
+                extract_atom_indices(path)  # fills the cache and avoids HTTP later
+            except Exception as e:
+                print(f"Failed to preload indices for {path}: {e}")
+
         # Split paths into batches
         batch_size = 200  # Adjust based on system memory
         data_list = []
@@ -531,6 +538,7 @@ class OxidesGraphDataset(InMemoryDataset):
             # Filter out None and avoid memory sharing issues
             batch_data_clean = [deepcopy(d) for d in batch_data if d is not None]
             data_list.extend(batch_data_clean)
+
 
         # Isomorphism test: Removing duplicated data
         # print("Removing duplicated data ...")
@@ -617,7 +625,6 @@ class OxidesGraphDataset(InMemoryDataset):
         Returns:
             graph (Data): PyG Data object.
         """
-
         
         if isinstance(structure, str):
             path = structure  
@@ -644,7 +651,7 @@ class OxidesGraphDataset(InMemoryDataset):
         elements_list = list(ohe_elements.categories_[0])
         node_features_list = list(ohe_elements.categories_[0]) 
         
-        adsorbate_indices = extract_atom_indices(path)
+        adsorbate_indices = extract_atom_indices(path, offline=True)
 
         # append to node_features_list the key features whose value is True, in uppercase
         for key, value in graph_features_params.items():
@@ -671,7 +678,7 @@ class OxidesGraphDataset(InMemoryDataset):
 
         graph.facet = metadata["facet"]
         graph.type = metadata["type"]
-        graph.spin_polarization = metadata["spin_polarization"]
+        # graph.spin_polarization = metadata["spin_polarization"]
         
         graph.energy = tensor([metadata["total_energy"]]) if metadata["total_energy"] is not None else tensor([0.0])
         graph.slab_energy = tensor([metadata["slab_energy"]]) if metadata["slab_energy"] is not None else tensor([0.0])
@@ -681,8 +688,6 @@ class OxidesGraphDataset(InMemoryDataset):
 
 
         graph.dissociation = fragment_filter(graph, ase_to_graph_idx)
-
-        graph = get_adsorption_heights_plane_fit(path, graph)
         
         # # NODE FEATURIZATION
         try:
@@ -696,7 +701,8 @@ class OxidesGraphDataset(InMemoryDataset):
                 graph = get_cn(graph, structure)
         #     if graph_features_params["magnetization"]:
         #         graph = get_magnetization(graph)
-                
+            if graph_features_params["ads_height"]:
+                graph = get_adsorption_heights_plane_fit(path, graph)
 
         #     # for filter in [H_filter, C_filter, fragment_filter]:
         #     for filter in [H_filter, C_filter]:

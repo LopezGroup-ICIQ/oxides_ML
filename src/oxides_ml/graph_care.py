@@ -20,11 +20,13 @@ from torch_geometric.data import Data
 
 from oxides_ml.constants import CORDERO
 
+
 def get_voronoi_neighbourlist(atoms: Atoms, 
                               tol: float, 
                               scaling_factor: float, 
                               adsorbate_indices: list[int], 
-                              mic=True) -> np.ndarray:
+                              mic=True
+                              ) -> np.ndarray:
     """
     Get connectivity list from Voronoi analysis, considering periodic boundary conditions.
     Assumption: The surface atoms are not part of the adsorbate (i.e., adsorbate atoms are known by index).
@@ -211,74 +213,6 @@ def atoms_to_nx(atoms: Atoms,
     graph.add_edges_from(ensemble_neighbour_list, ts_edge=0)
 
     return graph, list(surface_neighbours_idxs), None
-
-# def atoms_to_nx(atoms: Atoms,
-#                  voronoi_tolerance: float,
-#                  scaling_factor: float,
-#                  surface_order: int,
-#                  adsorbate_indices: list[int],
-#                  mode: str) -> Graph:
-#     """
-#     Convert ASE Atoms object to NetworkX graph, representing the adsorbate-surface system.
-
-#     Args:
-#         atoms (Atoms): ASE Atoms object representing the adsorbate-material system.
-#         voronoi_tolerance (float): tolerance for the distance between two atoms to be considered connected.
-#         scaling_factor (float): scaling factor for the covalent radii of the surface atoms.
-#         surface_order (int): The order of the surface neighbors to be included. If set to -1, include all surface atoms.
-#         adsorbate_indices (list[int]): List of atom indices belonging to the adsorbate.
-#         mode (str): Whether the graph is created for the TS or the reactant/product.
-
-#     Returns:
-#         Graph: NetworkX graph representing the adsorbate-material system.
-#     """
-#     adsorbate_idxs = set(adsorbate_indices)
-    
-#     # Step 1: Get the Voronoi neighbor list for all atoms
-#     neighbour_list = get_voronoi_neighbourlist(atoms, voronoi_tolerance, scaling_factor, adsorbate_indices)
-
-#     # Step 2: Get surface neighbors (atoms that are near the adsorbate but not part of it)
-#     surface_neighbours_idxs = {
-#         j if i in adsorbate_idxs else i
-#         for i, j in neighbour_list
-#         if (i in adsorbate_idxs and j not in adsorbate_idxs) or 
-#            (j in adsorbate_idxs and i not in adsorbate_idxs)
-#     }
-
-#     # Step 3: If second_order is enabled (surface_order > 0), include neighbors of surface atoms
-#     if surface_order > 0:
-#         current_surface_neighbours = set(surface_neighbours_idxs)
-#         all_surface_neighbours = set(surface_neighbours_idxs)
-
-#         # Expand surface neighbors iteratively based on surface_order
-#         for _ in range(surface_order):
-#             new_surface_neighbours = {
-#                 j if i in current_surface_neighbours else i
-#                 for i, j in neighbour_list
-#                 if (i in current_surface_neighbours and j not in adsorbate_idxs) or 
-#                    (j in current_surface_neighbours and i not in adsorbate_idxs)
-#             }
-#             all_surface_neighbours |= new_surface_neighbours
-#             current_surface_neighbours = new_surface_neighbours
-
-#         surface_neighbours_idxs = all_surface_neighbours
-
-#     # Step 4: Include adsorbate atoms and relevant surface atoms in the graph
-#     if len(adsorbate_idxs) == 0 or len(adsorbate_idxs) == len(atoms):
-#         graph_nodes = list(range(len(atoms)))  # Use all atoms for bare slab
-#     else:
-#         graph_nodes = list(adsorbate_idxs | surface_neighbours_idxs)
-
-#     graph = Graph()
-#     graph.add_nodes_from(graph_nodes)
-#     set_node_attributes(graph, {i: atoms[i].symbol for i in graph_nodes}, "elem")
-
-#     # Step 5: Add edges based on Voronoi neighbor list
-#     ensemble_neighbour_list = [pair for pair in neighbour_list if pair[0] in graph.nodes and pair[1] in graph.nodes]
-#     graph.add_edges_from(ensemble_neighbour_list, ts_edge=0)
-
-#     return graph, list(surface_neighbours_idxs), None
-
 
 def atoms_to_pyg(atoms: Atoms,
                  calc_type: str,
