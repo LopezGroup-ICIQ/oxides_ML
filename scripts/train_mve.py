@@ -74,7 +74,8 @@ if __name__ == "__main__":
                                                            batch_size=train["batch_size"],
                                                            split=train["splits"], 
                                                            test=train["test_set"], 
-                                                           balance_func=None) 
+                                                           balance_func=None,
+                                                           key_elements=['Ir', 'Ru'],) 
     
     # Target scaling 
     train_loader, val_loader, test_loader, mean, std = scale_target(train_loader,

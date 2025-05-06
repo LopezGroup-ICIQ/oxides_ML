@@ -521,7 +521,7 @@ class OxidesGraphDataset(InMemoryDataset):
                 print(f"Failed to preload indices for {path}: {e}")
 
         # Split paths into batches
-        batch_size = 200  # Adjust based on system memory
+        batch_size = 400  # Adjust based on system memory
         data_list = []
         
         # Process each batch in parallel

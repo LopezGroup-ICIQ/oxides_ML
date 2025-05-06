@@ -37,7 +37,8 @@ def create_loaders(dataset: InMemoryDataset,
                    split: int=5,
                    batch_size: int=32,
                    test: bool=True, 
-                   balance_func: callable=None) -> tuple[DataLoader]:
+                   balance_func: callable=None,
+                   key_elements: list[str]=None) -> tuple[DataLoader]:
     """
     Create dataloaders for training, validation and test.
     Args:
@@ -46,31 +47,69 @@ def create_loaders(dataset: InMemoryDataset,
         batch_size (int): batch size. Default to 32.
         test (bool): Whether to generate test set besides train and val sets. Default to True.   
         balance_func (callable): function to balance the training set. Default to None.
+        key_elements (list[str]): elements (e.g. ['Ir', 'Ru']) that must appear in the training set.
     Returns:
         (tuple): DataLoader objects for train, validation and test sets.
     """
+    def contains_key_element(data, keys):
+        return any(el in data.material for el in keys)
+
     train_loader, val_loader, test_loader = [], [], []
     n_items = len(dataset)
-    sep = n_items // split
     dataset = dataset.shuffle()
-    if test:
-        test_loader += (dataset[:sep])
-        val_loader += (dataset[sep:sep*2])
-        train_loader += (dataset[sep*2:])
+
+    if key_elements:
+        key_data = [data for data in dataset if contains_key_element(data, key_elements)]
+        other_data = [data for data in dataset if not contains_key_element(data, key_elements)]
+
+        n_total = len(dataset)
+        n_train = int((split - 2) / split * n_total)
+        n_val = int(1 / split * n_total)
+        n_test = n_total - n_train - n_val
+
+        # Ensure key_data goes into training set
+        train_loader += key_data
+        remaining_train = n_train - len(train_loader)
+        if remaining_train > 0:
+            train_loader += other_data[:remaining_train]
+            other_data = other_data[remaining_train:]
+        else:
+            other_data += train_loader[n_train:]  # move overflow back
+            train_loader = train_loader[:n_train]
+
+        val_loader += other_data[:n_val]
+        test_loader += other_data[n_val:n_val + n_test] if test else []
+
     else:
-        val_loader += (dataset[:sep])
-        train_loader += (dataset[sep:])
+        sep = n_items // split
+        if test:
+            test_loader += dataset[:sep]
+            val_loader += dataset[sep:sep * 2]
+            train_loader += dataset[sep * 2:]
+        else:
+            val_loader += dataset[:sep]
+            train_loader += dataset[sep:]
+
+    # sep = n_items // split    # if test:
+    #     test_loader += (dataset[:sep])
+    #     val_loader += (dataset[sep:sep*2])
+    #     train_loader += (dataset[sep*2:])
+    # else:
+    #     val_loader += (dataset[:sep])
+    #     train_loader += (dataset[sep:])
+
+
     if balance_func != None:
         train_loader = balance_func(train_loader)
-    # Balance gas data in training set
-    # gas_graphs = [graph for graph in train_loader if graph.material == 'None' and graph.facet == 'None']
-    # train_loader += gas_graphs * 9
+
     train_n = len(train_loader)
     val_n = len(val_loader)
     test_n = len(test_loader)
     total_n = train_n + val_n + test_n
+
     train_loader = DataLoader(train_loader, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_loader, batch_size=batch_size, shuffle=False)
+    
     if test:
         test_loader = DataLoader(test_loader, batch_size=batch_size, shuffle=False)
         a, b, c = split_percentage(split)
