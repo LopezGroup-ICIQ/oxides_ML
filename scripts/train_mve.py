@@ -69,13 +69,21 @@ if __name__ == "__main__":
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
 
-    # Create train/validation/test dataloaders (apply oversampling here for gas)
-    train_loader, val_loader, test_loader = create_loaders(dataset,
+    if train["key_elements"] == "none":
+        # Create train/validation/test dataloaders (apply oversampling here for gas)
+        train_loader, val_loader, test_loader = create_loaders(dataset,
                                                            batch_size=train["batch_size"],
                                                            split=train["splits"], 
                                                            test=train["test_set"], 
-                                                           balance_func=None,
-                                                           key_elements=['Ir', 'Ru'],) 
+                                                           balance_func=None,) 
+    else:
+        # Create train/validation/test dataloaders (apply oversampling here for gas)
+        train_loader, val_loader, test_loader = create_loaders(dataset,
+                                                            batch_size=train["batch_size"],
+                                                            split=train["splits"], 
+                                                            test=train["test_set"], 
+                                                            balance_func=None,
+                                                            key_elements=train["key_elements"],) 
     
     # Target scaling 
     train_loader, val_loader, test_loader, mean, std = scale_target(train_loader,

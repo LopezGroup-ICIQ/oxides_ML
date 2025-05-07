@@ -123,7 +123,7 @@ def get_cn(graph: Data, atoms: Atoms) -> Data:
         return graph
 
     # Coordination analysis on ASE atoms, ignoring adsorbates
-    y = get_voronoi_neighbourlist(atoms, 0.5, 1.0, graph.adsorbate_indices)
+    y = get_voronoi_neighbourlist(atoms, 0.75, 1.0, graph.adsorbate_indices)
     
     neighbour_dict = {}
     for idx in range(len(atoms)):
