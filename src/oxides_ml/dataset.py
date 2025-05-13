@@ -703,15 +703,7 @@ class OxidesGraphDataset(InMemoryDataset):
         #         graph = get_magnetization(graph)
             if graph_features_params["ads_height"]:
                 graph = get_adsorption_heights_plane_fit(path, graph)
-
-        #     # for filter in [H_filter, C_filter, fragment_filter]:
-        #     for filter in [H_filter, C_filter]:
-        #         if not filter(graph, adsorbate_elements):
-        #             return None
-
             return graph
         except:
             print("Error in node featurization for {}\n".format(formula))
             return None
-        
-        # return graph

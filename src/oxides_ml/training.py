@@ -31,85 +31,72 @@ def split_percentage(splits: int, test: bool=True) -> tuple[int]:
         return a, b, b
     else:
         return int((1 - 1/splits) * 100), math.ceil(100 / splits)
-    
 
 def create_loaders(dataset: InMemoryDataset,
-                   split: int=5,
-                   batch_size: int=32,
-                   test: bool=True, 
-                   balance_func: callable=None,
-                   key_elements: list[str]=None) -> tuple[DataLoader]:
+                   split: int = 5,
+                   batch_size: int = 32,
+                   test: bool = True,
+                   balance_func: callable = None,
+                   key_elements: list[str] = None,
+                   key_split_ratio: float = 0.5) -> tuple[DataLoader]:
     """
     Create dataloaders for training, validation and test.
     Args:
-        dataset : Dataset object.
-        split (int): number of splits to generate train/val/test sets. Default to 5.
-        batch_size (int): batch size. Default to 32.
-        test (bool): Whether to generate test set besides train and val sets. Default to True.   
-        balance_func (callable): function to balance the training set. Default to None.
-        key_elements (list[str]): elements (e.g. ['Ir', 'Ru']) that must appear in the training set.
+        dataset (InMemoryDataset): Dataset object.
+        split (int): Number of splits to generate train/val/test sets. Default is 5.
+        batch_size (int): Batch size for each dataloader. Default is 32.
+        test (bool): Whether to generate a test set in addition to train and validation. Default is True.
+        balance_func (callable): Optional function to apply balancing to the training set. Default is None.
+        key_elements (list[str]): List of elements (e.g. ['Ir', 'Ru']) that must be considered for partial split.
+        key_split_ratio (float): Proportion of `key_elements` data to assign to training set. The rest is split 
+                                 equally between validation and test. Default is 0.5.
+
     Returns:
-        (tuple): DataLoader objects for train, validation and test sets.
+        tuple: DataLoader objects for train, validation, and test sets. If `test` is False, the third output is None.
     """
-    def contains_key_element(data, keys):
-        return any(el in data.material for el in keys)
+
+    def exact_match(data, keys):
+        return data.material in keys
 
     train_loader, val_loader, test_loader = [], [], []
     n_items = len(dataset)
     dataset = dataset.shuffle()
 
-    if key_elements:
-        key_data = [data for data in dataset if contains_key_element(data, key_elements)]
-        other_data = [data for data in dataset if not contains_key_element(data, key_elements)]
+    # Separate key element data
+    key_data = [data for data in dataset if key_elements and exact_match(data, key_elements)]
+    other_data = [data for data in dataset if not (key_elements and exact_match(data, key_elements))]
 
-        n_total = len(dataset)
-        n_train = int((split - 2) / split * n_total)
-        n_val = int(1 / split * n_total)
-        n_test = n_total - n_train - n_val
+    # Split key_data: e.g. 50% train, 25% val, 25% test
+    n_key = len(key_data)
+    n_key_train = int(key_split_ratio * n_key)
+    n_key_val = int((n_key - n_key_train) // 2)
+    n_key_test = n_key - n_key_train - n_key_val
 
-        # Ensure key_data goes into training set
-        train_loader += key_data
-        remaining_train = n_train - len(train_loader)
-        if remaining_train > 0:
-            train_loader += other_data[:remaining_train]
-            other_data = other_data[remaining_train:]
-        else:
-            other_data += train_loader[n_train:]  # move overflow back
-            train_loader = train_loader[:n_train]
+    key_train = key_data[:n_key_train]
+    key_val = key_data[n_key_train:n_key_train + n_key_val]
+    key_test = key_data[n_key_train + n_key_val:]
 
-        val_loader += other_data[:n_val]
-        test_loader += other_data[n_val:n_val + n_test] if test else []
+    # Split other_data according to split ratio
+    n_other = len(other_data)
+    sep = n_other // split
+    other_test = other_data[:sep] if test else []
+    other_val = other_data[sep:2 * sep]
+    other_train = other_data[2 * sep:] if test else other_data[sep:]
 
-    else:
-        sep = n_items // split
-        if test:
-            test_loader += dataset[:sep]
-            val_loader += dataset[sep:sep * 2]
-            train_loader += dataset[sep * 2:]
-        else:
-            val_loader += dataset[:sep]
-            train_loader += dataset[sep:]
+    # Combine
+    train_loader = key_train + other_train
+    val_loader = key_val + other_val
+    test_loader = key_test + other_test if test else []
 
-    # sep = n_items // split    # if test:
-    #     test_loader += (dataset[:sep])
-    #     val_loader += (dataset[sep:sep*2])
-    #     train_loader += (dataset[sep*2:])
-    # else:
-    #     val_loader += (dataset[:sep])
-    #     train_loader += (dataset[sep:])
-
-
-    if balance_func != None:
+    if balance_func is not None:
         train_loader = balance_func(train_loader)
 
-    train_n = len(train_loader)
-    val_n = len(val_loader)
-    test_n = len(test_loader)
+    train_n, val_n, test_n = len(train_loader), len(val_loader), len(test_loader)
     total_n = train_n + val_n + test_n
 
     train_loader = DataLoader(train_loader, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_loader, batch_size=batch_size, shuffle=False)
-    
+
     if test:
         test_loader = DataLoader(test_loader, batch_size=batch_size, shuffle=False)
         a, b, c = split_percentage(split)

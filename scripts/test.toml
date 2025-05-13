@@ -4,20 +4,20 @@
 target = "adsorption_energy"  # graph target (must be present as column in the database) (str)
 
 [graph.structure]           # Hyperparameters for graph structure generation from geometrical structures
-tolerance = 0.3            # Applied to all pairs of elements (float)
+tolerance = 0.25            # Applied to all pairs of elements (float)
 scaling_factor = 1.25       # For atomic radii of metals (float)
-surface_order = 2            # Whether to comprise also the NNs of the metals direclt interacting with the adsorbate (true/false) #after 3 it becomes worse probably because those atoms are fixed -> creating noise for the model
+surface_order = 3           # Whether to comprise also the NNs of the metals direclt interacting with the adsorbate (true/false) #after 3 it becomes worse probably because those atoms are fixed -> creating noise for the model
 
 [graph.features]   	        # Graph nodes featurization
 adsorbate = false  	        # Distinguish molecule and surface atom nodes (true/false)
 radical = false    	        # Distinguish radical and non-radical nodes in the molecule (true/false)
 valence = false     	    # Define scaled atom valence as 1 - x/x_max, where x is the atom valence and x_max is the maximum allowed valence
-cn = false         	    # Coordination number for surface atoms (true/false)
+cn = true         	        # Coordination number for surface atoms (true/false)
 magnetization = false	    # Spin polarization feature (graph level)
-ads_height = false           # include adsorption height
+ads_height = false          # include adsorption height
 
 [train]
-key_elements= "none"  # elements (e.g. ['Ir', 'Ru']) that must appear in the training set or "none" for no segmentation
+key_elements= "none"        # elements (e.g. ['Ir', 'Ru']) that must appear in the training set or "none" for no segmentation
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
 batch_size = 16             # Batch size (int)
@@ -51,6 +51,6 @@ uq = true
 initial_state = true                                                               # use initial state or relaxed state
 augment = true                                                                      # data augmentation (use both POSCAR and CONTCAR in graph dataset)
 force_reload = true                                                                # force reload graph dataset
-vasp_directory = "/BACKUP/database_4"                                                 # path to root of database
+vasp_directory = "/BACKUP/database_1"                                                 # path to root of database
 graph_dataset_path = "/home/tvanhout/oxides_ML/models/graph_datasets"               # path to graph dataset directory
 

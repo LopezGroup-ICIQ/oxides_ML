@@ -1,0 +1,55 @@
+/home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch_geometric/typing.py:86: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: /home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch_scatter/_version_cuda.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev
+  warnings.warn(f"An issue occurred while importing 'torch-scatter'. "
+/home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch_geometric/typing.py:124: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: /home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch_sparse/_version_cuda.so: undefined symbol: _ZN3c1017RegisterOperatorsD1Ev
+  warnings.warn(f"An issue occurred while importing 'torch-sparse'. "
+Device name: NVIDIA RTX A2000 12GB (GPU)
+Target Scaling (Standardization) applied successfully
+(Train+Val) mean: -1.39 eV
+(Train+Val) standard deviation: 1.02 eV
+Epoch 001: LR=0.0010000  Train MAE: 0.9917 eV  Val MAE: 0.8202 eV Test MAE: 0.7858 eV
+Epoch 002: LR=0.0010000  Train MAE: 0.8091 eV  Val MAE: 0.7857 eV Test MAE: 0.7574 eV
+Epoch 003: LR=0.0010000  Train MAE: 0.7427 eV  Val MAE: 0.7069 eV Test MAE: 0.6921 eV
+Epoch 004: LR=0.0010000  Train MAE: 0.6643 eV  Val MAE: 0.6909 eV Test MAE: 0.6623 eV
+Epoch 005: LR=0.0010000  Train MAE: 0.6743 eV  Val MAE: 0.7290 eV Test MAE: 0.6872 eV
+Epoch 006: LR=0.0010000  Train MAE: 0.6207 eV  Val MAE: 0.6402 eV Test MAE: 0.5874 eV
+Epoch 007: LR=0.0010000  Train MAE: 0.5841 eV  Val MAE: 0.6217 eV Test MAE: 0.5694 eV
+Epoch 008: LR=0.0010000  Train MAE: 0.5667 eV  Val MAE: 0.6150 eV Test MAE: 0.5695 eV
+Epoch 009: LR=0.0010000  Train MAE: 0.5481 eV  Val MAE: 0.6247 eV Test MAE: 0.5773 eV
+Epoch 010: LR=0.0010000  Train MAE: 0.5579 eV  Val MAE: 0.6100 eV Test MAE: 0.5367 eV
+Epoch 011: LR=0.0010000  Train MAE: 0.5847 eV  Val MAE: 0.6146 eV Test MAE: 0.5683 eV
+Epoch 012: LR=0.0010000  Train MAE: 0.5497 eV  Val MAE: 0.5951 eV Test MAE: 0.5262 eV
+Epoch 013: LR=0.0010000  Train MAE: 0.4980 eV  Val MAE: 0.5764 eV Test MAE: 0.5411 eV
+Epoch 014: LR=0.0010000  Train MAE: 0.5482 eV  Val MAE: 0.6080 eV Test MAE: 0.5587 eV
+Epoch 015: LR=0.0010000  Train MAE: 0.5129 eV  Val MAE: 0.5996 eV Test MAE: 0.5397 eV
+Epoch 016: LR=0.0010000  Train MAE: 0.5861 eV  Val MAE: 0.6187 eV Test MAE: 0.5660 eV
+Epoch 017: LR=0.0010000  Train MAE: 0.5272 eV  Val MAE: 0.5660 eV Test MAE: 0.5045 eV
+Epoch 018: LR=0.0010000  Train MAE: 0.5398 eV  Val MAE: 0.6617 eV Test MAE: 0.6192 eV
+Epoch 019: LR=0.0010000  Train MAE: 0.5126 eV  Val MAE: 0.8985 eV Test MAE: 0.9077 eV
+Epoch 020: LR=0.0010000  Train MAE: 0.5910 eV  Val MAE: 0.5493 eV Test MAE: 0.4995 eV
+Epoch 021: LR=0.0010000  Train MAE: 0.7330 eV  Val MAE: 0.7676 eV Test MAE: 0.7392 eV
+Epoch 022: LR=0.0010000  Train MAE: 0.5425 eV  Val MAE: 0.5847 eV Test MAE: 0.5216 eV
+Epoch 023: LR=0.0010000  Train MAE: 0.4980 eV  Val MAE: 0.5288 eV Test MAE: 0.4941 eV
+Epoch 024: LR=0.0010000  Train MAE: 0.4796 eV  Val MAE: 0.5340 eV Test MAE: 0.4834 eV
+Epoch 025: LR=0.0010000  Train MAE: 0.4846 eV  Val MAE: 0.6457 eV Test MAE: 0.6560 eV
+Epoch 026: LR=0.0010000  Train MAE: 0.5277 eV  Val MAE: 0.5169 eV Test MAE: 0.4815 eV
+Epoch 027: LR=0.0010000  Train MAE: 0.4705 eV  Val MAE: 0.5008 eV Test MAE: 0.4693 eV
+Epoch 028: LR=0.0010000  Train MAE: 0.4500 eV  Val MAE: 0.4977 eV Test MAE: 0.4460 eV
+Epoch 029: LR=0.0010000  Train MAE: 0.4869 eV  Val MAE: 0.5160 eV Test MAE: 0.5179 eV
+Epoch 030: LR=0.0010000  Train MAE: 0.4918 eV  Val MAE: 0.4855 eV Test MAE: 0.4500 eV
+Epoch 031: LR=0.0010000  Train MAE: 0.4442 eV  Val MAE: 0.4756 eV Test MAE: 0.4404 eV
+Epoch 032: LR=0.0010000  Train MAE: 0.4509 eV  Val MAE: 0.5301 eV Test MAE: 0.4933 eV
+Traceback (most recent call last):
+  File "/home/tvanhout/oxides_ML/scripts/train_mve_from_loaders.py", line 117, in <module>
+    loss, train_MAE, train_scale = train_loop(model, device, train_loader, optimizer, loss_func)  
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/tvanhout/oxides_ML/scripts/../src/oxides_ml/training.py", line 228, in train_loop
+    loss.backward()                           # Get gradient of loss function wrt parameters
+    ^^^^^^^^^^^^^^^
+  File "/home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch/_tensor.py", line 626, in backward
+    torch.autograd.backward(
+  File "/home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/tvanhout/miniconda3/envs/oxides_ML/lib/python3.11/site-packages/torch/autograd/graph.py", line 823, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

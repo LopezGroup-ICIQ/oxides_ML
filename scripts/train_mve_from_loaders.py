@@ -2,6 +2,7 @@
 
 import argparse
 from os.path import isdir
+import os
 import time
 import sys
 sys.path.insert(0, "../src")
@@ -29,12 +30,15 @@ if __name__ == "__main__":
                         help="Input toml file with hyperparameters for the learning process.")
     PARSER.add_argument("-o", "--output", type=str, dest="o", 
                         help="Output directory for the results.")
+    PARSER.add_argument("-d","--loader_dir", type=str, required=True, help="Path to dataloader directory.")
     ARGS = PARSER.parse_args()
     
     output_name = ARGS.i.split("/")[-1].split(".")[0]
     output_directory = ARGS.o
     if isdir("{}/{}".format(output_directory, output_name)):
         output_name = input("There is already a model with the chosen name in the provided directory, provide a new one: ")
+
+    loader_dir = ARGS.loader_dir
     
     # Upload training hyperparameters from .toml file
     hyperparameters = toml.load(ARGS.i)  
@@ -60,16 +64,15 @@ if __name__ == "__main__":
         device_dict["name"] = "CPU"       
 
     # # Load graph dataset 
-    dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state, augment=augment, force_reload=force_reload)
+    dataset = OxidesGraphDataset(vasp_directory, graph_dataset_dir, graph_settings, initial_state=initial_state, augment=augment, force_reload=False)
     ohe_elements = dataset.ohe_elements
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
 
 
-    train_loader = load("../models/DATALOADERS/initial/Set3/train_loader.pth", weights_only=False)
-    val_loader = load("../models/DATALOADERS/initial/Set3/val_loader.pth", weights_only=False)
-    test_loader = load("../models/DATALOADERS/initial/Set3/test_loader.pth", weights_only=False)
-    
+    train_loader = load(os.path.join(loader_dir, "train_loader.pth"), weights_only=False)
+    val_loader = load(os.path.join(loader_dir, "val_loader.pth"), weights_only=False)
+    test_loader = load(os.path.join(loader_dir, "test_loader.pth"), weights_only=False)
     
     # Target scaling 
     train_loader, val_loader, test_loader, mean, std = scale_target(train_loader,
@@ -83,7 +86,8 @@ if __name__ == "__main__":
                     dim=architecture["dim"],
                     num_linear=architecture["num_linear"], 
                     num_conv=architecture["num_conv"],    
-                    bias=architecture["bias"]).to(device)
+                    bias=architecture["bias"],
+                    uq=architecture['uq']).to(device)
     initial_params = {name: p.clone() for name, p in model.named_parameters()}  
 
     # Load optimizer, lr-scheduler, and early stopper

@@ -1,0 +1,56 @@
+09-May-2025, 12:22:06
+Device = NVIDIA RTX A2000 12GB
+Training time = 4.98 min
+---------------------------------------------------------
+GRAPH REPRESENTATION PARAMETERS
+Voronoi tolerance = 0.3 Angstrom
+Atomic radius scaling factor = 1.25
+Second order metal neighbours inclusion = 2
+Node adsorbate/surface descriptor = False
+Node radical descriptor = False
+---------------------------------------------------------
+GNN ARCHITECTURE
+Activation function = ReLU
+Number of convolutional layers = 3
+Number of fully connected layers = 0
+Depth of the layers = 256
+Bias presence in the layers = False
+---------------------------------------------------------
+TRAINING PROCESS
+Dataset Size = 2245
+Data Split (Train/Val/Test) = 60-20-20 %
+Target scaling = std
+Target (train+val) mean = -1.221197 eV
+Target (train+val) standard deviation = 0.948646 eV
+Epochs = 250
+Batch size = 16
+Optimizer = Adam
+Learning Rate scheduler = Reduce Loss On Plateau
+Initial learning rate = 0.001
+Minimum learning rate = 1e-07
+Patience (lr-scheduler) = 5
+Factor (lr-scheduler) = 0.7
+Loss function = mae
+---------------------------------------------------------
+GNN PERFORMANCE
+Test set size = 456
+Mean Bias Error (MBE) = -0.048 eV
+Mean Absolute Error (MAE) = 0.218 eV
+Root Mean Square Error (RMSE) = 0.379 eV
+Error Standard Deviation = 0.376 eV
+R2 = 0.831 
+Sharpness = 0.318 eV
+Coefficient of variation = 0.000 [-]
+Miscalibration area = 0.053 [-]
+---------------------------------------------------------
+OUTLIERS (TEST SET)
+01) CH3Ir40NO80    Error: -1.58 eV    (index=52)
+02) CH3NO82Ru40    Error: 1.42 eV    (index=62)
+03) C3H8Ir40O80S    Error: -1.81 eV    (index=122)
+04) C3H7Ir40NO80    Error: -1.46 eV    (index=152)
+05) C2H4O82Ru40    Error: 1.18 eV    (index=189)
+06) C2H6O80Ru40S    Error: -1.21 eV    (index=217)
+07) C3H9Ir40NO80    Error: -2.04 eV    (index=280)
+08) C2H4Ir40O81    Error: 1.44 eV    (index=344)
+09) CH3Ir40NO81    Error: 1.13 eV    (index=349)
+10) C3H9Ir40NO80    Error: -1.32 eV    (index=370)
