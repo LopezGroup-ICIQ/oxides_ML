@@ -1,0 +1,83 @@
+14-May-2025, 16:53:39
+Device = NVIDIA RTX A2000 12GB
+Training time = 0.54 min
+---------------------------------------------------------
+GRAPH REPRESENTATION PARAMETERS
+Voronoi tolerance = 0.3 Angstrom
+Atomic radius scaling factor = 1.25
+Second order metal neighbours inclusion = 2
+Node adsorbate/surface descriptor = False
+Node radical descriptor = False
+---------------------------------------------------------
+GNN ARCHITECTURE
+Activation function = ReLU
+Number of convolutional layers = 3
+Number of fully connected layers = 0
+Depth of the layers = 256
+Bias presence in the layers = False
+---------------------------------------------------------
+TRAINING PROCESS
+Dataset Size = 832
+Data Split (Train/Val/Test) = 60-20-20 %
+Target scaling = std
+Target (train+val) mean = -0.811489 eV
+Target (train+val) standard deviation = 0.887909 eV
+Epochs = 100
+Batch size = 16
+Optimizer = Adam
+Learning Rate scheduler = Reduce Loss On Plateau
+Initial learning rate = 0.0001
+Minimum learning rate = 1e-07
+Patience (lr-scheduler) = 5
+Factor (lr-scheduler) = 0.7
+Loss function = mae
+---------------------------------------------------------
+GNN PERFORMANCE
+Test set size = 610
+Mean Bias Error (MBE) = 1.330 eV
+Mean Absolute Error (MAE) = 1.343 eV
+Root Mean Square Error (RMSE) = 1.664 eV
+Error Standard Deviation = 0.999 eV
+R2 = -1.767 
+Sharpness = 0.888 eV
+Coefficient of variation = 0.000 [-]
+Miscalibration area = 0.125 [-]
+---------------------------------------------------------
+OUTLIERS (TEST SET)
+01) CH3Ir40NO81    Error: 3.43 eV    (index=7)
+02) CH3Ir40NO82    Error: 3.42 eV    (index=10)
+03) C2H6Ir40O80S    Error: 3.28 eV    (index=37)
+04) C2H6Ir40O80S    Error: 3.05 eV    (index=89)
+05) CH3Ir40NO82    Error: 3.11 eV    (index=100)
+06) C2H4Ir40O81    Error: 3.20 eV    (index=107)
+07) C2H6Ir40O80S    Error: 3.27 eV    (index=116)
+08) C3H8Ir40O80S    Error: 3.22 eV    (index=143)
+09) CH3Ir40NO81    Error: 3.03 eV    (index=175)
+10) C2H6Ir40O81    Error: 3.01 eV    (index=192)
+11) C2H4Ir40O82    Error: 3.29 eV    (index=193)
+12) CH4Ir40N2O80    Error: 4.08 eV    (index=220)
+13) C3H8Ir40O80S    Error: 3.23 eV    (index=222)
+14) C3H8Ir40O80S    Error: 3.38 eV    (index=242)
+15) CH3Ir40NO82    Error: 3.31 eV    (index=278)
+16) CH3Ir40NO81    Error: 3.60 eV    (index=279)
+17) CH3Ir40NO81    Error: 3.47 eV    (index=351)
+18) CH3Ir40NO81    Error: 3.45 eV    (index=352)
+19) CH4Ir40N2O80    Error: 3.01 eV    (index=357)
+20) CH2Ir40O82    Error: 3.27 eV    (index=366)
+21) C2H6Ir40N2O80    Error: 4.12 eV    (index=373)
+22) CH3Ir40NO81    Error: 3.59 eV    (index=376)
+23) CH4Ir40O80S    Error: 3.01 eV    (index=377)
+24) CH4Ir40N2O80    Error: 4.09 eV    (index=388)
+25) CH3Ir40NO81    Error: 3.58 eV    (index=442)
+26) CH2Ir40O83    Error: 3.30 eV    (index=476)
+27) CH3Ir40NO82    Error: 3.38 eV    (index=483)
+28) C3H8Ir40O80S    Error: 3.18 eV    (index=488)
+29) C2H5Ir40NO80    Error: 3.03 eV    (index=511)
+30) C2H5Ir40NO81    Error: 3.68 eV    (index=515)
+31) C3H8Ir40O80S    Error: 3.15 eV    (index=520)
+32) CH3Ir40NO82    Error: 3.45 eV    (index=529)
+33) C2H6Ir40O80S    Error: 3.16 eV    (index=542)
+34) C3H8Ir40O80S    Error: 3.13 eV    (index=555)
+35) CH3Ir40NO82    Error: 3.43 eV    (index=564)
+36) C3H8Ir40O80S    Error: 3.30 eV    (index=566)
+37) CH4Ir40N2O80    Error: 3.12 eV    (index=596)
