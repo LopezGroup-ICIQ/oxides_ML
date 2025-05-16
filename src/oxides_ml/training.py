@@ -291,7 +291,7 @@ def create_loaders_exp4(dataset: InMemoryDataset,
     train_list, val_list, test_list = [], [], []
 
     for graph in dataset:
-        if graph.material in ("IrO2"):
+        if graph.material == "IrO2":
             if graph.state in ("initial"):
                 test_list.append(graph)
         else:
@@ -338,6 +338,50 @@ def create_loaders_exp5(dataset: InMemoryDataset,
             else:
                 train_list.append(graph)
 
+    # take randomly 20% of train_list data and put it in val_list
+    random.shuffle(train_list)
+    n_train = len(train_list)
+    n_val = int(n_train * 0.2)
+    val_list = train_list[:n_val]
+    train_list = train_list[n_val:]
+
+    train_n = len(train_list)
+    val_n = len(val_list)
+    test_n = len(test_list)
+    total_n = train_n + val_n + test_n
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+    print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
+    return (train_loader, val_loader, test_loader)
+
+def create_loaders_exp6(dataset: InMemoryDataset,
+                   batch_size: int=32, **kwargs) -> tuple[DataLoader]:
+    """
+    Create dataloaders for training, validation and test.
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        test (bool): Whether to generate test set besides train and val sets. Default to True.   
+        balance_func (callable): function to balance the training set. Default to None.
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    dataset = dataset.shuffle()
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if graph.dissociation == False:
+            if graph.material in ("IrO2", "RuO2"):
+                if graph.state in ("initial"):
+                    test_list.append(graph)
+                else:
+                    train_list.append(graph)
+            else:
+                train_list.append(graph)
+                
     # take randomly 20% of train_list data and put it in val_list
     random.shuffle(train_list)
     n_train = len(train_list)
