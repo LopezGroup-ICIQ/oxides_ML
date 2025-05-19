@@ -1,0 +1,8 @@
+System,Material,Surface,Molecule Group,Molecule,State,Dissociation,True_eV,Prediction_eV,Error_eV,Abs_error_eV
+CH2Ir48O,Ir,110,alcohols_aldehydes_ketones_ethers,Formaldehyde,relaxed,tensor([False]),-0.9446554183959961,-1.4568472281924443,-0.5121918097964482,0.5121918097964482
+C3H9Ir48N,Ir,110,amines,Propan-2-amine,relaxed,tensor([False]),-1.4969991445541382,-1.1512544082534006,0.34574473630073754,0.34574473630073754
+CH3Ir48NO,Ir,110,oximes,Formaldoxime,relaxed,tensor([False]),-1.1592081785202026,-1.3822970326635335,-0.2230888541433309,0.2230888541433309
+C3H8Ru48S,Ru,110,thiols_thials_thioketones_thioethers,Propane-2-thiol,relaxed,tensor([False]),-1.5975736379623413,-1.3845979855421717,0.21297565242016958,0.21297565242016958
+C2H6ORu48,Ru,110,alcohols_aldehydes_ketones_ethers,Methoxymethane,relaxed,tensor([False]),-0.22260180115699768,-1.473884189608782,-1.2512823884517843,1.2512823884517843
+C3H6Ru48,Ru,110,alkanes_alkenes_alkynes,Propylene,relaxed,tensor([False]),-1.3349756002426147,-1.5616250615693374,-0.2266494613267227,0.2266494613267227
+C3H9Ir48N,Ir,110,amines,Trimethylamine,relaxed,tensor([False]),-1.3505345582962036,-1.0884465493498077,0.26208800894639595,0.26208800894639595

@@ -14,7 +14,8 @@ seed_everything(42)
 import numpy as np
 from numpy import random
 
-from oxides_ml.training import create_loaders, scale_target, train_loop, test_loop, nll_loss, nll_loss_warmup, create_loaders_exp0, create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5, create_loaders_exp6
+from oxides_ml.training import create_loaders_db1, create_loaders_db2, create_loaders_db3, scale_target, train_loop, test_loop, nll_loss, nll_loss_warmup
+from oxides_ml.training import create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5, create_loaders_exp6, create_loaders_exp7, create_loaders_exp7b, create_loaders_exp8, create_loaders_exp9
 from oxides_ml.classes import EarlyStopper
 from oxides_ml.nets import GameNetUQ
 from oxides_ml.post_training import create_model_report
@@ -69,24 +70,15 @@ if __name__ == "__main__":
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
 
-    train_loader, val_loader, test_loader = create_loaders_exp4(dataset,
-                                                            batch_size=train["batch_size"],) 
-
-    # if train["key_elements"] == "none":
-    #     # Create train/validation/test dataloaders (apply oversampling here for gas)
-    #     train_loader, val_loader, test_loader = create_loaders(dataset,
-    #                                                        batch_size=train["batch_size"],
-    #                                                        split=train["splits"], 
-    #                                                        test=train["test_set"], 
-    #                                                        balance_func=None,) 
-    # else:
-    #     # Create train/validation/test dataloaders (apply oversampling here for gas)
-    #     train_loader, val_loader, test_loader = create_loaders(dataset,
-    #                                                         batch_size=train["batch_size"],
-    #                                                         split=train["splits"], 
-    #                                                         test=train["test_set"], 
-    #                                                         balance_func=None,
-    #                                                         key_elements=train["key_elements"],) 
+    # Create loaders
+    train_loader, val_loader, test_loader = create_loaders_db3(dataset,
+                                                        batch_size=train["batch_size"],
+                                                        split=train["splits"], 
+                                                        key_elements=train["key_elements"],) 
+    
+    # Loaders for experiments
+    # train_loader, val_loader, test_loader = create_loaders_exp9(dataset,
+                                                            # batch_size=train["batch_size"],) 
     
     # Target scaling 
     train_loader, val_loader, test_loader, mean, std = scale_target(train_loader,

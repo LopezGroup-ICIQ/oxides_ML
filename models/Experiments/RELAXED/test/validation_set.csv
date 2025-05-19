@@ -1,0 +1,23 @@
+System,Material,Surface,Molecule Group,Molecule,State,Dissociation,True_eV,Prediction_eV,Error_eV,Abs_error_eV
+CH2Ir48S,Ir,110,thiols_thials_thioketones_thioethers,Methanethial,relaxed,tensor([False]),-3.3062915802001953,-2.1128641493162945,1.1934274308839008,1.1934274308839008
+C3H9N,None,None,amines,Trimethylamine,relaxed,tensor([False]),0.0,0.21690992254816877,0.21690992254816877,0.21690992254816877
+CH3Ir48NO,Ir,110,oximes,Formaldoxime,relaxed,tensor([False]),-1.1592081785202026,-0.9893919278859498,0.16981625063425287,0.16981625063425287
+C2H6S,None,None,thiols_thials_thioketones_thioethers,Dimethylsulfane,relaxed,tensor([False]),0.0,0.16913511272427684,0.16913511272427684,0.16913511272427684
+CH3Ir48NO2,Ir,110,carbamate-esters,Carbamic-acid,relaxed,tensor([False]),-0.3807108998298645,-0.48618234295278384,-0.10547144312291934,0.10547144312291934
+C2H4Ir48O,Ir,110,alcohols_aldehydes_ketones_ethers,Acetaldehyde,relaxed,tensor([False]),-0.8155373930931091,-1.2175508122876373,-0.40201341919452815,0.40201341919452815
+CH2Ir48O,Ir,110,alcohols_aldehydes_ketones_ethers,Formaldehyde,relaxed,tensor([False]),-0.9446554183959961,-1.0768171018704287,-0.13216168347443258,0.13216168347443258
+C2H2Ru48,Ru,110,alkanes_alkenes_alkynes,Acetylene,relaxed,tensor([False]),-3.161789655685425,-2.3111791347966673,0.8506105208887575,0.8506105208887575
+C3H6S,None,None,thiols_thials_thioketones_thioethers,Propane-2-thione,relaxed,tensor([False]),0.0,0.13347816867086237,0.13347816867086237,0.13347816867086237
+C2H4,None,None,alkanes_alkenes_alkynes,Ethene,relaxed,tensor([False]),0.0,-0.0014846196496094421,-0.0014846196496094421,0.0014846196496094421
+C2H5Ir48NO,Ir,110,amides,Acetamide,relaxed,tensor([False]),-0.8597270250320435,-0.7124494406275668,0.1472775844044767,0.1472775844044767
+C3H6Ir48S,Ir,110,thiols_thials_thioketones_thioethers,Propane-2-thione,relaxed,tensor([False]),-3.025909900665283,-2.2102854680780197,0.8156244325872635,0.8156244325872635
+C2H4Ir48,Ir,110,alkanes_alkenes_alkynes,Ethene,relaxed,tensor([False]),-1.2180876731872559,-1.8000953513363598,-0.5820076781491039,0.5820076781491039
+CH4Ru48S,Ru,110,thiols_thials_thioketones_thioethers,Methanethiol,relaxed,tensor([False]),-1.1855818033218384,-1.6426132358501349,-0.4570314325282965,0.4570314325282965
+C2H6O,None,None,alcohols_aldehydes_ketones_ethers,Methoxymethane,relaxed,tensor([False]),0.0,0.22743477170855897,0.22743477170855897,0.22743477170855897
+C2H2Ir48,Ir,110,alkanes_alkenes_alkynes,Acetylene,relaxed,tensor([False]),-1.1731005907058716,-1.6367386955915428,-0.46363810488567125,0.46363810488567125
+C2H6Ir48O,Ir,110,alcohols_aldehydes_ketones_ethers,Methoxymethane,relaxed,tensor([False]),-0.2664470374584198,-0.2541306620144006,0.0123163754440192,0.0123163754440192
+C2H6,None,None,alkanes_alkenes_alkynes,Ethane,relaxed,tensor([False]),0.0,0.03283557061344666,0.03283557061344666,0.03283557061344666
+C2H5NRu48,Ru,110,imines,Ethanimine,relaxed,tensor([False]),-1.627711296081543,-2.0887937828213694,-0.46108248673982644,0.46108248673982644
+C2H6S,None,None,thiols_thials_thioketones_thioethers,Ethanethiol,relaxed,tensor([False]),0.0,0.14527187654982754,0.14527187654982754,0.14527187654982754
+C2H6Ir48S,Ir,110,thiols_thials_thioketones_thioethers,Dimethylsulfane,relaxed,tensor([False]),-1.5641343593597412,-1.5976756026012353,-0.0335412432414941,0.0335412432414941
+C3H8S,None,None,thiols_thials_thioketones_thioethers,Propane-2-thiol,relaxed,tensor([False]),0.0,0.21967639496565994,0.21967639496565994,0.21967639496565994

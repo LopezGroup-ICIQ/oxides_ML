@@ -48,9 +48,9 @@ uq = false
 
 
 [data]
-initial_state = true                                                               # use initial state or relaxed state
-augment = true                                                                     # data augmentation (use both POSCAR and CONTCAR in graph dataset)
+initial_state = false                                                               # use initial state or relaxed state
+augment = false                                                                     # data augmentation (use both POSCAR and CONTCAR in graph dataset)
 force_reload = false                                                                # force reload graph dataset
-vasp_directory = "/BACKUP/database_2"                                              # path to root of database
+vasp_directory = "/BACKUP/database_3"                                              # path to root of database
 graph_dataset_path = "/home/tvanhout/oxides_ML/models/graph_datasets"              # path to graph dataset directory
 
