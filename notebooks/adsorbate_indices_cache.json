@@ -6233,5 +6233,384 @@
     55,
     56,
     57
+  ],
+  "TiO2__Acetaldehyde__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Ethanol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Formaldehyde__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "TiO2__Methanol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Methoxymethane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Propan-2-ol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "TiO2__Propan-2-one__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "TiO2__Acetylene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "TiO2__Ethane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "TiO2__Ethene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Methane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "TiO2__Prop-1-yne__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Propane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "TiO2__Propylene__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Acetamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Formamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Acetimidamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "TiO2__Formimidamide__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Ethanamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+  ],
+  "TiO2__Methanamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Propan-2-amine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132
+  ],
+  "TiO2__Trimethylamine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132
+  ],
+  "TiO2__Carbamic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Acetic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "TiO2__Carbonic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Formic-acid__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "TiO2__Ethanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "TiO2__Methanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124
+  ],
+  "TiO2__N-methylmethanimine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "TiO2__Propan-2-imine__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "TiO2__Formaldoxime__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Dimethylsulfane__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Ethanethial__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126
+  ],
+  "TiO2__Ethanethiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128
+  ],
+  "TiO2__Methanethial__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123
+  ],
+  "TiO2__Methanethiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125
+  ],
+  "TiO2__Propane-2-thiol__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131
+  ],
+  "TiO2__Propane-2-thione__surface_adsorbates": [
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
   ]
 }

@@ -70,15 +70,15 @@ if __name__ == "__main__":
     node_feature_list = dataset.node_feature_list
     num_node_features = len(node_feature_list)
 
-    # Create loaders
-    train_loader, val_loader, test_loader = create_loaders_db3(dataset,
-                                                        batch_size=train["batch_size"],
-                                                        split=train["splits"], 
-                                                        key_elements=train["key_elements"],) 
+    # # # Create loaders
+    # train_loader, val_loader, test_loader = create_loaders_db3(dataset,
+    #                                                     batch_size=train["batch_size"],
+    #                                                     split=train["splits"], 
+    #                                                     key_elements=train["key_elements"],) 
     
     # Loaders for experiments
-    # train_loader, val_loader, test_loader = create_loaders_exp9(dataset,
-                                                            # batch_size=train["batch_size"],) 
+    train_loader, val_loader, test_loader = create_loaders_exp5(dataset,
+                                                            batch_size=train["batch_size"],) 
     
     # Target scaling 
     train_loader, val_loader, test_loader, mean, std = scale_target(train_loader,

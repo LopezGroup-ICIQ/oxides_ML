@@ -1,6 +1,6 @@
-19-May-2025, 12:07:56
+20-May-2025, 17:02:28
 Device = NVIDIA RTX A2000 12GB
-Training time = 0.45 min
+Training time = 1.12 min
 ---------------------------------------------------------
 GRAPH REPRESENTATION PARAMETERS
 Voronoi tolerance = 0.3 Angstrom
@@ -22,7 +22,7 @@ Data Split (Train/Val/Test) = 60-20-20 %
 Target scaling = std
 Target (train+val) mean = -1.670151 eV
 Target (train+val) standard deviation = 1.052236 eV
-Epochs = 100
+Epochs = 250
 Batch size = 16
 Optimizer = Adam
 Learning Rate scheduler = Reduce Loss On Plateau
@@ -34,31 +34,23 @@ Loss function = mae
 ---------------------------------------------------------
 GNN PERFORMANCE
 Test set size = 270
-Mean Bias Error (MBE) = -0.606 eV
-Mean Absolute Error (MAE) = 0.625 eV
-Root Mean Square Error (RMSE) = 0.763 eV
-Error Standard Deviation = 0.463 eV
-R2 = -0.148 
+Mean Bias Error (MBE) = -0.311 eV
+Mean Absolute Error (MAE) = 0.423 eV
+Root Mean Square Error (RMSE) = 0.551 eV
+Error Standard Deviation = 0.455 eV
+R2 = 0.402 
 Sharpness = 1.052 eV
 Coefficient of variation = 0.000 [-]
-Miscalibration area = 0.054 [-]
+Miscalibration area = 0.045 [-]
 ---------------------------------------------------------
 OUTLIERS (TEST SET)
-01) C2H4O80Ru40S    Error: -2.34 eV    (index=37)
-02) C2H6O80Ru40S    Error: -1.88 eV    (index=41)
-03) C3H4O80Ru40    Error: -1.54 eV    (index=46)
-04) CH3NO82Ru40    Error: -1.49 eV    (index=58)
-05) C2H4O80Ru40S    Error: -2.27 eV    (index=61)
-06) C3H4O80Ru40    Error: -1.58 eV    (index=63)
-07) CH2O80Ru40S    Error: -2.11 eV    (index=65)
-08) C2H6O80Ru40S    Error: -1.86 eV    (index=76)
-09) C2H6O80Ru40S    Error: -2.33 eV    (index=115)
-10) C2H2O80Ru40    Error: 1.66 eV    (index=116)
-11) C3H6O80Ru40S    Error: -1.81 eV    (index=129)
-12) C2H2O80Ru40    Error: -1.46 eV    (index=132)
-13) CH2O80Ru40S    Error: -1.82 eV    (index=162)
-14) C2H4O80Ru40S    Error: -2.00 eV    (index=168)
-15) CH2O80Ru40S    Error: -1.82 eV    (index=182)
-16) C3H6O80Ru40S    Error: -1.64 eV    (index=187)
-17) C3H9NO80Ru40    Error: -2.38 eV    (index=213)
-18) C2H2O80Ru40    Error: -1.52 eV    (index=219)
+01) C2H6O80Ru40S    Error: -1.42 eV    (index=6)
+02) C3H9NO80Ru40    Error: -1.82 eV    (index=41)
+03) CH2O80Ru40S    Error: -1.61 eV    (index=54)
+04) C2H4O80Ru40S    Error: -1.49 eV    (index=70)
+05) CH2O80Ru40S    Error: -1.60 eV    (index=99)
+06) CH2O80Ru40S    Error: -1.45 eV    (index=115)
+07) C2H4O80Ru40S    Error: -2.11 eV    (index=141)
+08) C2H6O80Ru40S    Error: -1.60 eV    (index=155)
+09) C2H4O80Ru40S    Error: -2.24 eV    (index=222)
+10) C2H2O80Ru40    Error: 1.73 eV    (index=250)

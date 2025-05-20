@@ -1,0 +1,82 @@
+20-May-2025, 15:32:32
+Device = NVIDIA RTX A2000 12GB
+Training time = 0.75 min
+---------------------------------------------------------
+GRAPH REPRESENTATION PARAMETERS
+Voronoi tolerance = 0.3 Angstrom
+Atomic radius scaling factor = 1.25
+Second order metal neighbours inclusion = 2
+Node adsorbate/surface descriptor = False
+Node radical descriptor = False
+---------------------------------------------------------
+GNN ARCHITECTURE
+Activation function = ReLU
+Number of convolutional layers = 3
+Number of fully connected layers = 0
+Depth of the layers = 256
+Bias presence in the layers = False
+---------------------------------------------------------
+TRAINING PROCESS
+Dataset Size = 977
+Data Split (Train/Val/Test) = 60-20-20 %
+Target scaling = std
+Target (train+val) mean = -1.510230 eV
+Target (train+val) standard deviation = 1.041839 eV
+Epochs = 100
+Batch size = 16
+Optimizer = Adam
+Learning Rate scheduler = Reduce Loss On Plateau
+Initial learning rate = 0.0001
+Minimum learning rate = 1e-07
+Patience (lr-scheduler) = 5
+Factor (lr-scheduler) = 0.7
+Loss function = mae
+---------------------------------------------------------
+GNN PERFORMANCE
+Test set size = 336
+Mean Bias Error (MBE) = -0.721 eV
+Mean Absolute Error (MAE) = 0.722 eV
+Root Mean Square Error (RMSE) = 0.814 eV
+Error Standard Deviation = 0.376 eV
+R2 = -1.475 
+Sharpness = 1.042 eV
+Coefficient of variation = 0.000 [-]
+Miscalibration area = 0.066 [-]
+---------------------------------------------------------
+OUTLIERS (TEST SET)
+01) C2H5NO81Ti40    Error: -1.20 eV    (index=7)
+02) CH3NO81Ti40    Error: -1.40 eV    (index=18)
+03) C3H4O80Ti40    Error: -1.19 eV    (index=27)
+04) C2H6O80STi40    Error: -1.16 eV    (index=31)
+05) CH2O80STi40    Error: -1.59 eV    (index=36)
+06) C2H5NO80Ti40    Error: -1.86 eV    (index=59)
+07) CH2O80STi40    Error: -1.73 eV    (index=71)
+08) CH2O80STi40    Error: -1.16 eV    (index=72)
+09) C3H6O80STi40    Error: -2.00 eV    (index=79)
+10) C2H4O80STi40    Error: -1.20 eV    (index=95)
+11) C3H9NO80Ti40    Error: -1.51 eV    (index=98)
+12) C3H8O81Ti40    Error: -1.20 eV    (index=101)
+13) CH2O80STi40    Error: -1.82 eV    (index=120)
+14) CH2O80STi40    Error: -1.17 eV    (index=136)
+15) C2H6O80STi40    Error: -2.11 eV    (index=154)
+16) C2H2O80Ti40    Error: -1.61 eV    (index=155)
+17) C3H6O80Ti40    Error: -1.47 eV    (index=160)
+18) C2H6N2O80Ti40    Error: -1.17 eV    (index=172)
+19) C2H5NO80Ti40    Error: -1.22 eV    (index=184)
+20) C3H6O80STi40    Error: -1.92 eV    (index=198)
+21) CH2O81Ti40    Error: -1.20 eV    (index=203)
+22) CH4N2O80Ti40    Error: -1.15 eV    (index=216)
+23) C2H6O80STi40    Error: -1.16 eV    (index=219)
+24) C3H6O80STi40    Error: -1.33 eV    (index=235)
+25) C3H7NO80Ti40    Error: -1.14 eV    (index=238)
+26) C3H6O80STi40    Error: -1.26 eV    (index=242)
+27) C3H6O80STi40    Error: -1.19 eV    (index=246)
+28) C3H8O81Ti40    Error: -1.37 eV    (index=248)
+29) C3H6O80STi40    Error: -1.24 eV    (index=255)
+30) CH4N2O80Ti40    Error: -1.17 eV    (index=258)
+31) C2H4O80STi40    Error: -1.15 eV    (index=263)
+32) C2H5NO80Ti40    Error: -1.14 eV    (index=307)
+33) CH4N2O80Ti40    Error: -1.41 eV    (index=318)
+34) CH3NO81Ti40    Error: -1.24 eV    (index=320)
+35) C2H5NO81Ti40    Error: -1.22 eV    (index=324)
+36) CH4N2O80Ti40    Error: -1.13 eV    (index=334)

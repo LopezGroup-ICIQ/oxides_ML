@@ -17,11 +17,11 @@ magnetization = false	    # Spin polarization feature (graph level)
 ads_height = false          # include adsorption height
 
 [train]
-key_elements= "none"        # elements (e.g. ['Ir', 'Ru']) that must appear in the training set or "none" for no segmentation
+key_elements= "none"       # elements (e.g. ['Ir', 'Ru']) that must appear in the training set or "none" for no segmentation
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
 batch_size = 16             # Batch size (int)
-epochs = 100                # Total number of epochs (int)
+epochs = 250                # Total number of epochs (int)
 target_scaling = "std"      # Target scaling approach ("std" or "none")
 loss_function = "mae"       # Loss function ("mae"/"mse"/"huber") 
 lr0 = 1e-4                  # Initial learning rate (float)

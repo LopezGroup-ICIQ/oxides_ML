@@ -1,1 +1,1 @@
-{'name': 'NVIDIA RTX A2000 12GB', 'CudaDNN_enabled': True, 'CUDNN_version': 90100, 'CUDA_version': '12.4', 'training_time': 0.8456137617429097}
+{'name': 'NVIDIA RTX A2000 12GB', 'CudaDNN_enabled': True, 'CUDNN_version': 90100, 'CUDA_version': '12.4', 'training_time': 2.1285858233769734}

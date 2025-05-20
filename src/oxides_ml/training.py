@@ -61,9 +61,7 @@ def create_loaders_db1(dataset: InMemoryDataset,
     # Split test and validation according to split
     random.shuffle(tmp_list)
     n_items = len(tmp_list)
-    print("Number of items in dataset: ", n_items)
     sep = n_items // split
-    print("Number of items in each split: ", sep)
     test_list = tmp_list[:sep]
     val_list = tmp_list[sep:sep*2]
     train_list = tmp_list[sep*2:]
@@ -152,7 +150,8 @@ def create_loaders_db3(dataset: InMemoryDataset,
 
     for graph in dataset:
         if graph.type not in ("slab"):
-            tmp_list.append(graph)
+            if graph.material not in ("TiO2", "Ti"):
+                tmp_list.append(graph)
 
     # Split test and validation according to split
     random.shuffle(tmp_list)
@@ -235,7 +234,8 @@ def create_loaders_exp2(dataset: InMemoryDataset,
             if graph.material in ("IrO2", "RuO2"):
                 test_list.append(graph)
             else:
-                train_list.append(graph)
+                if graph.material not in ("TiO2", "Ti"):
+                    train_list.append(graph)
                 
     # take randomly 20% of train_list data and put it in val_list
     random.shuffle(train_list)
@@ -546,7 +546,7 @@ def create_loaders_exp8(dataset: InMemoryDataset,
 
     for graph in dataset:
         if graph.type not in ("slab"):
-            if graph.material not in ("IrO2", "RuO2"):
+            if graph.material not in ("IrO2", "RuO2", "TiO2", "Ti"):
                 tmp_list.append(graph)
 
     # take randomly 50% of tmp_list data and put it in test_list
@@ -623,6 +623,7 @@ def create_loaders_exp9(dataset: InMemoryDataset,
     test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
     print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
     return (train_loader, val_loader, test_loader)
+
 
 def scale_target(train_loader: DataLoader,
                  val_loader: DataLoader,
