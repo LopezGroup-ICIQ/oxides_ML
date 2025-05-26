@@ -427,6 +427,88 @@ def create_loaders_exp6(dataset: InMemoryDataset,
     print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
     return (train_loader, val_loader, test_loader)
 
+def create_loaders_exp6b(dataset: InMemoryDataset,
+                   batch_size: int=32, **kwargs) -> tuple[DataLoader]:
+    """
+    Create dataloaders for training, validation and test.
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        test (bool): Whether to generate test set besides train and val sets. Default to True.   
+        balance_func (callable): function to balance the training set. Default to None.
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    dataset = dataset.shuffle()
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if graph.type not in ("slab"):
+            if graph.material == ("RuO2"):
+                test_list.append(graph)
+            elif graph.material in ("IrO2", "TiO2", "Ir", "Ru", "Ti"):
+                train_list.append(graph)
+
+    # take randomly 20% of train_list data and put it in val_list
+    random.shuffle(train_list)
+    n_train = len(train_list)
+    n_val = int(n_train * 0.2)
+    val_list = train_list[:n_val]
+    train_list = train_list[n_val:]
+
+    train_n = len(train_list)
+    val_n = len(val_list)
+    test_n = len(test_list)
+    total_n = train_n + val_n + test_n
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+    print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
+    return (train_loader, val_loader, test_loader)
+
+def create_loaders_exp6c(dataset: InMemoryDataset,
+                   batch_size: int=32, **kwargs) -> tuple[DataLoader]:
+    """
+    Create dataloaders for training, validation and test.
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        test (bool): Whether to generate test set besides train and val sets. Default to True.   
+        balance_func (callable): function to balance the training set. Default to None.
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    dataset = dataset.shuffle()
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if graph.type not in ("slab"):
+            if graph.material == ("IrO2"):
+                test_list.append(graph)
+            elif graph.material in ("RuO2", "TiO2", "Ir", "Ru", "Ti"):
+                train_list.append(graph)
+
+    # take randomly 20% of train_list data and put it in val_list
+    random.shuffle(train_list)
+    n_train = len(train_list)
+    n_val = int(n_train * 0.2)
+    val_list = train_list[:n_val]
+    train_list = train_list[n_val:]
+
+    train_n = len(train_list)
+    val_n = len(val_list)
+    test_n = len(test_list)
+    total_n = train_n + val_n + test_n
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+    print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
+    return (train_loader, val_loader, test_loader)
+
 def create_loaders_exp7(dataset: InMemoryDataset,
                    batch_size: int=32, **kwargs) -> tuple[DataLoader]:
     """
@@ -622,6 +704,56 @@ def create_loaders_exp9(dataset: InMemoryDataset,
     print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
     return (train_loader, val_loader, test_loader)
 
+def create_loaders_exp10(dataset: InMemoryDataset,
+                   batch_size: int=32, **kwargs) -> tuple[DataLoader]:
+    """
+    Create dataloaders for training, validation and test.
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        test (bool): Whether to generate test set besides train and val sets. Default to True.   
+        balance_func (callable): function to balance the training set. Default to None.
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    dataset = dataset.shuffle()
+    train_list, val_list, test_list = [], [], []
+
+    grouped_graphs = defaultdict(list)
+    for graph in dataset:
+        if graph.type not in ("slab"):
+            if graph.material in ("TiO2", "IrO2", "RuO2"):
+                key = (graph.material, graph.adsorbate_name)
+                grouped_graphs[key].append(graph)
+
+    # Select most stable (most negative ads_energy) per group
+    for group in grouped_graphs.values():
+        # Find graph with most negative adsorption energy
+        most_stable = min(group, key=lambda g: g.ads_energy)
+        train_list.append(most_stable)
+        # Add the rest to test list
+        for g in group:
+            if g is not most_stable:
+                test_list.append(g)
+
+    # take randomly 20% of train_list data and put it in val_list
+    random.shuffle(train_list)
+    n_train = len(train_list)
+    n_val = int(n_train * 0.2)
+    val_list = train_list[:n_val]
+    train_list = train_list[n_val:]
+
+    train_n = len(train_list)
+    val_n = len(val_list)
+    test_n = len(test_list)
+    total_n = train_n + val_n + test_n
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+    print("Training data = {} Validation data = {} Test data = {} (Total = {})".format(train_n, val_n, test_n, total_n))
+    return (train_loader, val_loader, test_loader)
 
 def scale_target(train_loader: DataLoader,
                  val_loader: DataLoader,

@@ -175,3 +175,58 @@ def create_loaders(dataset: InMemoryDataset,
         print("Data split (train/val): {}/{} %".format(int(100*(split-1)/split), int(100/split)))
         print("Training data = {} Validation data = {} (Total = {})".format(train_n, val_n, total_n))
         return (train_loader, val_loader, None)
+    
+
+    from collections import defaultdict
+import random
+from torch_geometric.data import DataLoader, InMemoryDataset
+
+def create_loaders_exp10(dataset: InMemoryDataset,
+                         batch_size: int = 32, **kwargs) -> tuple[DataLoader]:
+    """
+    Create dataloaders for training, validation and test.
+    Args:
+        dataset : Dataset object.
+        batch_size (int): batch size. Default to 32.
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    dataset = dataset.shuffle()
+    train_list, val_list, test_list = [], [], []
+
+    # Group graphs by (material, adsorbate_name)
+    grouped_graphs = defaultdict(list)
+    for graph in dataset:
+        if graph.type != "slab":
+            if graph.material in ("TiO2", "IrO2", "RuO2"):
+                key = (graph.material, graph.adsorbate_name)
+                grouped_graphs[key].append(graph)
+
+    # Select most stable (most negative ads_energy) per group
+    for group in grouped_graphs.values():
+        # Find graph with most negative adsorption energy
+        most_stable = min(group, key=lambda g: g.ads_energy)
+        train_list.append(most_stable)
+        # Add the rest to test list
+        for g in group:
+            if g is not most_stable:
+                test_list.append(g)
+
+    # Take randomly 20% of train_list data and put it in val_list
+    random.shuffle(train_list)
+    n_train = len(train_list)
+    n_val = int(n_train * 0.2)
+    val_list = train_list[:n_val]
+    train_list = train_list[n_val:]
+
+    train_n = len(train_list)
+    val_n = len(val_list)
+    test_n = len(test_list)
+    total_n = train_n + val_n + test_n
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+
+    print(f"Training data = {train_n} Validation data = {val_n} Test data = {test_n} (Total = {total_n})")
+    return (train_loader, val_loader, test_loader)
