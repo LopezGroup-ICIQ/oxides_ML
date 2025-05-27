@@ -11,8 +11,176 @@ import torch
 from torch_geometric.data import InMemoryDataset
 from collections import defaultdict
 import random
+import hashlib
 
+## Fixed loaders
+import hashlib
+from torch_geometric.data import DataLoader, InMemoryDataset
 
+def assign_split(graph, split: int) -> str:
+    """
+    Assign a graph to train/val/test deterministically using a hash of its ID.
+    Accepts graph_id as a string or a 0-D tensor (e.g., torch.Tensor([123])).
+    """
+    assert split >= 3, "Split must be at least 3 to allow train/val/test"
+
+    # Handle Tensor IDs (e.g., tensor(123))
+    graph_id = str(graph.graph_id.item())
+
+    hash_val = hashlib.md5(graph_id.encode()).hexdigest()
+    hash_int = int(hash_val, 16)
+    bucket = hash_int % split
+
+    if bucket == 0:
+        return 'test'
+    elif bucket == 1:
+        return 'val'
+    else:
+        return 'train'
+
+def create_loaders_db1_fixed(dataset: InMemoryDataset,
+                       split: int = 5,
+                       batch_size: int = 32,
+                       key_elements: list[str] = None
+                       ) -> tuple[DataLoader, DataLoader, DataLoader]:
+    """
+    Create dataloaders for training, validation, and test using stable hash-based ID splits.
+
+    Args:
+        dataset (InMemoryDataset): PyG dataset.
+        split (int): Number of splits (1/split for test and val).
+        batch_size (int): Batch size for loaders.
+        key_elements (list[str], optional): List of key elements that must be in training set (not enforced).
+
+    Returns:
+        tuple: DataLoader objects for train, validation, and test sets.
+    """
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if getattr(graph, "type", None) != "slab":
+            if getattr(graph, "material", None) in ("IrO2", "RuO2", "TiO2"):
+                split_label = assign_split(graph, split)
+                if split_label == 'train':
+                    train_list.append(graph)
+                elif split_label == 'val':
+                    val_list.append(graph)
+                elif split_label == 'test':
+                    test_list.append(graph)
+
+    random.shuffle(train_list)
+    random.shuffle(val_list)    
+    random.shuffle(test_list)
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+
+    total_n = len(train_list) + len(val_list) + len(test_list)
+    print(f"Training data = {len(train_list)} | Validation data = {len(val_list)} | Test data = {len(test_list)} | Total = {total_n}")
+
+    return train_loader, val_loader, test_loader
+
+def create_loaders_db2_fixed(dataset: InMemoryDataset,
+                       split: int = 5,
+                       batch_size: int = 32,
+                       key_elements: list[str] = None
+                       ) -> tuple[DataLoader, DataLoader, DataLoader]:
+    """
+    Create dataloaders for training, validation and test using hash-based split logic.
+    
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        key_elements (list[str]): List of elements (e.g. ['Ir', 'Ru']) that must be in the training set.
+    
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if getattr(graph, "type", None) != "slab":
+            mat = getattr(graph, "material", None)
+
+            if key_elements is not None:
+                if mat in key_elements:
+                    train_list.append(graph)  # Force into training set
+                elif mat in ("IrO2", "RuO2", "TiO2"):
+                    split_label = assign_split(graph, split)
+                    if split_label == 'train':
+                        train_list.append(graph)
+                    elif split_label == 'val':
+                        val_list.append(graph)
+                    elif split_label == 'test':
+                        test_list.append(graph)
+            else:
+                if mat in ("IrO2", "RuO2", "TiO2", "Ir", "Ru", "Ti"):
+                    split_label = assign_split(graph, split)
+                    if split_label == 'train':
+                        train_list.append(graph)
+                    elif split_label == 'val':
+                        val_list.append(graph)
+                    elif split_label == 'test':
+                        test_list.append(graph)
+
+    random.shuffle(train_list)  # Shuffle for training batches
+    random.shuffle(val_list)  # Shuffle for validation batches
+    random.shuffle(test_list)  # Shuffle for test batches
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+
+    total_n = len(train_list) + len(val_list) + len(test_list)
+    print(f"Training data = {len(train_list)} | Validation data = {len(val_list)} | Test data = {len(test_list)} | Total = {total_n}")
+
+    return train_loader, val_loader, test_loader
+
+def create_loaders_db3_fixed(dataset: InMemoryDataset,
+                       split: int = 5,
+                       batch_size: int = 32,
+                       key_elements: list[str] = None
+                       ) -> tuple[DataLoader, DataLoader, DataLoader]:
+    """
+    Create dataloaders for training, validation and test using hash-based ID splitting.
+
+    Args:
+        dataset : Dataset object.
+        split (int): number of splits to generate train/val/test sets. Default to 5.
+        batch_size (int): batch size. Default to 32.
+        key_elements (list[str]): Ignored in this version, but included for signature consistency.
+
+    Returns:
+        (tuple): DataLoader objects for train, validation and test sets.
+    """
+    train_list, val_list, test_list = [], [], []
+
+    for graph in dataset:
+        if getattr(graph, "type", None) != "slab":
+            split_label = assign_split(graph, split)
+            if split_label == 'train':
+                train_list.append(graph)
+            elif split_label == 'val':
+                val_list.append(graph)
+            elif split_label == 'test':
+                test_list.append(graph)
+
+    random.shuffle(train_list)  # Shuffle training set for batching
+    random.shuffle(val_list)  # Shuffle validation set for consistency
+    random.shuffle(test_list)  # Shuffle test set for consistency
+
+    train_loader = DataLoader(train_list, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_list, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_list, batch_size=batch_size, shuffle=False)
+
+    total_n = len(train_list) + len(val_list) + len(test_list)
+    print(f"Training data = {len(train_list)} | Validation data = {len(val_list)} | Test data = {len(test_list)} | Total = {total_n}")
+
+    return train_loader, val_loader, test_loader
+
+## Random loaders
 def split_percentage(splits: int, test: bool=True) -> tuple[int]:
     """Return split percentage of the train, validation and test sets.
     One split represent the test set, one the validation set and the rest the train set.

@@ -14,9 +14,10 @@ seed_everything(42)
 import numpy as np
 from numpy import random
 
-from oxides_ml.training import create_loaders_db1, create_loaders_db2, create_loaders_db3, scale_target, train_loop, test_loop, nll_loss, nll_loss_warmup
-from oxides_ml.training import create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5
-from oxides_ml.training import create_loaders_exp6, create_loaders_exp7, create_loaders_exp8, create_loaders_exp9
+from oxides_ml.training_TiO2 import create_loaders_db1, create_loaders_db2, create_loaders_db3, scale_target, train_loop, test_loop, nll_loss, nll_loss_warmup
+from oxides_ml.training_TiO2 import create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5
+from oxides_ml.training_TiO2 import create_loaders_exp6, create_loaders_exp7, create_loaders_exp8, create_loaders_exp9
+from oxides_ml.training_TiO2 import create_loaders_db1_fixed, create_loaders_db2_fixed, create_loaders_db3_fixed
 from oxides_ml.classes import EarlyStopper
 from oxides_ml.nets import GameNetUQ
 from oxides_ml.post_training import create_model_report
@@ -72,7 +73,7 @@ if __name__ == "__main__":
     num_node_features = len(node_feature_list)
 
     # # Create loaders
-    train_loader, val_loader, test_loader = create_loaders_db2(dataset,
+    train_loader, val_loader, test_loader = create_loaders_db2_fixed(dataset,
                                                         batch_size=train["batch_size"],
                                                         split=train["splits"], 
                                                         key_elements=train["key_elements"],) 

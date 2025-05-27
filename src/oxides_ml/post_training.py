@@ -164,10 +164,10 @@ def create_model_report(model_name: str,
     test_list = mae_lists[2]
     lr_list = mae_lists[3]
 
-    # 9) Save dataloaders for future use
-    if save_loaders:
-        torch.save(train_loader, "{}/{}/train_loader.pth".format(model_path, model_name))
-        torch.save(val_loader, "{}/{}/val_loader.pth".format(model_path, model_name))
+    # # 9) Save dataloaders for future use
+    # if save_loaders:
+    #     torch.save(train_loader, "{}/{}/train_loader.pth".format(model_path, model_name))
+    #     torch.save(val_loader, "{}/{}/val_loader.pth".format(model_path, model_name))
     
     # 10) Save model architecture and parameters
     torch.save(model, "{}/{}/model.pth".format(model_path, model_name))             # Save model architecture
@@ -225,8 +225,8 @@ def create_model_report(model_name: str,
     
 
     # 13) Get info from test set if it has been monitored
-    if save_loaders:
-        torch.save(test_loader, "{}/{}/test_loader.pth".format(model_path, model_name))
+    # if save_loaders:
+    #     torch.save(test_loader, "{}/{}/test_loader.pth".format(model_path, model_name))
     test_label_list = [graph.formula for graph in test_loader.dataset]
     test_facet_list = [graph.facet for graph in test_loader.dataset]
     test_adsorbate_group_list = [graph.adsorbate_group for graph in test_loader.dataset]

@@ -4,7 +4,7 @@
 target = "adsorption_energy"  # graph target (must be present as column in the database) (str)
 
 [graph.structure]           # Hyperparameters for graph structure generation from geometrical structures
-tolerance = 0.50             # Applied to all pairs of elements (float)
+tolerance = 0.5             # Applied to all pairs of elements (float)
 scaling_factor = 1.25       # For atomic radii of metals (float)
 surface_order = 2          # Whether to comprise also the NNs of the metals direclt interacting with the adsorbate (true/false) #after 3 it becomes worse probably because those atoms are fixed -> creating noise for the model
 
@@ -17,7 +17,7 @@ magnetization = false	    # Spin polarization feature (graph level)
 ads_height = false          # include adsorption height
 
 [train]
-key_elements= ['Ir', 'Ru']       # elements (e.g. ['Ir', 'Ru', 'Ti']) that must appear in the training set or "none" for no segmentation
+key_elements= ['Ir', 'Ru', 'Ti']   # elements (e.g. ['Ir', 'Ru', 'Ti']) that must appear in the training set or "none" for no segmentation
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
 batch_size = 16             # Batch size (int)
