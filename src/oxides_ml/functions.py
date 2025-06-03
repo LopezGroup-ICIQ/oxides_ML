@@ -9,6 +9,8 @@ import torch.nn.functional as F
 import torch
 from torch_geometric.data import InMemoryDataset
 
+import random
+
 
 def split_percentage(splits: int, test: bool=True) -> tuple[int]:
     """Return split percentage of the train, validation and test sets.
@@ -294,7 +296,7 @@ def create_loaders_nested_cv(dataset: InMemoryDataset,
     # Create list of lists, where each list contains the datasets for a split.
     chunk = [[] for _ in range(split)]
     
-    dataset.shuffle()
+    random.shuffle(dataset)
     iterator = split_list(dataset, split)
     for index, item in enumerate(iterator):
         chunk[index] += item

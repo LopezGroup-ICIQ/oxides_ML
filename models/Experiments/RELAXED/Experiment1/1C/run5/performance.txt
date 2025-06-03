@@ -1,0 +1,64 @@
+03-Jun-2025, 15:22:16
+Device = NVIDIA RTX A2000 12GB
+Training time = 1.78 min
+---------------------------------------------------------
+GRAPH REPRESENTATION PARAMETERS
+Voronoi tolerance = 0.3 Angstrom
+Atomic radius scaling factor = 1.25
+Second order metal neighbours inclusion = 2
+Node adsorbate/surface descriptor = False
+Node radical descriptor = False
+---------------------------------------------------------
+GNN ARCHITECTURE
+Activation function = ReLU
+Number of convolutional layers = 3
+Number of fully connected layers = 0
+Depth of the layers = 160
+Bias presence in the layers = False
+---------------------------------------------------------
+TRAINING PROCESS
+Dataset Size = 968
+Data Split (Train/Val/Test) = 60-20-20 %
+Target scaling = std
+Target (train+val) mean = -1.222204 eV
+Target (train+val) standard deviation = 0.866143 eV
+Epochs = 250
+Batch size = 16
+Optimizer = Adam
+Learning Rate scheduler = Reduce Loss On Plateau
+Initial learning rate = 0.0001
+Minimum learning rate = 1e-08
+Patience (lr-scheduler) = 5
+Factor (lr-scheduler) = 0.7
+Loss function = mae
+---------------------------------------------------------
+GNN PERFORMANCE
+Test set size = 108
+Mean Bias Error (MBE) = -2.039 eV
+Mean Absolute Error (MAE) = 2.041 eV
+Root Mean Square Error (RMSE) = 2.274 eV
+Error Standard Deviation = 1.008 eV
+R2 = -2.158 
+Sharpness = 0.003 eV
+Coefficient of variation = 0.000 [-]
+Miscalibration area = 0.496 [-]
+---------------------------------------------------------
+OUTLIERS (TEST SET)
+01) C3H8Ir48S    Error: -3.43 eV    (index=11)
+02) CH3NRu48    Error: -3.21 eV    (index=24)
+03) CH3NORu48    Error: -3.33 eV    (index=30)
+04) C2H4Ir48O    Error: -3.38 eV    (index=37)
+05) C2H6Ir48O    Error: -3.63 eV    (index=39)
+06) C2H4O2Ru48    Error: -3.16 eV    (index=48)
+07) C3H9Ir48N    Error: -3.17 eV    (index=51)
+08) C2H5Ir48N    Error: -3.59 eV    (index=52)
+09) CH2Ir48O    Error: -3.31 eV    (index=60)
+10) CH4N2Ti48    Error: -3.69 eV    (index=70)
+11) CH4Ir48N2    Error: -5.46 eV    (index=73)
+12) C3H6Ir48O    Error: -4.10 eV    (index=79)
+13) CH4N2Ru48    Error: -3.87 eV    (index=81)
+14) C2H4Ir48O2    Error: -3.09 eV    (index=88)
+15) CH3Ir48N    Error: -3.58 eV    (index=89)
+16) C2H6ORu48    Error: -3.59 eV    (index=90)
+17) C3H6Ru48    Error: -3.61 eV    (index=96)
+18) C2H4Ti48    Error: -3.31 eV    (index=98)

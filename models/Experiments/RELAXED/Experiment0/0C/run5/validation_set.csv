@@ -1,0 +1,8 @@
+System,Material,Surface,Molecule Group,Molecule,State,Dissociation,True_eV,Prediction_eV,Error_eV,Abs_error_eV
+C2H4Ir48,Ir,110,alkanes_alkenes_alkynes,Ethene,relaxed,tensor([False]),-1.2180876731872559,-1.4564003812079314,-0.2383127080206755,0.2383127080206755
+C2H4Ir48O,Ir,110,alcohols_aldehydes_ketones_ethers,Acetaldehyde,relaxed,tensor([False]),-0.8155373930931091,-1.4724545601526415,-0.6569171670595324,0.6569171670595324
+C3H8Ru48S,Ru,110,thiols_thials_thioketones_thioethers,Propane-2-thiol,relaxed,tensor([False]),-1.5975736379623413,-1.3252161506864937,0.27235748727584763,0.27235748727584763
+CH3Ir48NO,Ir,110,amides,Formamide,relaxed,tensor([False]),-0.5683567523956299,-1.4211642103886781,-0.8528074579930482,0.8528074579930482
+C2H7NRu48,Ru,110,amines,Ethanamine,relaxed,tensor([False]),-1.2719022035598755,-1.3188251117735028,-0.04692290821362732,0.04692290821362732
+C2H4ORu48,Ru,110,alcohols_aldehydes_ketones_ethers,Acetaldehyde,relaxed,tensor([False]),-1.0088577270507812,-1.3430831881312635,-0.33422546108048223,0.33422546108048223
+C2H6Ir48N2,Ir,110,amidines,Acetimidamide,relaxed,tensor([False]),-1.7270259857177734,-1.4133353995132723,0.3136905862045012,0.3136905862045012

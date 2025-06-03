@@ -615,7 +615,7 @@ def create_loaders_exp6b(dataset: InMemoryDataset,
         if graph.type not in ("slab"):
             if graph.material == ("RuO2"):
                 test_list.append(graph)
-            elif graph.material in ("IrO2", "TiO2", "Ir", "Ru", "Ti"):
+            elif graph.material in ("IrO2", "TiO2"):
                 train_list.append(graph)
 
     # take randomly 20% of train_list data and put it in val_list
@@ -656,7 +656,7 @@ def create_loaders_exp6c(dataset: InMemoryDataset,
         if graph.type not in ("slab"):
             if graph.material == ("IrO2"):
                 test_list.append(graph)
-            elif graph.material in ("RuO2", "TiO2", "Ir", "Ru", "Ti"):
+            elif graph.material in ("RuO2", "TiO2"):
                 train_list.append(graph)
 
     # take randomly 20% of train_list data and put it in val_list
@@ -842,7 +842,7 @@ def create_loaders_exp9(dataset: InMemoryDataset,
 
     for graph in dataset:
         if graph.type not in ("slab"):
-            if graph.material in ("Ir", "Ru", "Ti"):
+            if graph.material in ("Ir", "Ru"):
                 tmp_list.append(graph)
 
     # take randomly 50% of tmp_list data and put it in test_list

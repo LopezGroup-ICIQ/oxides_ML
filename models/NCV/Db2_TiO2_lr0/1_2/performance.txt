@@ -1,0 +1,53 @@
+02-Jun-2025, 11:43:08
+Device = NVIDIA RTX A2000 12GB
+Training time = 1.73 min
+---------------------------------------------------------
+GRAPH REPRESENTATION PARAMETERS
+Voronoi tolerance = 0.3 Angstrom
+Atomic radius scaling factor = 1.25
+Second order metal neighbours inclusion = 2
+Node adsorbate/surface descriptor = False
+Node radical descriptor = False
+---------------------------------------------------------
+GNN ARCHITECTURE
+Activation function = ReLU
+Number of convolutional layers = 3
+Number of fully connected layers = 0
+Depth of the layers = 160
+Bias presence in the layers = False
+---------------------------------------------------------
+TRAINING PROCESS
+Dataset Size = 968
+Data Split (Train/Val/Test) = 60-20-20 %
+Target scaling = std
+Target (train+val) mean = -1.297465 eV
+Target (train+val) standard deviation = 0.938796 eV
+Epochs = 250
+Batch size = 16
+Optimizer = Adam
+Learning Rate scheduler = Reduce Loss On Plateau
+Initial learning rate = 0.0001
+Minimum learning rate = 1e-08
+Patience (lr-scheduler) = 5
+Factor (lr-scheduler) = 0.7
+Loss function = mae
+---------------------------------------------------------
+GNN PERFORMANCE
+Test set size = 193
+Mean Bias Error (MBE) = 0.010 eV
+Mean Absolute Error (MAE) = 0.163 eV
+Root Mean Square Error (RMSE) = 0.283 eV
+Error Standard Deviation = 0.283 eV
+R2 = 0.912 
+Sharpness = 0.198 eV
+Coefficient of variation = 0.000 [-]
+Miscalibration area = 0.031 [-]
+---------------------------------------------------------
+OUTLIERS (TEST SET)
+01) CH3NO81Ru40    Error: -1.19 eV    (index=5)
+02) C2H6N2O80Ti40    Error: 1.24 eV    (index=15)
+03) CH2O80STi40    Error: -1.18 eV    (index=99)
+04) C2H4O80Ru40S    Error: -1.05 eV    (index=105)
+05) C2H4Ir48S    Error: 1.16 eV    (index=111)
+06) C2H2Ti48    Error: 1.30 eV    (index=156)
+07) C2H4O80Ru40S    Error: -1.15 eV    (index=180)

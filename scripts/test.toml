@@ -4,7 +4,7 @@
 target = "adsorption_energy"  # graph target (must be present as column in the database) (str)
 
 [graph.structure]           # Hyperparameters for graph structure generation from geometrical structures
-tolerance = 0.5             # Applied to all pairs of elements (float)
+tolerance = 0.3             # Applied to all pairs of elements (float)
 scaling_factor = 1.25       # For atomic radii of metals (float)
 surface_order = 2          # Whether to comprise also the NNs of the metals direclt interacting with the adsorbate (true/false) #after 3 it becomes worse probably because those atoms are fixed -> creating noise for the model
 
@@ -17,7 +17,7 @@ magnetization = false	    # Spin polarization feature (graph level)
 ads_height = false          # include adsorption height
 
 [train]
-key_elements= ['Ir', 'Ru', 'Ti']   # elements (e.g. ['Ir', 'Ru', 'Ti']) that must appear in the training set or "none" for no segmentation
+key_elements= "none"   # elements (e.g. ['Ir', 'Ru', 'Ti']) that must appear in the training set or "none" for no segmentation
 splits = 5                  # Initial splits of the starting dataset for train/val/test sets creation (int)
 test_set = true             # Whether generate test set or just split among train/val (true/false)
 batch_size = 16             # Batch size (int)
@@ -27,7 +27,7 @@ loss_function = "mae"       # Loss function ("mae"/"mse"/"huber")
 lr0 = 1e-4                  # Initial learning rate (float)
 patience = 5                # Patience of the lr-scheduler (int)
 factor = 0.7                # Decreasing factor of the lr-scheduler (float)
-minlr = 1e-7                # Minimum lr of the lr-scheduler (float)
+minlr = 1e-8                # Minimum lr of the lr-scheduler (float)
 eps = 1e-9                  # Adam eps for ensuring numerical stability of the algorithm (float)
 weight_decay = 0            # Weight decay (see implementation in pytorch docs) (float)
 amsgrad = true              # Include amsgrad addition of adam optimizer (true/false)
@@ -38,13 +38,13 @@ num_ensembles = 1           # Number of ensembles (int). Needed only when traini
 
 
 [architecture]
-dim = 256                   # Layers' width (int)
+dim = 160                   # Layers' width (int)
 sigma = "ReLU"              # Activation function ("ReLU"/"tanh")
 bias = false                # Whether allowing bias in all layer formulas (true/false)
 num_linear = 0              # Number of dense layers at the beginning of the model (int)
 num_conv = 3                # Number of convolutional layers (int)
-pool_heads = 3              # Number of multihead attention blocks in the pooling layer (int)
-uq = false             
+pool_heads = 1              # Number of multihead attention blocks in the pooling layer (int)
+uq = true             
 
 
 [data]
