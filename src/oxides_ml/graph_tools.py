@@ -105,7 +105,10 @@ def graph_plotter(graph: Data,
                   arrowsize=arrowsize, 
                   width=width,
                   pos=kamada_kawai_layout(nx_graph), 
-                  linewidths=0.5)
+                  linewidths=0.5,
+                  with_labels=False,
+                  hide_ticks=True,
+    )
     if node_index:
         pos_dict = kamada_kawai_layout(nx_graph)
         for node in nx_graph.nodes:
@@ -122,6 +125,7 @@ def graph_plotter(graph: Data,
     # plt.title(title, fontsize=10)
     # Remove frame
     plt.axis('off')
+    plt.savefig("figures/graph_plot.svg", dpi = 300)
     plt.draw()
     # plt.savefig('/home/tvanhout/oxides_ML/scripts/example.svg', format='svg')
 

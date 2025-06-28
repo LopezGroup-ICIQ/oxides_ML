@@ -76,11 +76,11 @@ if __name__ == "__main__":
     # Dataset contains all the data, filter to create the different databases
     tmp_list = []
 
-    # Database 1: IrO2, RuO2, and TiO2
-    for graph in dataset:
-        if graph.type not in ("slab"):
-            if graph.material in ("IrO2", "RuO2"):
-                tmp_list.append(graph)
+    # # Database 1: IrO2, RuO2, and TiO2
+    # for graph in dataset:
+    #     if graph.type not in ("slab"):
+    #         if graph.material in ("IrO2", "RuO2", "TiO2"):
+    #             tmp_list.append(graph)
 
     # # Database 2: All points
     # for graph in dataset:
@@ -88,11 +88,11 @@ if __name__ == "__main__":
     #         if graph.material in ("IrO2", "RuO2", "Ru", "Ir"):
     #             tmp_list.append(graph)
 
-    # # Database 3: All points
-    # for graph in dataset:
-    #     if graph.type not in ("slab"):
-    #         if graph.material not in ("TiO2", "Ti"):
-    #             tmp_list.append(graph)
+    # Database 3: All points
+    for graph in dataset:
+        if graph.type not in ("slab", "gas"):
+            if graph.material not in ("TiO2", "Ti"):
+                tmp_list.append(graph)
 
     dataset = tmp_list
 

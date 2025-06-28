@@ -1,0 +1,11 @@
+Experiment,Group,ShortLabel,MAEs,MAE_Mean,MAE_Std
+Experiment0/0A,Experiment0,0A,"[np.float64(0.16), np.float64(0.16), np.float64(0.19), np.float64(0.16), np.float64(0.15)]",0.16,0.01
+Experiment0/0B,Experiment0,0B,"[np.float64(0.71), np.float64(0.71), np.float64(0.71), np.float64(0.71), np.float64(0.71)]",0.71,0.0
+Experiment0/0C,Experiment0,0C,"[np.float64(0.73), np.float64(0.73), np.float64(0.73), np.float64(0.73), np.float64(0.73)]",0.73,0.0
+Experiment1/1A,Experiment1,1A,"[np.float64(0.8), np.float64(0.79), np.float64(0.79), np.float64(0.78), np.float64(0.73)]",0.78,0.02
+Experiment1/1B,Experiment1,1B,"[np.float64(1.11), np.float64(1.06), np.float64(1.02), np.float64(1.08), np.float64(1.07)]",1.07,0.03
+Experiment1/1C,Experiment1,1C,"[np.float64(1.8), np.float64(1.64), np.float64(1.79), np.float64(2.08), np.float64(2.04)]",1.87,0.17
+Experiment2/2A,Experiment2,2A,"[np.float64(0.2), np.float64(0.19), np.float64(0.19), np.float64(0.19), np.float64(0.19)]",0.19,0.0
+Experiment3/3A,Experiment3,3A,"[np.float64(0.64), np.float64(0.5), np.float64(0.59), np.float64(0.66), np.float64(0.57)]",0.59,0.06
+Experiment3/3B,Experiment3,3B,"[np.float64(0.3), np.float64(0.3), np.float64(0.28), np.float64(0.3), np.float64(0.3)]",0.3,0.01
+Experiment3/3C,Experiment3,3C,"[np.float64(0.74), np.float64(0.77), np.float64(0.74), np.float64(0.74), np.float64(0.77)]",0.75,0.01

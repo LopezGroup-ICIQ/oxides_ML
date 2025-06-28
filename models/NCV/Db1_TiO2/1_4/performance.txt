@@ -1,6 +1,6 @@
-30-May-2025, 10:26:37
+02-Jun-2025, 14:38:37
 Device = NVIDIA RTX A2000 12GB
-Training time = 1.52 min
+Training time = 1.51 min
 ---------------------------------------------------------
 GRAPH REPRESENTATION PARAMETERS
 Voronoi tolerance = 0.3 Angstrom
@@ -20,13 +20,13 @@ TRAINING PROCESS
 Dataset Size = 860
 Data Split (Train/Val/Test) = 60-20-20 %
 Target scaling = std
-Target (train+val) mean = -1.235662 eV
-Target (train+val) standard deviation = 0.863454 eV
+Target (train+val) mean = -1.221860 eV
+Target (train+val) standard deviation = 0.881935 eV
 Epochs = 250
 Batch size = 16
 Optimizer = Adam
 Learning Rate scheduler = Reduce Loss On Plateau
-Initial learning rate = 0.001
+Initial learning rate = 0.0001
 Minimum learning rate = 1e-08
 Patience (lr-scheduler) = 5
 Factor (lr-scheduler) = 0.7
@@ -34,17 +34,16 @@ Loss function = mae
 ---------------------------------------------------------
 GNN PERFORMANCE
 Test set size = 172
-Mean Bias Error (MBE) = -0.015 eV
-Mean Absolute Error (MAE) = 0.154 eV
-Root Mean Square Error (RMSE) = 0.261 eV
-Error Standard Deviation = 0.261 eV
-R2 = 0.911 
-Sharpness = 0.069 eV
+Mean Bias Error (MBE) = -0.021 eV
+Mean Absolute Error (MAE) = 0.158 eV
+Root Mean Square Error (RMSE) = 0.240 eV
+Error Standard Deviation = 0.239 eV
+R2 = 0.910 
+Sharpness = 0.163 eV
 Coefficient of variation = 0.000 [-]
-Miscalibration area = 0.178 [-]
+Miscalibration area = 0.038 [-]
 ---------------------------------------------------------
 OUTLIERS (TEST SET)
-01) C3H6Ir40O80S    Error: -0.98 eV    (index=12)
-02) CH2Ir40O80S    Error: 1.11 eV    (index=43)
-03) C2H2O80Ru40    Error: 0.85 eV    (index=94)
-04) CH3NO81Ru40    Error: -1.40 eV    (index=130)
+01) C3H6O80Ru40S    Error: 1.06 eV    (index=29)
+02) CH3Ir40NO81    Error: -1.25 eV    (index=154)
+03) CH2Ir40O81    Error: -0.73 eV    (index=160)

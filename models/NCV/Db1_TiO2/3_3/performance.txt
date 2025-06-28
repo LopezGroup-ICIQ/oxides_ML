@@ -1,6 +1,6 @@
-30-May-2025, 10:37:56
+02-Jun-2025, 14:49:52
 Device = NVIDIA RTX A2000 12GB
-Training time = 1.53 min
+Training time = 1.52 min
 ---------------------------------------------------------
 GRAPH REPRESENTATION PARAMETERS
 Voronoi tolerance = 0.3 Angstrom
@@ -20,13 +20,13 @@ TRAINING PROCESS
 Dataset Size = 860
 Data Split (Train/Val/Test) = 60-20-20 %
 Target scaling = std
-Target (train+val) mean = -1.213211 eV
-Target (train+val) standard deviation = 0.857856 eV
+Target (train+val) mean = -1.225936 eV
+Target (train+val) standard deviation = 0.849220 eV
 Epochs = 250
 Batch size = 16
 Optimizer = Adam
 Learning Rate scheduler = Reduce Loss On Plateau
-Initial learning rate = 0.001
+Initial learning rate = 0.0001
 Minimum learning rate = 1e-08
 Patience (lr-scheduler) = 5
 Factor (lr-scheduler) = 0.7
@@ -34,17 +34,21 @@ Loss function = mae
 ---------------------------------------------------------
 GNN PERFORMANCE
 Test set size = 172
-Mean Bias Error (MBE) = -0.018 eV
-Mean Absolute Error (MAE) = 0.131 eV
-Root Mean Square Error (RMSE) = 0.205 eV
-Error Standard Deviation = 0.204 eV
-R2 = 0.948 
-Sharpness = 0.066 eV
+Mean Bias Error (MBE) = -0.024 eV
+Mean Absolute Error (MAE) = 0.162 eV
+Root Mean Square Error (RMSE) = 0.300 eV
+Error Standard Deviation = 0.299 eV
+R2 = 0.896 
+Sharpness = 0.139 eV
 Coefficient of variation = 0.000 [-]
-Miscalibration area = 0.139 [-]
+Miscalibration area = 0.031 [-]
 ---------------------------------------------------------
 OUTLIERS (TEST SET)
-01) CH3Ir40NO80    Error: -0.67 eV    (index=9)
-02) CH2Ir40O80S    Error: 0.77 eV    (index=37)
-03) C3H8Ir40O80    Error: -0.79 eV    (index=98)
-04) CH2O80STi40    Error: -1.11 eV    (index=102)
+01) C3H6O80Ru40S    Error: 1.01 eV    (index=7)
+02) CH2Ir40O80S    Error: 1.07 eV    (index=9)
+03) C2H5Ir40NO80    Error: 0.91 eV    (index=33)
+04) CH3NO82Ru40    Error: -0.97 eV    (index=48)
+05) C3H8Ir40O80S    Error: -1.66 eV    (index=84)
+06) C3H9Ir40NO80    Error: -1.09 eV    (index=153)
+07) C3H9NO80Ru40    Error: -1.31 eV    (index=164)
+08) C2H4O80Ru40S    Error: -0.94 eV    (index=167)

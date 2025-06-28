@@ -1,6 +1,6 @@
-03-Jun-2025, 14:40:41
+03-Jun-2025, 14:37:54
 Device = NVIDIA RTX A2000 12GB
-Training time = 0.17 min
+Training time = 0.23 min
 ---------------------------------------------------------
 GRAPH REPRESENTATION PARAMETERS
 Voronoi tolerance = 0.3 Angstrom
@@ -17,11 +17,11 @@ Depth of the layers = 160
 Bias presence in the layers = False
 ---------------------------------------------------------
 TRAINING PROCESS
-Dataset Size = 72
+Dataset Size = 108
 Data Split (Train/Val/Test) = 60-20-20 %
 Target scaling = std
-Target (train+val) mean = -1.354918 eV
-Target (train+val) standard deviation = 0.752021 eV
+Target (train+val) mean = -1.929275 eV
+Target (train+val) standard deviation = 1.224676 eV
 Epochs = 250
 Batch size = 16
 Optimizer = Adam
@@ -33,14 +33,14 @@ Factor (lr-scheduler) = 0.7
 Loss function = mae
 ---------------------------------------------------------
 GNN PERFORMANCE
-Test set size = 36
-Mean Bias Error (MBE) = -0.230 eV
-Mean Absolute Error (MAE) = 0.708 eV
-Root Mean Square Error (RMSE) = 0.897 eV
-Error Standard Deviation = 0.867 eV
-R2 = -0.075 
-Sharpness = 0.733 eV
+Test set size = 54
+Mean Bias Error (MBE) = -0.176 eV
+Mean Absolute Error (MAE) = 0.727 eV
+Root Mean Square Error (RMSE) = 0.856 eV
+Error Standard Deviation = 0.838 eV
+R2 = 0.590 
+Sharpness = 0.819 eV
 Coefficient of variation = 0.000 [-]
-Miscalibration area = 0.044 [-]
+Miscalibration area = 0.026 [-]
 ---------------------------------------------------------
 OUTLIERS (TEST SET)
