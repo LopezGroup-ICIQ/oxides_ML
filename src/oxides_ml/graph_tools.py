@@ -125,7 +125,6 @@ def graph_plotter(graph: Data,
     # plt.title(title, fontsize=10)
     # Remove frame
     plt.axis('off')
-    plt.savefig("figures/graph_plot.svg", dpi = 300)
     plt.draw()
     # plt.savefig('/home/tvanhout/oxides_ML/scripts/example.svg', format='svg')
 

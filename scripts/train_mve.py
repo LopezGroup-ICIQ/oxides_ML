@@ -16,7 +16,7 @@ import numpy as np
 from numpy import random
 
 from oxides_ml.training_TiO2 import create_loaders_db1, create_loaders_db2, create_loaders_db3, scale_target, train_loop, test_loop, nll_loss, nll_loss_warmup
-from oxides_ml.training_TiO2 import create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5
+from oxides_ml.training import create_loaders_exp1, create_loaders_exp2, create_loaders_exp3, create_loaders_exp4, create_loaders_exp5
 from oxides_ml.training_TiO2 import create_loaders_exp6, create_loaders_exp6b, create_loaders_exp6c, create_loaders_exp7, create_loaders_exp8, create_loaders_exp9
 # from oxides_ml.training_TiO2 import create_loaders_db1_fixed, create_loaders_db2_fixed, create_loaders_db3_fixed
 # from oxides_ml.training import create_loaders_db1_fixed
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     #                                                     key_elements=train["key_elements"],) 
     
     # Loaders for experiments
-    train_loader, val_loader, test_loader = create_loaders_exp6c(dataset,
+    train_loader, val_loader, test_loader = create_loaders_exp2(dataset,
                                                             batch_size=train["batch_size"],) 
     
     # Target scaling 

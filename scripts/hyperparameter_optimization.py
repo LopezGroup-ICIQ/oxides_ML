@@ -8,7 +8,7 @@ from pathlib import Path
 parser = argparse.ArgumentParser(description="Run GNN training for multiple dataloader configs.")
 parser.add_argument("-d", "--database", type=str, required=True, help="Name of the database folder in ../models/DATALOADERS/")
 parser.add_argument("-t", "--template", type=str, required=True, help="Path to base .toml input config file.")
-parser.add_argument("--train_script", type=str, default="train_mve_from_loaders.py", help="Path to training script.")
+parser.add_argument("--train_script", type=str, default="train_mve.py", help="Path to training script.")
 args = parser.parse_args()
 
 # --- Paths ---

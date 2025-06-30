@@ -301,10 +301,10 @@ def create_loaders_exp2(dataset: InMemoryDataset,
     for graph in dataset:
         if graph.type not in ("slab"):
             if graph.material in ("IrO2", "RuO2"):
-                test_list.append(graph)
+                train_list.append(graph)
             else:
                 if graph.material not in ("TiO2", "Ti"):
-                    train_list.append(graph)
+                    test_list.append(graph)
                 
     # take randomly 20% of train_list data and put it in val_list
     random.shuffle(train_list)
