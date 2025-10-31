@@ -2,6 +2,67 @@
 
 This directory contains Jupyter notebooks for dataset analysis, model evaluation, and utilities for the GAME-Net-Ox project.
 
+## Quick Start: Environment Variables
+
+All notebooks in this directory have been generalized to use **environment variables** with sensible defaults. This makes notebooks portable across different machines and setups.
+
+### Setting Environment Variables
+
+**Option 1: Temporary (current shell only)**
+```bash
+export VASP_DATA_DIR="/path/to/your/VASP/data"
+export GRAPH_DATASET_DIR="./models/test_graph_datasets"
+export TRAINING_RESULTS_DIR="./models/test_training"
+jupyter lab
+```
+
+**Option 2: Permanent (in ~/.bashrc or ~/.bash_profile)**
+```bash
+echo 'export VASP_DATA_DIR="/path/to/your/VASP/data"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Option 3: Using `.env` file (if supported by your IDE)**
+Create a `.env` file in the project root:
+```
+VASP_DATA_DIR=/path/to/your/VASP/data
+GRAPH_DATASET_DIR=./models/test_graph_datasets
+TRAINING_RESULTS_DIR=./models/test_training
+```
+
+### Available Environment Variables
+
+| Variable | Notebook(s) | Default | Description |
+|----------|-----------|---------|-------------|
+| `VASP_DATA_DIR` | 01_*, Graph*, DFT_* | `/path/to/VASP/data` | Path to VASP DFT data |
+| `GRAPH_DATASET_DIR` | 01_*, Graph*, Create_* | `./models/test_graph_datasets` | Output directory for graph datasets |
+| `TRAINING_RESULTS_DIR` | 02_*, ML_* | `./models/test_training` | Path to training results |
+| `MODEL_DIRECTORY` | 02_*, ML_*, Generate_* | `database_3/test_cn` | Relative path to specific model |
+| `DFT_DATA_CSV` | DFT_* | `./data/VASP_dataset.csv` | Path to DFT dataset CSV |
+| `VASP_ADSORBATE_EXAMPLE` | Adsorbate_* | `/path/to/example/CONTCAR` | Example VASP file for testing |
+| `DATALOADERS_OUTPUT_DIR` | Create_* | `./models/DATALOADERS/RELAXED` | Output directory for dataloaders |
+| `EXPERIMENTS_DIR` | Generate_* | `./models/Experiments/RELAXED/tolerance_fixed/` | Base experiments directory |
+| `EXPERIMENT_NAME` | Generate_* | `Db1_TiO2_base` | Name of specific experiment |
+| `GAS_PHASE_DATA_DIR` | Gas_* | `/path/to/database/gas_phase` | Path to gas phase VASP data |
+| `HYPERPARAMETER_OPT_DIR` | ML_comparison (initial) | `./models/hyperparameter_optimization/initial_test/initial` | Initial hyperparameter optimization |
+| `HYPERPARAMETER_OPT_DIR_AUGMENT` | ML_comparison (augment) | `./models/hyperparameter_optimization/initial_test/augment` | Augmented hyperparameter optimization |
+| `HYPERPARAMETER_OPT_BASE_DIR` | ML_comparison (function) | `./models/hyperparameter_optimization` | Base hyperparameter optimization |
+
+### Example Workflow
+
+```bash
+# Set your paths
+export VASP_DATA_DIR="/BACKUP/database_3/oxide_adsorbates"
+export GRAPH_DATASET_DIR="/home/user/oxides_ML/models/test_graph_datasets"
+
+# Start Jupyter
+jupyter lab notebooks/
+
+# Open 01_graph_dataset_analysis.ipynb
+# → Automatically uses your paths from environment variables
+# → All defaults are relative paths for portability
+```
+
 ## Overview
 
 The notebooks have been reorganized and generalized to provide reusable templates for common analysis tasks. Notebooks are numbered sequentially by purpose:

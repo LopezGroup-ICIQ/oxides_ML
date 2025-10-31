@@ -1,0 +1,93 @@
+name: Clean Notebook Outputs
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - '**.ipynb'
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+    paths:
+      - '**.ipynb'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  clean-notebooks:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install nbstripout
+        run: pip install nbstripout
+
+      - name: Find and strip all notebooks
+        run: find . -name '*.ipynb' -type f ! -path './.git/*' ! -path './.*' -exec nbstripout {} +
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected after stripping notebooks"
+            git diff --name-only
+          fi
+
+      - name: Commit cleaned notebooks (on push)
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'push'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "chore: Clean notebook outputs [automated]"
+
+      - name: Push changes (on push)
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'push'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Comment on PR (on pull_request)
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ **Notebook Cleaning Required**: Please run nbstripout locally:\n```bash\nnbstripout **/*.ipynb\ngit add -A && git commit -m "Clean notebook outputs"\ngit push\n```'
+            })
+
+      - name: Report status
+        run: |
+          if [ "${{ steps.check_changes.outputs.has_changes }}" = "true" ]; then
+            if [ "${{ github.event_name }}" = "push" ]; then
+              echo "✅ Notebooks cleaned and committed"
+            else
+              echo "⚠️ Notebooks need cleaning - comment added to PR"
+            fi
+          else
+            echo "✅ All notebooks are clean"
+          fi

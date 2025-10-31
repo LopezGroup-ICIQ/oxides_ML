@@ -1,0 +1,45 @@
+repos:
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.7.1
+    hooks:
+      - id: nbstripout
+        name: Strip notebook outputs and metadata
+        description: Strip outputs and metadata from Jupyter notebooks
+        entry: nbstripout
+        language: python
+        files: '\.ipynb$'
+        types: [jupyter]
+
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        name: Black code formatter
+        language_version: python3
+        types: [python]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort import sorting
+        types: [python]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        name: Flake8 linter
+        types: [python]
+        additional_dependencies: [flake8-docstrings]
+        args: [--max-line-length=120]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=5000]
+      - id: check-merge-conflict
