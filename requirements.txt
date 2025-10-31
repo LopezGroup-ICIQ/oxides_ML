@@ -1,0 +1,32 @@
+
+# Core scientific stack (pinned to environment used for development)
+numpy==2.3.4
+scipy==1.15.2
+pandas==2.2.3
+scikit-learn==1.6.1
+matplotlib==3.10.7
+seaborn==0.13.2
+plotly==6.3.1
+ase==3.24.0
+pubchempy==1.0.5
+toml==0.10.2
+networkx==3.5
+
+# PyTorch and PyTorch-Geometric (GAME-Net-Ox development targets)
+# GAME-Net-Ox was developed with PyTorch 2.6.0 and PyTorch-Geometric 2.6.1
+# Training was performed on NVIDIA RTX A2000 12GB with CUDA 12.4.
+torch==2.6.0
+torchinfo==1.8.0
+torch-geometric==2.6.1
+torch-scatter==2.1.2+pt21cu118
+torch-sparse==0.6.18+pt21cu118  
+
+# Notebook and interactive tools
+jupyterlab==4.4.10
+ipywidgets==8.1.7
+tqdm==4.67.1
+
+# Notes:
+# - These pins reflect the project's development target: torch 2.6.0 + torch-geometric 2.6.1.
+# - For GPU (CUDA 12.4) installs follow the INSTALL.md GPU section which includes exact conda + pip wheel commands
+#   to ensure the PyG companion wheels (torch-scatter, torch-sparse, torch-cluster, torch-spline-conv) match torch+CUDA.

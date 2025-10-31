@@ -1,0 +1,33 @@
+name: oxides_ml
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - numpy=2.3.4
+  - scipy=1.15.2
+  - pandas=2.2.3
+  - scikit-learn=1.6.1
+  - matplotlib=3.10.7
+  - seaborn=0.13.2
+  - plotly=6.3.1
+  - ase=3.24.0
+  - pubchempy=1.0.5
+  - toml=0.10.2
+  - networkx=3.5
+  - pytorch=2.6.0
+  - jupyterlab=4.4.10
+  - ipywidgets=8.1.7
+  - tqdm=4.67.1
+  - pip
+  - pip:
+    - torchinfo==1.8.0
+    - torch-geometric==2.6.1
+    - torch-scatter==2.1.2+pt21cu118
+    - torch-sparse==0.6.18+pt21cu118
+
+# For GPU (CUDA 12.4) installations:
+# 1) The env includes torch 2.6.0 pinned. For CUDA-enabled build, explicitly install:
+#    conda install -c pytorch pytorch=2.6.0 cudatoolkit=12.4 -y
+# 2) torch-scatter and torch-sparse are pre-specified via pip for cu118 (compatible with cu124). 
+#    Install remaining PyG companion wheels (torch-cluster, torch-spline-conv) if needed. See INSTALL.md for example commands.
