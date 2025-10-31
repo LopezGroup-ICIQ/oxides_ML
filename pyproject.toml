@@ -1,0 +1,144 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "game-net-ox"
+version = "0.0.1"
+description = "GAME-Net-Ox: A Graph Neural Network to predict DFT adsorption energies for molecules on rutile oxides"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "LopezGroup-ICIQ"}
+]
+keywords = [
+    "graph-neural-networks",
+    "machine-learning",
+    "materials-science",
+    "adsorption-energy",
+    "DFT",
+    "PyTorch-Geometric"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "numpy==2.3.4",
+    "scipy==1.15.2",
+    "pandas==2.2.3",
+    "scikit-learn==1.6.1",
+    "matplotlib==3.10.7",
+    "seaborn==0.13.2",
+    "plotly==6.3.1",
+    "ase==3.24.0",
+    "pubchempy==1.0.5",
+    "toml==0.10.2",
+    "networkx==3.5",
+    "torch==2.6.0",
+    "torchinfo==1.8.0",
+    "torch-geometric==2.6.1",
+    "torch-scatter==2.1.2",
+    "torch-sparse==0.6.18",
+    "jupyterlab==4.4.10",
+    "ipywidgets==8.1.7",
+    "tqdm==4.67.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "flake8>=6.0",
+    "isort>=5.12",
+    "mypy>=1.0",
+]
+gpu = [
+    # GPU-specific installations handled via conda + pip wheels for CUDA 12.4 compatibility.
+    # See README.md for GPU installation instructions.
+    # torch-cluster and torch-spline-conv may be added depending on use case.
+]
+notebooks = [
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipykernel>=6.25",
+]
+
+[project.urls]
+Repository = "https://github.com/LopezGroup-ICIQ/oxides_ML"
+Documentation = "https://github.com/LopezGroup-ICIQ/oxides_ML/blob/main/README.md"
+Issues = "https://github.com/LopezGroup-ICIQ/oxides_ML/issues"
+
+[tool.setuptools]
+packages = ["oxides_ml"]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+oxides_ml = []
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+py_version = 310
+multi_line_mode = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip_gitignore = true
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --cov=oxides_ml --cov-report=html --cov-report=term"
+
+[tool.coverage.run]
+source = ["src/oxides_ml"]
+omit = ["*/tests/*", "*/test_*.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

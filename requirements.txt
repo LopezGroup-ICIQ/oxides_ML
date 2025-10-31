@@ -18,8 +18,8 @@ networkx==3.5
 torch==2.6.0
 torchinfo==1.8.0
 torch-geometric==2.6.1
-torch-scatter==2.1.2+pt21cu118
-torch-sparse==0.6.18+pt21cu118  
+torch-scatter==2.1.2
+torch-sparse==0.6.18  
 
 # Notebook and interactive tools
 jupyterlab==4.4.10

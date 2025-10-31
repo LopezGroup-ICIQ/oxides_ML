@@ -15,7 +15,7 @@ dependencies:
   - pubchempy=1.0.5
   - toml=0.10.2
   - networkx=3.5
-  - pytorch=2.6.0
+  - torch=2.6.0
   - jupyterlab=4.4.10
   - ipywidgets=8.1.7
   - tqdm=4.67.1
@@ -23,8 +23,8 @@ dependencies:
   - pip:
     - torchinfo==1.8.0
     - torch-geometric==2.6.1
-    - torch-scatter==2.1.2+pt21cu118
-    - torch-sparse==0.6.18+pt21cu118
+    - torch-scatter==2.1.2
+    - torch-sparse==0.6.18
 
 # For GPU (CUDA 12.4) installations:
 # 1) The env includes torch 2.6.0 pinned. For CUDA-enabled build, explicitly install:
