@@ -54,11 +54,11 @@ Notes
 
 ## DFT Dataset
 
-The DFT dataset used to train the model (file `VASP_dataset.csv/.ods`) will be published on Zenodo as an ASE database and will contain the VASP geometries, settings and metadata.
+The DFT dataset used to train the model (file `VASP_dataset.csv/.ods`, [DFT data](./data/DFT_data)) will be published on Zenodo as an ASE database and will contain the VASP geometries, settings and metadata.
 
 ## Graph Datasets
 
-The different graph datasets used in GAME-Net-Ox can be found in [graph_datasets](./models/graph_datasets)
+The different graph datasets used in GAME-Net-Ox can be found in [graph_datasets](./data/graph_datasets)
 
 ## Training
 
